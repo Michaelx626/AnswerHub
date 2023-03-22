@@ -1,24 +1,24 @@
-<!-- Loop over each object in the projects array -->
-{{#each projects as |project| }}
-<div class="row mb-4 project">
+{{#if logged_in}}
+{{#each questions as |question|}}
+<div class="row project">
   <div class="col-md-5">
-    <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{{get_emoji}}}
-      <a href="/project/{{project.id}}">{{project.name}}</a>
-    </h2>
-    <p>
-      <span for="img" aria-label="money">💲</span>
-      <!-- Pass needed_funding value to the helper function -->
-      <span class="dollar-amount">{{format_amount project.needed_funding}}</span>
-      needed!
-    </p>
-    <p>Created by {{project.user.name}} on {{format_date project.date_created}}</p>
+    <h2>{{question.user.name}}</h2>
   </div>
   <div class="col-md-7">
     <p>
-      {{project.description}}
+      {{question.description}}
     </p>
+  </div>
+  <div class="w-100 my-4 display-flex justify-space-around">
+    <a href="/question/{{question.id}}">Comment</a>
+    <button>Like</button>
   </div>
 </div>
 {{/each}}
+{{else}}
+<div class="display-flex justify-center align-center py-5 flex-column">
+  <h2>Please login to gain access to post and to use our support!</h2>
+  <a href="/login"><span>👉</span>Login<span>👈</span></a>
+</div>
+{{/if}}
+
