@@ -6,6 +6,18 @@ const Tag = require('./Tag');
 const User = require('./User');
 const UserTag = require('./UserTag');
 
+//User has man followers
+User.hasMany (User, {
+  foreignKey: 'follower_id',
+  onDelete: 'CASCADE',
+  as: 'follower'
+});
+//Follwer belongs to user
+User.belongsTo(User, {
+  foreignKey: 'follower_id',
+  as: 'followedUser'
+});
+
 User.hasMany(Tag, {
   through: {
     model: UserTag,
