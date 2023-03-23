@@ -21,4 +21,6 @@ I couldn't find a social media app specifically for developers that allowed for 
 N/A!
 
 Logo:
-[answerhublogo](https://user-images.githubusercontent.com/119153047/227353792-6a8ea807-3bf6-44a8-a3a4-68c6829a7ebd.JPG)
+
+
+![IMG_6445](https://user-images.githubusercontent.com/119153047/227354101-0b6478d3-8391-42a8-a623-bf15dc798ebf.PNG)
