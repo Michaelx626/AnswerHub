@@ -1,39 +1,3 @@
-/*.profile-pic{
-    border-radius: 50%;
-    border-width: 5px;
-}
-
-
-.caption{
-    position: fixed;
-    top: 10%;
-    left: 60%;
-    transform: translate(-60%, -40%);
-}
-
-.navigation{
-    padding: 10px;
-    margin-left: 20px;
-}
-
-.box {
-    background-color: lightblue;
-    border : 1px solid black;
-    min-height: 50px;
-    font-size: 2rem;
-}
-
-
-@media (min-width: 380px) {
-    .timeline {
-        width: 25px;
-        transform: translateX(5%);
-        width: 50%;
-      
-    }
-  }
-  
-  \*
 
   /* Navbar styling */
 .navbar {
@@ -159,9 +123,12 @@
   }
   
   .user-post{
-      border-style: solid;
-      border-color: black;
-      border-width: 1px;      
+      
+      margin-top: 10px;    
   }
 
+  .post-profile-pic{
+    position: relative;
+    left: 10px;
+  }
   
