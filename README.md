@@ -18,4 +18,7 @@ I couldn't find a social media app specifically for developers that allowed for 
 
 ## License
 
-N/A
+N/A!
+
+Logo:
+[answerhublogo](https://user-images.githubusercontent.com/119153047/227353792-6a8ea807-3bf6-44a8-a3a4-68c6829a7ebd.JPG)
