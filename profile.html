@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <title>AnswerHub</title>
 <!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
 <!-- Google Fonts -->
 <link
 href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap"
@@ -42,6 +42,11 @@ rel="stylesheet"
   <li class="nav-item">
     <a class="nav-link" href="#">
       <i class="fas fa-envelope"></i> Messages
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <i class="fa-solid fa-magnifying-glass"></i> Search
     </a>
   </li>
   <li class="nav-item dropdown">
@@ -184,6 +189,28 @@ rel="stylesheet"
             <li><a href="#">#music</a></li>
             <li><a href="#">#gaming</a></li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Search Modal-->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">@</span>
+            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Search</button>
         </div>
       </div>
     </div>
