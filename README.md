@@ -22,5 +22,4 @@ N/A!
 
 Logo:
 
-
-![IMG_6445](https://user-images.githubusercontent.com/119153047/227354101-0b6478d3-8391-42a8-a623-bf15dc798ebf.PNG)
+![answerhublogo](https://user-images.githubusercontent.com/119153047/227354294-2b685fc4-fb8d-4fca-9136-53b77392210e.JPG)
