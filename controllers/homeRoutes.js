@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const { User, Question } = require('../models');
+const { User, Post } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    const questionData = await Question.findAll({
+    const postData = await Post.findAll({
       include: [
         {
           model: User,
@@ -13,10 +13,10 @@ router.get('/', async (req, res) => {
       ],
     });
 
-    const questions = questionData.map((question) => question.get({ plain: true }));
-    console.log(questions);
+    const posts = postData.map((post) => post.get({ plain: true }));
+
     res.render('homepage', { 
-      questions, 
+      posts, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
@@ -24,9 +24,9 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/question/:id', async (req, res) => {
+router.get('/post/:id', async (req, res) => {
   try {
-    const questionData = await Question.findByPk(req.params.id, {
+    const postData = await Post.findByPk(req.params.id, {
       include: [
         {
           model: User,
@@ -35,10 +35,10 @@ router.get('/question/:id', async (req, res) => {
       ],
     });
 
-    const question = questionData.get({ plain: true });
-
-    res.render('question', {
-      ...question,
+    const post = postData.get({ plain: true });
+    console.log(post);
+    res.render('post', {
+      ...post,
       logged_in: req.session.logged_in
     });
   } catch (err) {
