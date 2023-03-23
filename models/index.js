@@ -51,9 +51,9 @@ User.hasMany(Post, {
 });
 =======
 const Post = require('./Post');
-// const Comment = require('./Comment');
+const Comment = require('./Comment');
 // const Like = require('./Like');
-// const Tag = require('./Tag');
+const Tag = require('./Tag');
 
 User.hasMany(Post, {
   foreignKey: 'user_id',
@@ -65,6 +65,7 @@ Post.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 User.hasMany(Like, {
   foreignKey: 'user_id',
@@ -102,3 +103,6 @@ module.exports = { Comment, Like, Post, Tag, User };
 =======
 module.exports = { User, Post };
 >>>>>>> f2fafba (worked on some api routes)
+=======
+module.exports = { User, Post, PostTag, User, UserTag, Tag, Like, Comment };
+>>>>>>> ed62e42 (made changes to the post and tag routes)

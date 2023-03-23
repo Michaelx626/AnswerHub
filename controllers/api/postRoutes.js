@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Post, Tag, PostTag } = require('../../models');
+// const { Post, Tag, PostTag, User, UserTag } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
@@ -16,6 +17,18 @@ router.post('/', withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+// router.post('/', withAuth, async (req, res) => {
+//   try {
+//     const newPost = await Post.create(req.body, {
+//       include: [{ model: Tag, through: PostTag }, { model: User, through: UserTag}]
+//     });
+
+//     res.status(200).json(newPost);
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
 
 // router.delete('/:id', withAuth, async (req, res) => {
 //   try {
