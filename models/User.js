@@ -16,7 +16,7 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    username: {
       type: DataTypes.STRING,
       allowNull: false,
       unqiue: true
@@ -36,6 +36,13 @@ User.init(
         len: [8],
       },
     },
+    follow_id: {
+      type: DataTypes.STRING,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
+    }
   },
   {
     hooks: {
