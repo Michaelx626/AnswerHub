@@ -16,9 +16,6 @@ It helps developers across all fields connect and collaborate on projects togeth
 
 I couldn't find a social media app specifically for developers that allowed for easy networking
 
-## License
-
-N/A!
 
 Logo:
 
