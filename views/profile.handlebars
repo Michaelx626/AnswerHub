@@ -1,7 +1,280 @@
-<div class="row">
-  <div class="col-auto">
-    <h2>This works!</h2>
+<nav class='navbar navbar-expand-lg navbar-light bg-light'>
+  <div class='container-fluid'>
+    <a class='navbar-brand' href='#'>
+      <i class='fab fa-icon'></i>
+    </a>
+    <button
+      class='navbar-toggler'
+      type='button'
+      data-bs-toggle='collapse'
+      data-bs-target='#navbar-collapse'
+    >
+      <span class='navbar-toggler-icon'></span>
+    </button>
+    <div class='collapse navbar-collapse' id='navbar-collapse'>
+      <ul class='navbar-nav ms-auto'>
+        <li class='nav-item'>
+          <a class='nav-link' href='/'>
+            <i class='fas fa-home'></i>
+            Home
+          </a>
+        </li>
+        <li class='nav-item'>
+          <a class='nav-link' href='#'>
+            <i class='fas fa-bell'></i>
+            Notifications
+          </a>
+        </li>
+        <li class='nav-item'>
+          <a class='nav-link' href='#'>
+            <i class='fas fa-envelope'></i>
+            Messages
+          </a>
+        </li>
+        <li class='nav-item'>
+          <a
+            class='nav-link'
+            href='#'
+            data-bs-toggle='modal'
+            data-bs-target='#exampleModal'
+          >
+            <i class='fa-solid fa-magnifying-glass'></i>
+            Search
+          </a>
+        </li>
+        <li class='nav-item dropdown'>
+          <a
+            class='nav-link dropdown-toggle'
+            href='/profile'
+            id='navbarDropdown'
+            role='button'
+            data-bs-toggle='dropdown'
+            aria-expanded='false'
+          >
+            <i class='fas fa-user'></i>
+            Profile
+          </a>
+          <ul
+            class='dropdown-menu dropdown-menu-end'
+            aria-labelledby='navbarDropdown'
+          >
+            <li><a class='dropdown-item' id="profile-link" href='/profile'><i class='fas fa-edit'></i>
+                Edit Profile</a></li>
+            <li><hr class='dropdown-divider' /></li>
+            <li><a class='dropdown-item logout-link' href="/logout"><i
+                  class='fas fa-sign-out-alt'
+                ></i>
+                Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- User Bio -->
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-3'>
+      <div class='profile-card'>
+        <div class='profile-img'>
+          <img src='https://via.placeholder.com/150x150' alt='Profile Image' />
+        </div>
+        <div class='profile-name'>
+          <h4>John Doe</h4>
+        </div>
+        <div class='profile-bio'>
+          <p>Javascript | C++ | Python</p>
+        </div>
+        <div class='profile-bio'>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+            nihil optio aut veritatis. Dolore odit adipisci aperiam quidem
+            consectetur dolores!</p>
+        </div>
+      </div>
+    </div>
+
+    <!--User's Post-->
+    <div class='col-md-6'>
+      <div class='profile-card'>
+        <div class='user-post'>
+          <div class='post-header'>
+            <div class='post-author'>
+              <img
+                src='https://via.placeholder.com/50x50'
+                alt='Profile Image'
+                class='post-profile-pic'
+              />
+              <div class='post-author-info'>
+                <h5>John Doe</h5>
+                <p>@johndoe</p>
+              </div>
+            </div>
+            <div class='post-time'>
+              <p>2 hours ago</p>
+            </div>
+          </div>
+          <div class='post-content'>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Provident quibusdam facilis architecto alias debitis?</p>
+          </div>
+          <div class='post-actions'>
+            <a href='#'>
+              <i class='far fa-comment'></i>
+              <span>10</span>
+            </a>
+            <a href='#'>
+              <i class='far fa-heart'></i>
+              <span>50</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class='profile-card'>
+        <div class='user-post'>
+          <div class='post-header'>
+            <div class='post-author'>
+              <img
+                src='https://via.placeholder.com/50x50'
+                alt='Profile Image'
+                class='post-profile-pic'
+              />
+              <div class='post-author-info'>
+                <h5>John Doe</h5>
+                <p>@johndoe</p>
+              </div>
+            </div>
+            <div class='post-time'>
+              <p>2 hours ago</p>
+            </div>
+          </div>
+          <div class='post-content'>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Provident quibusdam facilis architecto alias debitis?</p>
+          </div>
+          <div class='post-actions'>
+            <a href='#'>
+              <i class='far fa-comment'></i>
+              <span>10</span>
+            </a>
+
+            <a href='#'>
+              <i class='far fa-heart'></i>
+              <span>50</span>
+            </a>
+
+          </div>
+        </div>
+      </div>
+
+      <div class='profile-card'>
+        <div class='user-post'>
+          <div class='post-header'>
+            <div class='post-author'>
+              <img
+                src='https://via.placeholder.com/50x50'
+                alt='Profile Image'
+                class='post-profile-pic'
+              />
+              <div class='post-author-info'>
+                <h5>John Doe</h5>
+                <p>@johndoe</p>
+              </div>
+            </div>
+            <div class='post-time'>
+              <p>2 hours ago</p>
+            </div>
+          </div>
+          <div class='post-content'>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Provident quibusdam facilis architecto alias debitis?</p>
+          </div>
+          <div class='post-actions'>
+            <a href='#'>
+              <i class='far fa-comment'></i>
+              <span>10</span>
+            </a>
+
+            <a href='#'>
+              <i class='far fa-heart'></i>
+              <span>50</span>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Recommended Users or Content -->
+    <div class='col-md-3'>
+      <div class='trending'>
+        <h4>Recommended</h4>
+        <ul>
+          <li><a href='#'>#webdevelopment</a></li>
+          <li><a href='#'>#music</a></li>
+          <li><a href='#'>#gaming</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 
-{{!-- <script src="./js/profile.js"></script> --}}
+<!--Search Modal-->
+<div
+  class='modal fade'
+  id='exampleModal'
+  tabindex='-1'
+  aria-labelledby='exampleModalLabel'
+  aria-hidden='true'
+>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h1 class='modal-title fs-5' id='exampleModalLabel'>Modal title</h1>
+        <button
+          type='button'
+          class='btn-close'
+          data-bs-dismiss='modal'
+          aria-label='Close'
+        ></button>
+      </div>
+      <div class='modal-body'>
+        <div class='input-group mb-3'>
+          <span class='input-group-text' id='basic-addon1'>@</span>
+          <input
+            type='text'
+            class='form-control'
+            placeholder='Username'
+            aria-label='Username'
+            aria-describedby='basic-addon1'
+          />
+        </div>
+      </div>
+      <div class='modal-footer'>
+        <button
+          type='button'
+          class='btn btn-secondary'
+          data-bs-dismiss='modal'
+        >Close</button>
+        <button type='button' class='btn btn-primary'>Search</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class='text-center'>
+  <p>&copy; 2023 AnswerHub</p>
+</footer>
+<!-- jQuery -->
+<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+<!-- Bootstrap JS -->
+<script
+  src='https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js'
+  integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q'
+  crossorigin='anonymous'
+></script>
+<script
+  src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js'
+></script>
+<script src="./js/logout.js"></script>

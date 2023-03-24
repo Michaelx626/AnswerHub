@@ -3,12 +3,16 @@ const logout = async () => {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
   });
-
   if (response.ok) {
-    document.location.replace('/');
+    document.location.replace('/login');
   } else {
     alert(response.statusText);
   }
 };
 
-document.querySelector('#logout').addEventListener('click', logout);
+document.querySelector('.logout-link').addEventListener('click', (event) => {
+  event.preventDefault();
+  logout();
+});
+
+

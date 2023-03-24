@@ -1,26 +1,60 @@
-<div class="row">
-  <div class="col-md-12">
-    <h2>Login</h2>
-
-    <form class="form login-form">
-      <div class="form-group">
-        <label for="email-login">Email:</label>
-        <input class="form-input" type="text" id="email-login" />
-      </div>
-      <div class="form-group">
-        <label for="password-login">Password:</label>
-        <input class="form-input" type="password" id="password-login" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">Login</button>
-      </div>
-    </form>
+<div class='container'>
+  <div class='column'>
+    <div class='col mt-0 title_img'>
+      <img 
+        src="./screenshots/IMG_6448.PNG"
+        width="300px"
+        height="300px"
+        alt="title"
+      />
+    </div>
+    <div class='col logo mt-0'>
+      <img
+        src='./screenshots/IMG_6447.PNG'
+        width='200px'
+        height='200px'
+        alt='Logo'
+      />
+    </div>
   </div>
-</div> 
 
-<div class="display:flex justify-center align-center row">
-  <h3>New to AnswerHub?</h3>
-  <a href="/signup" class="px-4">Sign up</a>
+  <div class='row justify-content-center login_form'>
+    <div class='col-md-6 col-lg-4'>
+      <div class='card'>
+        <div class='card-body'>
+          <h3 class='card-title text-center mb-3'>Log in to your account</h3>
+          <form>
+            <div class='mb-3'>
+              <label for='username-login' class='form-label'>Username or email</label>
+              <input type='text' class='form-control' id='username-login' />
+            </div>
+            <div class='mb-3'>
+              <label for='password-login' class='form-label'>Password</label>
+              <input type='password' class='form-control' id='password-login' />
+            </div>
+            <button type='submit' class='btn btn-primary w-100'>Log in</button>
+          </form>
+          <div class='text-center mt-3'>
+            <a href='#'>Forgot password?</a>
+          </div>
+        </div>
+      </div>
+      <div class='card mt-3'>
+        <div class='card-body text-center'>
+          Don't have an account?
+          <a href='/signup'>Sign up</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
+<script
+  src='https://code.jquery.com/jquery-3.5.1.slim.min.js'
+  integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj'
+  crossorigin='anonymous'
+></script>
+<script
+  src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js'
+></script>
 <script src="./js/login.js"></script>
