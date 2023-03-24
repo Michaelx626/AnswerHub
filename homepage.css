@@ -1,0 +1,24 @@
+
+/* 
+after last update to homepage.html this is not needed, will delete file if not needed in future commits
+
+@media (max-width: 991px) and (min-width: 768px){
+    .follow-btn {
+        position: relative;
+        left: -50px;
+        top: 8px;
+    }
+    .recommended-user{
+        position: relative;
+        left: -10px;
+    }
+    .recommended-name{
+        position: relative;
+        left: -10px;
+    }
+    .recommended-user-block{
+        margin-bottom: 10px;
+    }
+    
+  }
+  
