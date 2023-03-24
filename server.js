@@ -4,13 +4,14 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
+const cors = require('cors');
 require('dotenv').config();
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 5005;
 
 // Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({ helpers });
@@ -39,7 +40,9 @@ app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(routes);
 
-const port = process.env.PORT || 5000;
-app.listen(port, ()=> console.log(`Server listening on port ${port}`));
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log(`Server is running and listening on ${PORT}!`));
+});

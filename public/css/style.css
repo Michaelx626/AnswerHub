@@ -17,12 +17,18 @@ header, .project:not(:last-child) {
   text-decoration: underline;
 }
 
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
+header{
+  display: flex;
+  border-bottom: 1px solid black;
+  justify-content: space-between;
+  padding-bottom: 10px;
 }
 
 a span{
-  padding: 0px 10px 0px 10px;
+  margin: 0px, 5px, 0px, 5px;
+}
+
+.message_container{
+  display: flex;
+  justify-content: center;
 }

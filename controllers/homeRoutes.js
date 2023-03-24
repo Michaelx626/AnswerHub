@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Post, Comment } = require('../models');
+const { User, Post } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -12,6 +12,7 @@ router.get('/', async (req, res) => {
         },
       ],
     });
+    console.log(postData);
 
     const posts = postData.map((post) => post.get({ plain: true }));
 
@@ -24,46 +25,50 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/', async (req, res) => {
-  try {
-    const commentData = await Comment.findAll({
-      include: [
-        {
-          model: User,
-          model: Post
-        },
-      ],
-    });
+// router.get('/', (req, res) => {
+//   res.render('login');
+// });
 
-    const comments = commentData.map((comment) => comment.get({ plain: true }));
-    console.log(comments);
-    res.render('post', { comments, logged_in: req.session.logged_in });
-  } catch (error) {
-    res.status(500).json(error);
-  }
-});
+// router.get('/', async (req, res) => {
+//   try {
+//     const commentData = await Comment.findAll({
+//       include: [
+//         {
+//           model: User,
+//           model: Post
+//         },
+//       ],
+//     });
 
-router.get('/post/:id', async (req, res) => {
-  try {
-    const postData = await Post.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
+//     const comments = commentData.map((comment) => comment.get({ plain: true }));
+//     console.log(comments);
+//     res.render('post', { comments, logged_in: req.session.logged_in });
+//   } catch (error) {
+//     res.status(500).json(error);
+//   }
+// });
 
-    const post = postData.get({ plain: true });
+// router.get('/post/:id', async (req, res) => {
+//   try {
+//     const postData = await Post.findByPk(req.params.id, {
+//       include: [
+//         {
+//           model: User,
+//           attributes: ['name'],
+//         },
+//       ],
+//     });
 
-    res.render('post', {
-      ...post,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     const post = postData.get({ plain: true });
+
+//     res.render('post', {
+//       ...post,
+//       logged_in: req.session.logged_in
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
