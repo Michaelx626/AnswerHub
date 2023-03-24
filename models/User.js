@@ -19,6 +19,7 @@ User.init(
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+      unqiue: true
     },
     email: {
       type: DataTypes.STRING,
@@ -35,6 +36,13 @@ User.init(
         len: [8],
       },
     },
+    // follow_id: {
+    //   type: DataTypes.STRING,
+    //   references: {
+    //     model: 'user',
+    //     key: 'id',
+    //   },
+    // }
   },
   {
     hooks: {
