@@ -1,12 +1,18 @@
 .container {
-    margin-top: 60px;
+    position: relative;
+    top: 50%;
+    left: 0%;
   }
 
   
 .logo{
     position: relative;
-    top: -100px;
+    top: -220px;
     left: -15%;
-    transform: translate(50%, 50%);
-    
+    transform: translate(50%, 50%);   
+} 
+
+.login{
+  position: relative;
+  top: -200px;
 }
