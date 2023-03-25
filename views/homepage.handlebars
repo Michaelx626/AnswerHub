@@ -49,8 +49,8 @@
             </div>
             <div class="card-body">
               <img src="https://via.placeholder.com/150" alt="Profile Picture" class="img-fluid rounded-circle mb-3">
-              <h4>John Doe</h4>
-              <p class="text-muted">@johndoe</p>
+              <h4>{{users.name}}</h4>
+              <a class="text-muted" href="mailto:{{users.email}}">@{{users.email}}</a>
               <ul class="list-unstyled">
                 <li><i class="fas fa-user"></i> 10 Followers</li>
                 <li><i class="fas fa-user"></i> 20 Following</li>
@@ -69,51 +69,35 @@
             <div class="card-body">
               <form>
                 <div class="form-group">
-                  <textarea class="form-control" placeholder="Write something..." rows="3"></textarea>
+                  <textarea class="form-control" id="user_inputbox" placeholder="Write something..." rows="3"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Post</button>
+                <button type="submit" class="btn btn-primary post_btn">Post</button>
               </form>
             </div>
           </div>
+
+          {{#each posts as |post|}}
           <div class="card">
             <div class="card-body">
               <div class="media mb-3">
                 <img src="https://via.placeholder.com/50" class="mr-3 rounded-circle" alt="User Picture">
                 <div class="media-body">
-                  <h5 class="mt-0">Jane Smith </h5>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non diam velit. Curabitur lacinia felis eu vehicula dapibus. In hac habitasse platea dictumst. Proin blandit congue est vel porttitor. Morbi ullamcorper mi vel nibh dignissim, vel pulvinar mauris pellentesque. Nunc posuere vel velit sed pellentesque.</p>
+                  <div class="post-grid">
+                    <h5 class="mt-0 post_user">{{post.user.name}} </h5>
+                    <p class="post_content"> {{post.content}}</p>
+                    <p class="mt-0 post_date">{{format_date post.date_created}} </p>
+                  </div>
                   <div class="mt-3">
                     <a href="#"><i class="far fa-comment"></i> 10</a>
                     <a href="#"><i class="far fa-heart"></i> 30</a>                
                   </div>
                 </div>
               </div>
-              </div>
-              </div>
-
-
-  <div class="card mt-2">
-    <div class="card-body">
-              <div class="media mb-3">
-                <img src="https://via.placeholder.com/50" class="mr-3 rounded-circle" alt="User Picture">
-                <div class="media-body">
-                  <h5 class="mt-0">Bob Johnson</h5>
-                  <p>Nulla facilisi. Curabitur vel lectus sed nisi auctor dictum. Praesent vitae mi leo. Pellentesque condimentum vestibulum vehicula. Aenean at velit vel mi ultrices vulputate a et sem. Praesent nec purus imperdiet, dignissim elit et, pharetra augue. Nunc sit amet lectus sed quam varius finibus a eu magna. Morbi tincidunt arcu non nisl dapibus tempus.</p>
-                  <div class="mt-3">
-                    <a href="#"><i class="far fa-comment"></i> 5</a>
-                   
-                    <a href="#"><i class="far fa-heart"></i> 12</a>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
-       
-      
-       <!-- Right Column -->
-        <div class="col">
-          <div class="card recommended">
-           
+          {{/each}}
+
+        <!-- Right Column -->
           <div class="card">
             <div class="card-header">
               <h5>Recommened Connections</h5>
@@ -135,9 +119,10 @@
               </div>
             </div>
           </div>
-        </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js"></script>
-   <script src="./js/logout.js"></script>
+      </div>    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js"></script>
+<script src="./js/logout.js"></script>
+<script src="./js/post.js"></script>
                 

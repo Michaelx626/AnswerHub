@@ -81,7 +81,7 @@
           <img src='https://via.placeholder.com/150x150' alt='Profile Image' />
         </div>
         <div class='profile-name'>
-          <h4>John Doe</h4>
+          <h4>{{user.name}}</h4>
         </div>
         <div class='profile-bio'>
           <p>Javascript | C++ | Python</p>
@@ -96,8 +96,10 @@
 
     <!--User's Post-->
     <div class='col-md-6'>
+    {{#with user as |user|}}
+    {{#each user.posts as |post|}}
       <div class='profile-card'>
-        <div class='user-post'>
+        <div class='user-post post-grid'>
           <div class='post-header'>
             <div class='post-author'>
               <img
@@ -106,8 +108,8 @@
                 class='post-profile-pic'
               />
               <div class='post-author-info'>
-                <h5>John Doe</h5>
-                <p>@johndoe</p>
+                <h5>{{user.name}}</h5>
+                <a href="mailto:{{user.email}}">@{{trim_name user.email}}</a>
               </div>
             </div>
             <div class='post-time'>
@@ -115,8 +117,7 @@
             </div>
           </div>
           <div class='post-content'>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Provident quibusdam facilis architecto alias debitis?</p>
+            <p>{{post.content}}</p>
           </div>
           <div class='post-actions'>
             <a href='#'>
@@ -130,81 +131,9 @@
           </div>
         </div>
       </div>
+      {{/each}}
+      {{/with}}
 
-      <div class='profile-card'>
-        <div class='user-post'>
-          <div class='post-header'>
-            <div class='post-author'>
-              <img
-                src='https://via.placeholder.com/50x50'
-                alt='Profile Image'
-                class='post-profile-pic'
-              />
-              <div class='post-author-info'>
-                <h5>John Doe</h5>
-                <p>@johndoe</p>
-              </div>
-            </div>
-            <div class='post-time'>
-              <p>2 hours ago</p>
-            </div>
-          </div>
-          <div class='post-content'>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Provident quibusdam facilis architecto alias debitis?</p>
-          </div>
-          <div class='post-actions'>
-            <a href='#'>
-              <i class='far fa-comment'></i>
-              <span>10</span>
-            </a>
-
-            <a href='#'>
-              <i class='far fa-heart'></i>
-              <span>50</span>
-            </a>
-
-          </div>
-        </div>
-      </div>
-
-      <div class='profile-card'>
-        <div class='user-post'>
-          <div class='post-header'>
-            <div class='post-author'>
-              <img
-                src='https://via.placeholder.com/50x50'
-                alt='Profile Image'
-                class='post-profile-pic'
-              />
-              <div class='post-author-info'>
-                <h5>John Doe</h5>
-                <p>@johndoe</p>
-              </div>
-            </div>
-            <div class='post-time'>
-              <p>2 hours ago</p>
-            </div>
-          </div>
-          <div class='post-content'>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Provident quibusdam facilis architecto alias debitis?</p>
-          </div>
-          <div class='post-actions'>
-            <a href='#'>
-              <i class='far fa-comment'></i>
-              <span>10</span>
-            </a>
-
-            <a href='#'>
-              <i class='far fa-heart'></i>
-              <span>50</span>
-            </a>
-
-          </div>
-        </div>
-      </div>
-    </div>
     <!--Recommended Users or Content -->
     <div class='col-md-3'>
       <div class='trending'>
@@ -277,4 +206,5 @@
 <script
   src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js'
 ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
 <script src="./js/logout.js"></script>

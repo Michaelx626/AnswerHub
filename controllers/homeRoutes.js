@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Post } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     const postData = await Post.findAll({
       include: [
@@ -12,22 +12,23 @@ router.get('/', async (req, res) => {
         },
       ],
     });
-    console.log(postData);
+
+    const usersData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] }
+    });
 
     const posts = postData.map((post) => post.get({ plain: true }));
+    posts.sort((a,b) => (new Date(b.date_created) - new Date(a.date_created)));
 
-    res.render('homepage', { 
-      posts, 
-      logged_in: req.session.logged_in 
-    });
+    const users = usersData.get({ plain: true });
+    
+    res.render('homepage', { posts, users });
+
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// router.get('/', (req, res) => {
-//   res.render('login');
-// });
 
 // router.get('/', async (req, res) => {
 //   try {
@@ -72,24 +73,44 @@ router.get('/', async (req, res) => {
 
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
-  // try {
-  //   // Find the logged in user based on the session ID
-  //   const userData = await User.findByPk(req.session.user_id, {
-  //     attributes: { exclude: ['password'] },
-  //     include: [{ model: Project }],
-  //   });
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Post }],
+    });
 
-  //   const user = userData.get({ plain: true });
+    const user = userData.get({ plain: true });
+    user.posts.sort((a,b) => (new Date(b.date_created) - new Date(a.date_created)));
 
-  //   res.render('profile', {
-  //     ...user,
-  //     logged_in: true
-  //   });
-  // } catch (err) {
-  //   res.status(500).json(err);
-  // }
-  res.render('profile');
+    res.render('profile', {
+      user,
+      logged_in: true
+    });
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
+
+// router.get('/', withAuth, async (req, res) => {
+//   try {
+//     // Find the logged in user based on the session ID
+//     const usersData = await User.findByPk(req.session.user_id, {
+//       attributes: { exclude: ['password'] },
+//     });
+
+//     const users = usersData.get({ plain: true });
+    
+//     res.render('homepage', {
+//       users,
+//       logged_in: true
+//     });
+
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
