@@ -6,7 +6,7 @@ const userName = document.getElementById("username").innerText;
 *@captionPost - user's caption as a string
 * @timeline - the timeline of the homepage
 *@captionBody - createdDiv with caption appended to body
-@*getCurrentTime() - gets current time and stores it within the caption
+*@getCurrentTime() - gets current time and stores it within the caption
 * @returns - appended post to timeline
 */
 const postCaption = (event) =>{
