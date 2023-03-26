@@ -2,7 +2,7 @@ const generatePost = async () => {
   const content = document.querySelector('#user_inputbox').value.trim();
 
   if (content) {
-    const response = await fetch('./api/posts', {
+    const response = await fetch('/api/posts', {
       method: 'POST',
       body: JSON.stringify({ content }),
       headers: { 'Content-Type': 'application/json' },

@@ -1,5 +1,5 @@
 const editProfile = async () => {
-    const response = await fetch('/api/users/profile', {
+    const response = await fetch('/profile', {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
     });
@@ -12,4 +12,3 @@ const editProfile = async () => {
   };
   
   document.querySelector('#profile-link').addEventListener('click', editProfile);
-  

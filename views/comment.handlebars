@@ -1,0 +1,94 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <i class="fab fa-icon"></i>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="fas fa-home"></i> Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-bell"></i> Notifications
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-envelope"></i> Messages
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-user"></i> Profile
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#"><i class="fas fa-edit"></i> Edit Profile</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item logout-link" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>
+
+<!--Main Content-->
+<div class="container">
+  <h1 class="my-4">Comments</h1>
+    <div class="row mx-auto">
+      <div class="col-md-8">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5>Profile</h5>
+            </div>
+            <div class="card-body">
+              <img src="https://via.placeholder.com/150" alt="Profile Picture" class="img-fluid rounded-circle mb-3" width="50" height="50">
+            
+              <a href="mailto:{{user.email}}" class="text-muted" id="username">@{{user.email}}</a>
+                      
+              <p class="card-text">{{content}}</p>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Comment </h5>
+              <form>
+                <div class="form-group">
+                  <textarea class="form-control" id="user_comment_box" rows="3" placeholder="Write your comment here"></textarea>
+                </div>
+                <button type="submit" id="comment_btn" class="btn btn-primary">Post Comment</button>
+              </form>
+          </div>
+        </div>
+
+                <!--Comments-->
+        {{#each comments as |comment|}}
+        <div class="card mb-4">
+          <div class="card-body">
+              <h5 class="card-title">Comments</h5>
+              <div class="media mb-4">
+                <img class="d-flex mr-3 rounded-circle" src="https://via.placeholder.com/50" alt="">
+                  <div class="media-body">
+                    <h5 class="mt-0">User Name</h5>
+                      <p>{{comment.body}}</p>
+                  </div>
+              </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+</div>
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js"></script>
+<script src="/js/logout.js"></script>
+<script src="/js/comment.js"></script>
