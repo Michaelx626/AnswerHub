@@ -32,3 +32,20 @@ a span{
   display: flex;
   justify-content: center;
 }
+
+.post-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 10px;
+  margin-bottom: 20px;
+}
+
+.post_user,
+.post_content {
+  margin: 0;
+}
+
+.post_date {
+  margin: 0;
+  color: gray;
+}
