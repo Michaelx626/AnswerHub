@@ -48,6 +48,21 @@ router.post('/login', async (req, res) => {
   }
 });
 
+router.post('/search', async (req, res) => {
+  try {
+    const searchData = await User.findAll({ where: { name: req.body.userSearch }}, { 
+      attributes: { exclude: ['password'] }});
+    console.log(searchData);
+
+    const searches = searchData.map((search) => search.get({ plain: true }));
+    console.log(searches);
+
+    res.render('search', { searches });
+  } catch (error) {
+    res.status(400).json(error);
+  }
+});
+
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {

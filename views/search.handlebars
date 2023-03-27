@@ -1,58 +1,72 @@
-<!--Navigation Bar-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <i class="fab fa-icon"></i>
+<nav class='navbar navbar-expand-lg navbar-light bg-light'>
+  <div class='container-fluid'>
+    <a class='navbar-brand' href='#'>
+      <i class='fab fa-icon'></i>
     </a>
     <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbar-collapse"
+      class='navbar-toggler'
+      type='button'
+      data-bs-toggle='collapse'
+      data-bs-target='#navbar-collapse'
     >
-      <span class="navbar-toggler-icon"></span>
+      <span class='navbar-toggler-icon'></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbar-collapse">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#"> <i class="fas fa-home"></i> Home </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="fas fa-bell"></i> Notifications
+    <div class='collapse navbar-collapse' id='navbar-collapse'>
+      <ul class='navbar-nav ms-auto'>
+        <li class='nav-item'>
+          <a class='nav-link' href='/'>
+            <i class='fas fa-home'></i>
+            Home
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="fas fa-envelope"></i> Messages
+        <li class='nav-item'>
+          <a class='nav-link' href='#'>
+            <i class='fas fa-bell'></i>
+            Notifications
           </a>
         </li>
-        <li class="nav-item dropdown">
+        <li class='nav-item'>
+          <a class='nav-link' href='#'>
+            <i class='fas fa-envelope'></i>
+            Messages
+          </a>
+        </li>
+        <li class='nav-item'>
           <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            id="navbarDropdown"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
+            class='nav-link'
+            href='#'
+            data-bs-toggle='modal'
+            data-bs-target='#exampleModal'
           >
-            <i class="fas fa-user"></i> Profile
+            <i class='fa-solid fa-magnifying-glass'></i>
+            Search
+          </a>
+        </li>
+        <li class='nav-item dropdown'>
+          <a
+            class='nav-link dropdown-toggle'
+            href='#'
+            id='navbarDropdown'
+            role='button'
+            data-bs-toggle='dropdown'
+            aria-expanded='false'
+          >
+            <i class='fas fa-user'></i>
+            Profile
           </a>
           <ul
-            class="dropdown-menu dropdown-menu-end"
-            aria-labelledby="navbarDropdown"
+            class='dropdown-menu dropdown-menu-end'
+            aria-labelledby='navbarDropdown'
           >
-            <li>
-              <a class="dropdown-item" href="#"
-                ><i class="fas fa-edit"></i> Edit Profile</a
-              >
-            </li>
-            <li><hr class="dropdown-divider" /></li>
-            <li>
-              <a class="dropdown-item" href="#"
-                ><i class="fas fa-sign-out-alt"></i> Logout</a
-              >
-            </li>
+            <li><a class="dropdown-item" href="/profile"><i class="fa-solid fa-user"></i> Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class='dropdown-item' href='#'><i class='fas fa-edit'></i>
+                Edit Profile</a></li>
+            <li><hr class='dropdown-divider' /></li>
+            <li><a class='dropdown-item logout-link' href="#"><i
+                  class='fas fa-sign-out-alt'
+                ></i>
+                Logout</a></li>
           </ul>
         </li>
       </ul>
@@ -102,53 +116,7 @@
           </div>
         </div>
       </div>
-      <div class="card mb-3">
-        <div class="card-body">
-          <div class="media">
-            <img
-              src="https://via.placeholder.com/64x64"
-              class="align-self-start rounded me-3"
-              alt="..."
-            />
-            <div class="media-body">
-              <h5 class="mt-0" style="color: #1da1f2">Username</h5>
-              <div class="profile-bio">
-                <p>Python | Ruby</p>
-              </div>
-              <div class="user-bio">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-                blandit libero vitae enim iaculis maximus. Sed volutpat augue a
-                mi aliquam sollicitudin. Suspendisse dictum nulla vitae dolor
-                pharetra, vel consequat est bibendum. Sed quis metus sem.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card mb-3">
-        <div class="card-body">
-          <div class="media">
-            <img
-              src="https://via.placeholder.com/64x64"
-              class="align-self-start rounded me-3"
-              alt="..."
-            />
-            <div class="media-body">
-              <h5 class="mt-0" style="color: #1da1f2">Username</h5>
-              <div class="profile-bio">
-                <p>SQL | PHP</p>
-              </div>
-              <div class="user-bio">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-                blandit libero vitae enim iaculis maximus. Sed volutpat augue a
-                mi aliquam sollicitudin. Suspendisse dictum nulla vitae dolor
-                pharetra, vel consequat est bibendum. Sed quis metus sem.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      
     <!--Recommened-->
 
     <div class="col-lg-4">
