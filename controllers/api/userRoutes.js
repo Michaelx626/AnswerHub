@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
-    console.log(userData);
+    
     if (!userData) {
       res
         .status(400)
@@ -53,14 +53,10 @@ router.post('/search', async (req, res) => {
     const searchData = await User.findAll({ 
       where: { name: req.body.userSearch }, 
       attributes: { exclude: ['password'] }});
-    console.log(searchData);
 
     const searches = searchData.map((search) => search.get({ plain: true }));
-    console.log(searches);
 
     res.render('search', { searches });
-
-
   } catch (error) {
     res.status(400).json(error);
   }
