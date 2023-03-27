@@ -99,10 +99,20 @@ router.get('/login', (req, res) => {
 
 router.get('/signup', (req, res) => {
   res.render('signup');
-})
+});
 
-router.get('/search', (req, res) => {
-  res.render('search');
-})
+router.get('/search', async (req, res) => {
+  try {
+    const searchData = await User.findAll({ 
+      where: { name: req.query.userSearch }, 
+      attributes: { exclude: ['password'] }});
+
+    const searches = searchData.map((search) => search.get({ plain: true }));
+
+    res.render('search', { searches });
+  } catch (error) {
+    res.status(400).json(error);
+  }
+});
 
 module.exports = router;

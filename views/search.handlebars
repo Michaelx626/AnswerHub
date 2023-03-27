@@ -82,12 +82,12 @@
         <div class="card-body">
           <form class="d-flex">
             <input
-              class="form-control me-2"
+              class="form-control me-2 user_searches"
               type="search"
               placeholder="Search AnswerHub"
               aria-label="Search"
             />
-            <button class="btn btn-primary" type="submit">
+            <button class="btn btn-primary search_btn" type="submit">
               <i class="fas fa-search"></i>Search
             </button>
           </form>
@@ -103,7 +103,7 @@
               alt="..."
             />
             <div class="media-body">
-              <h5 class="mt-0" style="color: #1da1f2">{{search.email}}</h5>
+              <a href="mailto:{{search.email}}" class="mt-0" style="color: #1da1f2">{{search.email}}</a>
               <div class="profile-bio">
                 <p>Javascript</p>
               </div>
@@ -221,3 +221,4 @@
 ></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js"></script>
 <script src="/js/logout.js"></script>
+<script src="/js/search.js"></script>

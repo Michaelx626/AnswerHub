@@ -28,7 +28,7 @@ router.post('/login', async (req, res) => {
     }
 
     const validPassword = await userData.checkPassword(req.body.password);
-    console.log(validPassword);
+
     if (!validPassword) {
       res
         .status(400)
@@ -45,20 +45,6 @@ router.post('/login', async (req, res) => {
 
   } catch (err) {
     res.status(400).json(err);
-  }
-});
-
-router.post('/search', async (req, res) => {
-  try {
-    const searchData = await User.findAll({ 
-      where: { name: req.body.userSearch }, 
-      attributes: { exclude: ['password'] }});
-
-    const searches = searchData.map((search) => search.get({ plain: true }));
-
-    res.render('search', { searches });
-  } catch (error) {
-    res.status(400).json(error);
   }
 });
 
