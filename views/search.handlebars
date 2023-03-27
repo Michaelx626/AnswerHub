@@ -82,12 +82,12 @@
         <div class="card-body">
           <form class="d-flex">
             <input
-              class="form-control me-2 user_searches"
+              class="form-control me-2"
               type="search"
               placeholder="Search AnswerHub"
               aria-label="Search"
             />
-            <button class="btn btn-primary search_btn" type="submit">
+            <button class="btn btn-primary" type="submit">
               <i class="fas fa-search"></i>Search
             </button>
           </form>
@@ -208,6 +208,49 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Search Modal-->
+<div
+  class='modal fade'
+  id='exampleModal'
+  tabindex='-1'
+  aria-labelledby='exampleModalLabel'
+  aria-hidden='true'
+>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h1 class='modal-title fs-5' id='exampleModalLabel'>Modal title</h1>
+        <button
+          type='button'
+          class='btn-close'
+          data-bs-dismiss='modal'
+          aria-label='Close'
+        ></button>
+      </div>
+      <div class='modal-body'>
+        <div class='input-group mb-3'>
+          <span class='input-group-text' id='basic-addon1'>@</span>
+          <input
+            type='text'
+            class='form-control user_searches'
+            placeholder='Username'
+            aria-label='Username'
+            aria-describedby='basic-addon1'
+          />
+        </div>
+      </div>
+      <div class='modal-footer'>
+        <button
+          type='button'
+          class='btn btn-secondary'
+          data-bs-dismiss='modal'
+        >Close</button>
+        <button type='button' class='btn btn-primary search_btn'>Search</button>
       </div>
     </div>
   </div>
