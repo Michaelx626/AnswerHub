@@ -93,6 +93,7 @@
           </form>
         </div>
       </div>
+      {{#each searches as |search|}}
       <div class="card mb-3">
         <div class="card-body">
           <div class="media">
@@ -102,7 +103,7 @@
               alt="..."
             />
             <div class="media-body">
-              <h5 class="mt-0" style="color: #1da1f2">Username</h5>
+              <h5 class="mt-0" style="color: #1da1f2">{{search.email}}</h5>
               <div class="profile-bio">
                 <p>Javascript</p>
               </div>
@@ -116,6 +117,7 @@
           </div>
         </div>
       </div>
+      {{/each}}
       
     <!--Recommened-->
 
@@ -218,3 +220,4 @@
   crossorigin="anonymous"
 ></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js"></script>
+<script src="/js/logout.js"></script>

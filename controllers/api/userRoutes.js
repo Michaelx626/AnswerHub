@@ -50,7 +50,8 @@ router.post('/login', async (req, res) => {
 
 router.post('/search', async (req, res) => {
   try {
-    const searchData = await User.findAll({ where: { name: req.body.userSearch }}, { 
+    const searchData = await User.findAll({ 
+      where: { name: req.body.userSearch }, 
       attributes: { exclude: ['password'] }});
     console.log(searchData);
 
@@ -58,6 +59,8 @@ router.post('/search', async (req, res) => {
     console.log(searches);
 
     res.render('search', { searches });
+
+
   } catch (error) {
     res.status(400).json(error);
   }
