@@ -23,6 +23,17 @@
                 <i class="fas fa-envelope"></i> Messages
               </a>
             </li>
+            <li class='nav-item'>
+            <a
+            class='nav-link'
+            href='#'
+            data-bs-toggle='modal'
+            data-bs-target='#exampleModal'
+            >
+            <i class='fa-solid fa-magnifying-glass'></i>
+            Search
+            </a>
+          </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fas fa-user"></i> Profile
@@ -121,6 +132,48 @@
             </div>
           </div>
       </div>    
+<!--Search Modal-->
+<div
+  class='modal fade'
+  id='exampleModal'
+  tabindex='-1'
+  aria-labelledby='exampleModalLabel'
+  aria-hidden='true'
+>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h1 class='modal-title fs-5' id='exampleModalLabel'>Modal title</h1>
+        <button
+          type='button'
+          class='btn-close'
+          data-bs-dismiss='modal'
+          aria-label='Close'
+        ></button>
+      </div>
+      <div class='modal-body'>
+        <div class='input-group mb-3'>
+          <span class='input-group-text' id='basic-addon1'>@</span>
+          <input
+            type='text'
+            class='form-control user_searches'
+            placeholder='Username'
+            aria-label='Username'
+            aria-describedby='basic-addon1'
+          />
+        </div>
+      </div>
+      <div class='modal-footer'>
+        <button
+          type='button'
+          class='btn btn-secondary'
+          data-bs-dismiss='modal'
+        >Close</button>
+        <button type='button' class='btn btn-primary search_btn'>Search</button>
+      </div>
+    </div>
+  </div>
+</div>      
 
       
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -128,4 +181,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js"></script>
 <script src="/js/logout.js"></script>
 <script src="/js/post.js"></script>
+<script src="/js/search.js"></script>
                 
