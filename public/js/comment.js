@@ -10,6 +10,8 @@ const commentButton = async (event) => {
             body: JSON.stringify({ body, post_id }),
             headers: { 'Content-Type': 'application/json' },
         });
+
+        location.reload();
     }
 };
 

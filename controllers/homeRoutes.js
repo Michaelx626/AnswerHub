@@ -63,20 +63,21 @@ router.get('/post/:id', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['name', 'email'],
         },
       ],
     });
 
-    console.log(commentData);
+
     const post = postData.get({ plain: true });
     const comments = commentData.map((comment) => comment.get({ plain: true }));
-    console.log(comments);
+    comments.sort((a,b) => (new Date(b.date_created) - new Date(a.date_created)));
 
     res.render('comment', {
-      ...post, ...comments,
+      post, comments,
       logged_in: req.session.logged_in
     });
+
   } catch (err) {
     res.status(500).json(err);
   }

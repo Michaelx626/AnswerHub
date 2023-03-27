@@ -11,11 +11,11 @@ router.post('/', withAuth, async (req, res) => {
             post_id: +req.body.post_id
         });
 
-        res.status(200).json(commentData)
-        res.redirect('/post/${req.body.post_id}');
+        res.status(200).json(commentData);
     } catch (error) {
         console.error(error);
     }
 });
+
 
 module.exports = router;

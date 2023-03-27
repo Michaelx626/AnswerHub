@@ -47,12 +47,12 @@
             <div class="card-header">
                 <h5>Profile</h5>
             </div>
-            <div class="card-body">
+            <div class="card-body post_comment_box">
               <img src="https://via.placeholder.com/150" alt="Profile Picture" class="img-fluid rounded-circle mb-3" width="50" height="50">
             
-              <a href="mailto:{{user.email}}" class="text-muted" id="username">@{{user.email}}</a>
+              <p class="card-text">{{post.content}}</p>
+              <a href="mailto:{{post.user.email}}" class="text-muted" id="username">@{{post.user.email}}</a>
                       
-              <p class="card-text">{{content}}</p>
             </div>
         </div>
 
@@ -71,13 +71,13 @@
                 <!--Comments-->
         {{#each comments as |comment|}}
         <div class="card mb-4">
-          <div class="card-body">
+          <div class="card-body post_comment_box">
               <h5 class="card-title">Comments</h5>
+              <p>{{comment.body}}</p>
               <div class="media mb-4">
                 <img class="d-flex mr-3 rounded-circle" src="https://via.placeholder.com/50" alt="">
                   <div class="media-body">
-                    <h5 class="mt-0">User Name</h5>
-                      <p>{{comment.body}}</p>
+                    <a href="mailto:{{comment.user.email}}" class="mt-0">{{comment.user.email}}</a>
                   </div>
               </div>
           </div>
@@ -92,4 +92,3 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js"></script>
 <script src="/js/logout.js"></script>
 <script src="/js/comment.js"></script>
-<script src="/js/search.js"></script>
