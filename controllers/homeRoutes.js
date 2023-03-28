@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Post, Comment } = require('../models');
+const { User, Post } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
@@ -29,40 +29,47 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/post/:id', async (req, res) => {
-  try {
-    const postData = await Post.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name', 'email'],
-        },
-      ],
-    });
 
-    const commentData = await Comment.findAll({ where: {post_id: req.params.id},
-      include: [
-        {
-          model: User,
-          attributes: ['name', 'email'],
-        },
-      ],
-    });
+// router.get('/', async (req, res) => {
+//   try {
+//     const commentData = await Comment.findAll({
+//       include: [
+//         {
+//           model: User,
+//           model: Post
+//         },
+//       ],
+//     });
 
+//     const comments = commentData.map((comment) => comment.get({ plain: true }));
+//     console.log(comments);
+//     res.render('post', { comments, logged_in: req.session.logged_in });
+//   } catch (error) {
+//     res.status(500).json(error);
+//   }
+// });
 
-    const post = postData.get({ plain: true });
-    const comments = commentData.map((comment) => comment.get({ plain: true }));
-    comments.sort((a,b) => (new Date(b.date_created) - new Date(a.date_created)));
+// router.get('/post/:id', async (req, res) => {
+//   try {
+//     const postData = await Post.findByPk(req.params.id, {
+//       include: [
+//         {
+//           model: User,
+//           attributes: ['name'],
+//         },
+//       ],
+//     });
 
-    res.render('comment', {
-      post, comments,
-      logged_in: req.session.logged_in
-    });
+//     const post = postData.get({ plain: true });
 
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.render('post', {
+//       ...post,
+//       logged_in: req.session.logged_in
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
@@ -86,7 +93,6 @@ router.get('/profile', withAuth, async (req, res) => {
   }
 });
 
-
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
@@ -99,20 +105,6 @@ router.get('/login', (req, res) => {
 
 router.get('/signup', (req, res) => {
   res.render('signup');
-});
-
-router.get('/search', async (req, res) => {
-  try {
-    const searchData = await User.findAll({ 
-      where: { name: req.query.userSearch }, 
-      attributes: { exclude: ['password'] }});
-
-    const searches = searchData.map((search) => search.get({ plain: true }));
-
-    res.render('search', { searches });
-  } catch (error) {
-    res.status(400).json(error);
-  }
-});
+})
 
 module.exports = router;

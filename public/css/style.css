@@ -49,10 +49,3 @@ a span{
   margin: 0;
   color: gray;
 }
-
-.post_comment_box{
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-gap: 10px;
-  margin-bottom: 20px;
-}
