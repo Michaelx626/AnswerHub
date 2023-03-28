@@ -1,4 +1,5 @@
-header, .project:not(:last-child) {
+header,
+.project:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
 
@@ -17,18 +18,18 @@ header, .project:not(:last-child) {
   text-decoration: underline;
 }
 
-header{
+header {
   display: flex;
   border-bottom: 1px solid black;
   justify-content: space-between;
   padding-bottom: 10px;
 }
 
-a span{
+a span {
   margin: 0px, 5px, 0px, 5px;
 }
 
-.message_container{
+.message_container {
   display: flex;
   justify-content: center;
 }
@@ -50,7 +51,7 @@ a span{
   color: gray;
 }
 
-.post_comment_box{
+.post_comment_box {
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-gap: 10px;
@@ -60,7 +61,7 @@ a span{
 .post-content p,
 .card-text,
 .post_comment_box p,
-.post_content{
+.post_content {
   display: flex;
   justify-content: center;
 }

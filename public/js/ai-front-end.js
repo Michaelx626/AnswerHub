@@ -1,5 +1,5 @@
-const userQuestion = document.getElementById("user-input");
-const sendBtn = document.getElementById("sendBtn");
+const userQuestion = document.getElementById('user-input');
+const sendBtn = document.getElementById('sendBtn');
 
 /* Send question to server using Post request and recieve response
  * @userQuestion - question asked by user
@@ -11,25 +11,24 @@ const sendBtn = document.getElementById("sendBtn");
  */
 
 const aiResponse = async () => {
-  if (userQuestion.value == "") {
-    alert("Please enter a prompt first!");
+  if (userQuestion.value == '') {
+    alert('Please enter a prompt first!');
   } else {
-      let messageContainer = document.getElementById("messages")
-      const question = userQuestion.value;
-      let userMessageResponse = `<div class="content" style="background-color: #1c3fdd; color: white;">
+    let messageContainer = document.getElementById('messages');
+    const question = userQuestion.value;
+    let userMessageResponse = `<div class="content" style="background-color: #1c3fdd; color: white;">
       ${question}
-    </div>`
+    </div>`;
     let questionElement = document.createElement('div');
     questionElement.innerHTML = userMessageResponse;
-    messageContainer.appendChild(questionElement)
-    userQuestion.value = "";
+    messageContainer.appendChild(questionElement);
+    userQuestion.value = '';
 
-
-    const url = window.location.pathname; 
+    const url = window.location.pathname;
     const response = await fetch(url, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ prompt: question }),
     });
@@ -37,33 +36,30 @@ const aiResponse = async () => {
     const aiResponseText = responseData.data;
     let messageResponse = `<div class="content">
     ${aiResponseText}
-  </div>`
+  </div>`;
 
-  let responseElement = document.createElement('div');
+    let responseElement = document.createElement('div');
     responseElement.innerHTML = messageResponse;
 
     messageContainer.appendChild(responseElement);
   }
 };
 
-sendBtn.addEventListener("click", aiResponse);
+sendBtn.addEventListener('click', aiResponse);
 
 /*
-*@return - returns the timestamp in which the chat started
-*/
+ *@return - returns the timestamp in which the chat started
+ */
 
 function getCurrentTime() {
-    const now = new Date();
-    let hours = now.getHours();
-    let amOrPm = hours < 12 ? 'AM' : 'PM';
-    hours = hours % 12 || 12;
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-    const seconds = now.getSeconds().toString().padStart(2, '0');
-    return `${hours}:${minutes}:${seconds} ${amOrPm}`;
-  }
+  const now = new Date();
+  let hours = now.getHours();
+  let amOrPm = hours < 12 ? 'AM' : 'PM';
+  hours = hours % 12 || 12;
+  const minutes = now.getMinutes().toString().padStart(2, '0');
+  const seconds = now.getSeconds().toString().padStart(2, '0');
+  return `${hours}:${minutes}:${seconds} ${amOrPm}`;
+}
 
-  let timestamp = document.getElementById("timestamp");
-  timestamp.innerText = getCurrentTime();
-  
-
-
+let timestamp = document.getElementById('timestamp');
+timestamp.innerText = getCurrentTime();

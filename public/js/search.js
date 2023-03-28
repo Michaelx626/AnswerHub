@@ -1,5 +1,5 @@
 const searchBar = async (event) => {
-    event.preventDefault();
+  event.preventDefault();
   const userSearch = document.querySelector('.user_searches').value.trim();
 
   console.log(userSearch);
