@@ -1,5 +1,5 @@
-const userQuestion = document.getElementById("user-input");
-const sendBtn = document.getElementById("sendBtn");
+const userQuestion = document.getElementById('user-input');
+const sendBtn = document.getElementById('sendBtn');
 
 /* Send question to server using Post request and recieve response
  * @userQuestion - question asked by user
@@ -36,8 +36,7 @@ const aiResponse = async () => {
     // messageContainer.appendChild(questionElement)
     userQuestion.value = "";
 
-
-    const url = "http://localhost:5000/airesponse"; 
+    const url = window.location.pathname;
     const response = await fetch(url, {
       method: 'POST',
       headers: {
@@ -67,24 +66,21 @@ const aiResponse = async () => {
   }
 };
 
-sendBtn.addEventListener("click", aiResponse);
+sendBtn.addEventListener('click', aiResponse);
 
 /*
-*@return - returns the timestamp in which the chat started
-*/
+ *@return - returns the timestamp in which the chat started
+ */
 
 function getCurrentTime() {
-    const now = new Date();
-    let hours = now.getHours();
-    let amOrPm = hours < 12 ? 'AM' : 'PM';
-    hours = hours % 12 || 12;
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-    const seconds = now.getSeconds().toString().padStart(2, '0');
-    return `${hours}:${minutes}:${seconds} ${amOrPm}`;
-  }
+  const now = new Date();
+  let hours = now.getHours();
+  let amOrPm = hours < 12 ? 'AM' : 'PM';
+  hours = hours % 12 || 12;
+  const minutes = now.getMinutes().toString().padStart(2, '0');
+  const seconds = now.getSeconds().toString().padStart(2, '0');
+  return `${hours}:${minutes}:${seconds} ${amOrPm}`;
+}
 
-  let timestamp = document.getElementById("timestamp");
-  timestamp.innerText = getCurrentTime();
-  
-
-
+let timestamp = document.getElementById('timestamp');
+timestamp.innerText = getCurrentTime();
