@@ -124,11 +124,11 @@
           <div class='post-actions'>
             <a href='/post/{{post.id}}'>
               <i class='far fa-comment'></i>
-              <span>10</span>
+              <span>{{comments.length}}</span>
             </a>
-            <a href='#'>
+            <a href='#' data-value="{{post.number_likes}}" data-id="{{post.id}}" class="getLikes">
               <i class='far fa-heart'></i>
-              <span>50</span>
+              <span>{{post.number_likes}}</span>
             </a>
           </div>
         </div>
@@ -211,3 +211,4 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
 <script src="/js/logout.js"></script>
 <script src="/js/search.js"></script>
+<script src="/js/likes.js"></script>

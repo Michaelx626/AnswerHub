@@ -100,8 +100,12 @@
                     <p class="mt-0 post_date">{{format_date post.date_created}} </p>
                   </div>
                   <div class="mt-3">
-                    <a href="/post/{{post.id}}"><i class="far fa-comment"></i> 10</a>
-                    <a href="#"><i class="far fa-heart"></i> 30</a>                
+                    <a href="/post/{{post.id}}"><i class="far fa-comment"></i> 
+                    {{#with post.comments}}
+                    {{post.comments.length}}
+                    {{/with}}
+                    </a>
+                    <a href="#" data-value="{{post.number_likes}}" data-id="{{post.id}}" class="getLikes"><i class="far fa-heart"></i>{{post.number_likes}}</a>                
                   </div>
                 </div>
               </div>
@@ -182,4 +186,5 @@
 <script src="/js/logout.js"></script>
 <script src="/js/post.js"></script>
 <script src="/js/search.js"></script>
+<script src="/js/likes.js"></script>
                 

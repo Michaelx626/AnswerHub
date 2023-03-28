@@ -56,3 +56,11 @@ a span{
   grid-gap: 10px;
   margin-bottom: 20px;
 }
+
+.post-content p,
+.card-text,
+.post_comment_box p,
+.post_content{
+  display: flex;
+  justify-content: center;
+}
