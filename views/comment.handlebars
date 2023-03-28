@@ -58,12 +58,15 @@
             class='dropdown-menu dropdown-menu-end'
             aria-labelledby='navbarDropdown'
           >
-            <li><a class="dropdown-item" href="/profile"><i class="fa-solid fa-user"></i> Profile</a></li>
-            <li><hr class="dropdown-divider"></li>
+            <li><a class='dropdown-item' href='/profile'><i
+                  class='fa-solid fa-user'
+                ></i>
+                Profile</a></li>
+            <li><hr class='dropdown-divider' /></li>
             <li><a class='dropdown-item' href='#'><i class='fas fa-edit'></i>
                 Edit Profile</a></li>
             <li><hr class='dropdown-divider' /></li>
-            <li><a class='dropdown-item logout-link' href="#"><i
+            <li><a class='dropdown-item logout-link' href='#'><i
                   class='fas fa-sign-out-alt'
                 ></i>
                 Logout</a></li>
@@ -74,78 +77,74 @@
   </div>
 </nav>
 
-<!-- User Bio -->
+<!--Main Content-->
 <div class='container'>
-  <div class='row'>
-    <div class='col-md-3'>
-      <div class='profile-card'>
-        <div class='profile-img'>
-          <img src='https://via.placeholder.com/150x150' alt='Profile Image' />
+  <h1 class='my-4'>Comments</h1>
+  <div class='row mx-auto'>
+    <div class='col-md-8'>
+      <div class='card mb-4'>
+        <div class='card-header'>
+          <h5>Profile</h5>
         </div>
-        <div class='profile-name'>
-          <h4>{{user.name}}</h4>
-        </div>
-        <div class='profile-bio'>
-          <p>Javascript | C++ | Python</p>
-        </div>
-        <div class='profile-bio'>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-            nihil optio aut veritatis. Dolore odit adipisci aperiam quidem
-            consectetur dolores!</p>
+        <div class='card-body post_comment_box'>
+          <img
+            src='https://via.placeholder.com/150'
+            alt='Profile Picture'
+            class='img-fluid rounded-circle mb-3'
+            width='50'
+            height='50'
+          />
+
+          <p class='card-text'>{{post.content}}</p>
+          <a
+            href='mailto:{{post.user.email}}'
+            class='text-muted'
+            id='username'
+          >@{{post.user.email}}</a>
+
         </div>
       </div>
-    </div>
 
-    <!--User's Post-->
-    <div class='col-md-6'>
-    {{#with user as |user|}}
-    {{#each user.posts as |post|}}
-      <div class='profile-card'>
-        <div class='user-post post-grid'>
-          <div class='post-header'>
-            <div class='post-author'>
+      <div class='card mb-4'>
+        <div class='card-body'>
+          <h5 class='card-title'>Comment </h5>
+          <form>
+            <div class='form-group'>
+              <textarea
+                class='form-control'
+                id='user_comment_box'
+                rows='3'
+                placeholder='Write your comment here'
+              ></textarea>
+            </div>
+            <button type='submit' id='comment_btn' class='btn btn-primary'>Post
+              Comment</button>
+          </form>
+        </div>
+      </div>
+
+      <!--Comments-->
+      {{#each comments as |comment|}}
+        <div class='card mb-4'>
+          <div class='card-body post_comment_box'>
+            <h5 class='card-title'>Comments</h5>
+            <p>{{comment.body}}</p>
+            <div class='media mb-4'>
               <img
-                src='https://via.placeholder.com/50x50'
-                alt='Profile Image'
-                class='post-profile-pic'
+                class='d-flex mr-3 rounded-circle'
+                src='https://via.placeholder.com/50'
+                alt=''
               />
-              <div class='post-author-info'>
-                <h5>{{user.name}}</h5>
-                <a href="mailto:{{user.email}}">@{{user.email}}</a>
+              <div class='media-body'>
+                <a
+                  href='mailto:{{comment.user.email}}'
+                  class='mt-0'
+                >{{comment.user.email}}</a>
               </div>
             </div>
-            <div class='post-time'>
-              <p>2 hours ago</p>
-            </div>
-          </div>
-          <div class='post-content'>
-            <p>{{post.content}}</p>
-          </div>
-          <div class='post-actions'>
-            <a href='/post/{{post.id}}'>
-              <i class='far fa-comment'></i>
-              <span>10</span>
-            </a>
-            <a href='#'>
-              <i class='far fa-heart'></i>
-              <span>50</span>
-            </a>
           </div>
         </div>
-      </div>
       {{/each}}
-      {{/with}}
-
-    <!--Recommended Users or Content -->
-    <div class='col-md-3'>
-      <div class='trending'>
-        <h4>Recommended</h4>
-        <ul>
-          <li><a href='#'>#webdevelopment</a></li>
-          <li><a href='#'>#music</a></li>
-          <li><a href='#'>#gaming</a></li>
-        </ul>
-      </div>
     </div>
   </div>
 </div>
@@ -193,13 +192,9 @@
   </div>
 </div>
 
-<!-- Footer -->
-<footer class='text-center'>
-  <p>&copy; 2023 AnswerHub</p>
-</footer>
-<!-- jQuery -->
-<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
-<!-- Bootstrap JS -->
+<script
+  src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'
+></script>
 <script
   src='https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js'
   integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q'
@@ -208,6 +203,6 @@
 <script
   src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js'
 ></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
-<script src="/js/logout.js"></script>
-<script src="/js/search.js"></script>
+<script src='/js/logout.js'></script>
+<script src='/js/comment.js'></script>
+<script src='/js/search.js'></script>
