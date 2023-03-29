@@ -3,6 +3,7 @@
     <div class='col-md-3 d-flex flex-column p-2 m-1'>
       <div class='card profile-card'>
         <div class='profile-img row align-items-center'>
+          {{#if user.profilePic}}
           <img 
             src='/uploads/{{user.profilePic}}' 
             alt='{{user.name}} Profile Image' 
@@ -10,6 +11,7 @@
             id="profile-pic-preview"
             width="150"
           />
+          {{/if}}
         </div>
         <div class='profile-name'>
           <h4>{{user.name}}</h4>
@@ -27,6 +29,7 @@
       <div class="card-body row">
         <div id='1' class="col-sm-12 d-flex flex-row">
           <div class="col-md-3 d-flex flex-column p-2 m-1 align-self-center" id="user-info">
+            {{#if post.user.profilePic}}
             <img 
               src="/uploads/{{post.user.profilePic}}" 
               class="rounded-circle align-self-center profile-pic-preview" 
@@ -34,6 +37,7 @@
               width='50'
               height="50"
             />
+            {{/if}}
             <p class="post_user align-self-center">{{post.user.name}} </p>
             <p class="post_date align-self-center">{{format_date post.date_created}} </p>
           </div>

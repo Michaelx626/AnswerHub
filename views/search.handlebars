@@ -5,12 +5,14 @@
       <div class='col-md-12 d-flex flex-column p-2 m-1'>
         <div class='card profile-card'>
           <div class='profile-img row align-items-center'>
+            {{#if search.profilePic}}
             <img 
-              src='https://via.placeholder.com/150x150' 
+              src='/uploads/{{search.profilePic}}' 
               alt='{{search.name}} Profile Image' 
               class="rounded-circle"
               width="150"
             />
+            {{/if}}
           </div>
           <div class='profile-name'>
             <h4><a href="mailto:{{search.email}}">{{search.name}}</a></h4>
