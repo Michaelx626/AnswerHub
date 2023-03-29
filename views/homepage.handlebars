@@ -1,80 +1,101 @@
-{{!-- {{> profile-navigation}} --}}
-<section class="container mt-3">
-  <div class="row">
-    <div class="col-md-4 col">
-      <div class="profile-card">
-        <div class="custom-card-header">
-          <h5 class="pt-2 px-2">Profile</h5>
+<section class='container mt-3'>
+  <div class='row'>
+    <div class='col-md-4 col'>
+      <div class='profile-card'>
+        <div class='custom-card-header'>
+          <h5 class='pt-2 px-2'>Profile</h5>
         </div>
-        <div class="card-body d-flex flex-column p-2 m-2">
+        <div class='card-body d-flex flex-column p-2 m-2'>
           {{#if user.profilePic}}
-          <img 
-            src="/uploads/{{user.profilePic}}" 
-            alt="Profile Picture" 
-            class="img-fluid rounded-circle mb-3 align-self-center"
-            width="150px"
-             height="150px"
-          />
+            <img
+              src='/uploads/{{user.profilePic}}'
+              alt='Profile Picture'
+              class='img-fluid rounded-circle mb-3 align-self-center'
+              width='150px'
+              height='150px'
+            />
           {{/if}}
-          <h4 class="align-self-start">{{users.name}}</h4>
-          <a class="text-muted align-self-start" href="mailto:{{users.email}}">{{users.email}}</a>
-          <ul class="align-self-start list-unstyled">
-            <a href="/airesponse"><li><i class="fa-brands fa-bilibili"></i>AI Assistant</li></a>
+          <h4 class='align-self-start'>{{users.name}}</h4>
+          <a
+            class='text-muted align-self-start'
+            href='mailto:{{users.email}}'
+          >{{users.email}}</a>
+          <ul class='align-self-start list-unstyled'>
+            <a href='/airesponse'><li><i class='fa-brands fa-bilibili'></i>AI
+                Assistant</li></a>
           </ul>
           <div class='profile-bio'>
-            <p id="userBio">{{users.userBio}}</p>
+            {{#if users.userBio}}
+              <p id='userBio'>{{users.userBio}}</p>
+            {{else}}
+              <p>Update your profile to add a profile picture or profile bio!</p>
+            {{/if}}
           </div>
         </div>
       </div>
     </div>
-    
-    <div class="col-md-8">
-      <div class="profile-card mb-3">
-        <div class="card-header">
+
+    <div class='col-md-8'>
+      <div class='profile-card'>
+        <div class='card-header'>
           <h5>What's happening?</h5>
         </div>
-        <div class="card-body">
+        <div class='card-body'>
           <form>
-            <div class="form-group">
-              <textarea class="form-control" id="user_inputbox" placeholder="Write something..." rows="3"></textarea>
+            <div class='form-group'>
+              <textarea
+                class='form-control'
+                id='user_inputbox'
+                placeholder='Write something...'
+                rows='3'
+              ></textarea>
+              <button
+                type='submit'
+                class='btn btn-primary post_btn m-2'
+              >Post</button>
             </div>
-            <button type="submit" class="btn btn-primary post_btn">Post</button>
           </form>
         </div>
       </div>
-      <div class="profile-card">
       {{#each posts as |post|}}
-        <div class="card-body row">
-          <div class="col-sm-12 d-flex flex-row">
-            <div class="col-md-3 d-flex flex-column p-2 m-1 align-self-center" id="user-info">
-              {{#if post.user.profilePic}}
-              <img 
-                src="/uploads/{{post.user.profilePic}}" 
-                class="rounded-circle align-self-center" 
-                alt="{{post.user.name}} profile picture"
-                width='50'
-                height="50"
-              />
-              {{/if}}
-              <p class="post_user align-self-center">{{post.user.name}}</p>
-              <p class="post_date align-self-center">{{format_date post.date_created}}</p>
-              <div class='mt3'>
-                <a href="/post/{{post.id}}"><i class="far fa-comment"></i> 
-                {{#with post.comments}}
-                {{post.comments.length}}
-                {{/with}}
-                </a>
+        <article class='profile-card'>
+          <div class='card-body'>
+            <div class='row d-flex align-items-center'>
+              <div class='col-sm-3 p-2 m-1 d-flex flex-column' id='user-info'>
+                {{#if post.user.profilePic}}
+                  <img
+                    src='/uploads/{{post.user.profilePic}}'
+                    class='rounded-circle align-self-center'
+                    alt='{{post.user.name}} profile picture'
+                    width='50'
+                    height='50'
+                  />
+                {{/if}}
+                <p class='post_user align-self-center'>{{post.user.name}}</p>
+                <p class='post_date align-self-center'>{{format_date
+                    post.date_created
+                  }}</p>
+              </div>
+              <div class='col-sm-8 p-2 m-1 d-flex flex-column' id='contents'>
+                <p class='post_content align-self-center'>{{post.content}}</p>
               </div>
             </div>
-            <div class="col-md-8 p-2 m-1 align-self-center" id="contents">
-              <p class="post_content">{{post.content}}</p>
-            </div>
-            
+              <div class='col-sm-12 m-1'>
+                <a href='/post/{{post.id}}'><i class='far fa-comment'></i>
+                  {{#if post.comments.length}}
+                  {{#with post.comments}}
+                    {{post.comments.length}}
+                  {{/with}}
+                  {{else}}
+                    0
+                  {{/if}}
+                </a>
+              </div>
           </div>
-        </div>
-        {{/each}}
+        </article>
+      {{/each}}
+    </div>
   </div>
-</section>  
+</section>
 
-<script src="/js/post.js"></script>
-                
+<script src='/js/post.js'></script>

@@ -57,7 +57,7 @@ router.get('/post/:id', async (req, res) => {
     comments.sort(
       (a, b) => new Date(b.date_created) - new Date(a.date_created)
     );
-    
+
     res.render('comment', {
       post,
       comments,
@@ -91,7 +91,7 @@ router.get('/profile', async (req, res) => {
 
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/homepage');
     return;
   }
 

@@ -1,63 +1,71 @@
-{{!-- {{> profile-navigation}} --}}
 <section class='container p-2'>
   <div class='row'>
     <div class='col-md-3 d-flex flex-column p-2 m-1'>
       <div class='profile-card'>
-        <div class='profile-img row align-items-center'>
+        {{#if user.profilePic}}
+          <div class='profile-img row align-items-center'>
 
-          {{#if user.profilePic}}
-          <img 
-            src='/uploads/{{user.profilePic}}' 
-            alt='{{user.name}} Profile Image' 
-            class="rounded-circle"
-            id="profile-pic-preview"
-            width="150"
-          />
-          {{/if}}
-        </div>
+            <img
+              src='/uploads/{{user.profilePic}}'
+              alt='{{user.name}} Profile Image'
+              class='rounded-circle'
+              id='profile-pic-preview'
+              width='150'
+            />
+          </div>
+        {{/if}}
         <div class='profile-name'>
           <h4>{{user.name}}</h4>
         </div>
         <div class='profile-bio'>
-          <p id="userBio">{{user.userBio}}</p>
+          {{#if user.userBio}}
+            <p id='userBio'>{{user.userBio}}</p>
+          {{else}}
+            <p>Update your profile to add a profile picture or profile bio!</p>
+          {{/if}}
         </div>
       </div>
     </div>
-
-    {{#with user as |user|}}
-    {{#each user.posts as |post|}}
     <div class='col-md-8'>
-    <article class="profile-card card m-2">
-      <div class="card-body row">
-        <div id='1' class="col-sm-12 d-flex flex-row">
-          <div class="col-md-3 d-flex flex-column p-2 m-1 align-self-center" id="user-info">
-            {{#if post.user.profilePic}}
-            <img 
-              src="/uploads/{{post.user.profilePic}}" 
-              class="rounded-circle align-self-center profile-pic-preview" 
-              alt="{{user.name}} profile picture"
-              width='50'
-              height="50"
-            />
-            {{/if}}
-            <p class="post_user align-self-center">{{user.name}} </p>
-            <p class="post_date align-self-center">{{format_date post.date_created}} </p>
-          </div>
-        </div>  
-          <div class="col-md-8 p-2 m-1 align-self-center" id="contents">
-            <p class="post_content"> {{post.content}}</p>
-          </div>
-          <div class='post-actions'>
-            <a href='/post/{{post.id}}'>
-              <i class='far fa-comment'></i>
-              <span>{{post.comments.length}}</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </article>
-    {{/each}}
-    {{/with}}
+      {{#with user as |user|}}
+        {{#each user.posts as |post|}}
+          <article class='profile-card'>
+            <div class='card-body'>
+              <div class='row d-flex align-items-center'>
+                <div class='col-sm-3 p-2 m-1 d-flex flex-column' id='user-info'>
+                  {{#if post.user.profilePic}}
+                    <img
+                      src='/uploads/{{post.user.profilePic}}'
+                      class='rounded-circle align-self-center'
+                      alt='{{post.user.name}} profile picture'
+                      width='50'
+                      height='50'
+                    />
+                  {{/if}}
+                  <p class='post_user align-self-center'>{{user.name}}</p>
+                  <p class='post_date align-self-center'>{{format_date
+                      post.date_created
+                    }}</p>
+                </div>
+                <div class='col-sm-8 p-2 m-1 d-flex flex-column' id='contents'>
+                  <p class='post_content align-self-center'>{{post.content}}</p>
+                </div>
+              </div>
+              <div class='col-sm-12 m-1'>
+                <a href='/post/{{post.id}}'><i class='far fa-comment'></i>
+                  {{#if post.comments.length}}
+                    {{#with post.comments}}
+                      {{post.comments.length}}
+                    {{/with}}
+                  {{else}}
+                    0
+                  {{/if}}
+                </a>
+              </div>
+            </div>
+          </article>
+        {{/each}}
+      {{/with}}
+    </div>
   </div>
 </section>
-

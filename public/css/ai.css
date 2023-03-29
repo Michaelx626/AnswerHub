@@ -2,7 +2,6 @@
   height: 400px;
   overflow-y: scroll;
 }
-/* Style messages */
 .message {
   margin-bottom: 10px;
 }
@@ -20,7 +19,6 @@
   border-radius: 15px;
   display: inline-block;
 }
-/* Style input area */
 .input-area {
   margin-top: 10px;
 }
