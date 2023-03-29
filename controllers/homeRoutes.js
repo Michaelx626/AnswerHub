@@ -57,7 +57,7 @@ router.get('/post/:id', async (req, res) => {
     comments.sort(
       (a, b) => new Date(b.date_created) - new Date(a.date_created)
     );
-    
+
     res.render('comment', {
       post,
       comments,
