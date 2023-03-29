@@ -65,8 +65,14 @@
               </div>
             </div>
             <div class="col-sm-12 ms-sm-2 ms-md-5">
-              <a href="/post/{{post.id}}"><i class="far fa-comment"></i> 10</a>
-              <a href="#"><i class="far fa-heart"></i> 30</a>    
+              <a href='/post/{{post.id}}'>
+                <i class="far fa-comment"></i>
+                <span>{{comments.length}}</span>
+              </a>
+              <a href="#" data-value="{{post.number_likes}}" data-id="{{post.id}}" class="getLikes">
+                <i class="far fa-heart"></i>
+                <span>{{post.number_likes}}</span>
+              </a>    
             </div>
           </div>
         </div>
@@ -75,4 +81,3 @@
     </div>
   </div>
 </div>
-<script src="/js/search.js"></script>

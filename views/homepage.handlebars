@@ -95,13 +95,18 @@
             </div>
           </div>
           <div class="col-sm-12 ms-sm-2 ms-md-5">
-            <a href="/post/{{post.id}}"><i class="far fa-comment"></i> 10</a>
-            <a href="#"><i class="far fa-heart"></i> 30</a>    
+            <a href="/post/{{post.id}}"><i class="far fa-comment"></i>
+            {{#with post.comments}}
+            {{post.comments.length}}
+            {{/with}}
+            </a>
+            <a href="#" data-value="{{post.number_likes}}" data-id="{{post.id}}" class=getLikes><i class="far fa-heart"></i>{{post.number_likes}}</a>    
           </div>
         </div>
       </div>
       {{/each}}
     </div>
   </div>
-</div>
+</div>      
+<script src="/js/likes.js"></script>
                 
