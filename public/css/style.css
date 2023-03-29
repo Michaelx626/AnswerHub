@@ -56,3 +56,9 @@ a span{
   grid-gap: 10px;
   margin-bottom: 20px;
 }
+
+.custom-comment-card{
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: lightgray;
+}

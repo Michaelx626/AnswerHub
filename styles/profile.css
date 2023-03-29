@@ -1,9 +1,15 @@
-
+:root{
+  --transparent-black: rgba(0, 0, 0, 0.1);
+  --black: #000;
+  --light-blue: #1da1f2;
+  --white: #fff;
+  --lightgray: #ddd;
+}
   /* Navbar styling */
 .navbar {
-    background-color: #fff;
+    background-color: var(--white);
     border-color: transparent;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px var(--transparent-black);
     font-size: 18px;
     letter-spacing: 1px;
     padding: 15px 30px;
@@ -11,32 +17,32 @@
   
   .navbar-brand {
     font-size: 28px;
-    color: #1da1f2;
+    color: var(--light-blue);
   }
   
   .navbar-brand:hover {
-    color: #000;
+    color: var(--black);
   }
   
   .navbar-toggle {
-    border-color: #1da1f2;
+    border-color: var(--light-blue);
   }
   
   .navbar-toggle:hover {
-    background-color: #1da1f2;
+    background-color: var(--light-blue);
   }
   
   .navbar-toggle .fa-bars {
-    color: #1da1f2;
+    color: var(--light-blue);
   }
   
   .navbar-nav > li > a {
-    color: #000;
+    color: var(--black);
     margin-left: 30px;
   }
   
   .navbar-nav > li > a:hover {
-    color: #1da1f2;
+    color: var(--light-blue);
   }
   
   .navbar-nav > li > a .fa-home {
@@ -61,9 +67,9 @@
   }
   
   .dropdown-menu {
-    background-color: #fff;
+    background-color: var(--white);
     border-color: #ddd;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px var(--transparent-black);
     font-size: 16px;
     letter-spacing: 0.5px;
     margin-top: 10px;
@@ -72,14 +78,14 @@
   }
   
   .dropdown-menu > li > a {
-    color: #000;
+    color: var(--black);
     font-size: 16px;
     padding: 5px 15px;
   }
   
   .dropdown-menu > li > a:hover {
-    background-color: #1da1f2;
-    color: #fff;
+    background-color: var(--light-blue);
+    color: var(--white);
   }
   
   .dropdown-menu > li > a .fa-edit {
@@ -92,9 +98,9 @@
   
   /* Profile card styling */
   .profile-card {
-    background-color: #fff;
-    border-color: #ddd;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: var(--white);
+    border-color: var(--lightgray);
+    box-shadow: 0 2px 5px var(--transparent-black);
     margin-bottom: 30px;
     padding: 20px;
   }
@@ -111,7 +117,7 @@
   }
   
   .profile-name h4 {
-    color: #1da1f2;
+    color: var(--light-blue);
     font-size: 24px;
     margin-top: 15px;
   }
