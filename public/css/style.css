@@ -63,4 +63,10 @@ a span{
 .post_content{
   display: flex;
   justify-content: center;
+
+.custom-comment-card{
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: lightgray;
+
 }

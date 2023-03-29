@@ -1,190 +1,112 @@
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          <i class="fab fa-icon"></i>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbar-collapse">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="fas fa-home"></i> Home
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <i class="fas fa-bell"></i> Notifications
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <i class="fas fa-envelope"></i> Messages
-              </a>
-            </li>
-            <li class='nav-item'>
-            <a
-            class='nav-link'
-            href='#'
-            data-bs-toggle='modal'
-            data-bs-target='#exampleModal'
-            >
-            <i class='fa-solid fa-magnifying-glass'></i>
-            Search
-            </a>
-          </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fas fa-user"></i> Profile
-              </a>
-              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="/profile"><i class="fa-solid fa-user"></i> Profile</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#"><i class="fas fa-edit"></i> Edit Profile</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item logout-link" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-              </ul>
-            </li>
+<div class="container mt-3">
+  <div class="row">
+    <!-- Left Column -->
+    <div class="col-md-4 col">
+      <div class="profile-card">
+        <div class="custom-card-header">
+          <h5 class="pt-2 px-2">Profile</h5>
+        </div>
+        <div class="card-body d-flex flex-column p-2 m-2">
+          <img 
+            src="https://via.placeholder.com/150" 
+            alt="Profile Picture" 
+            class="img-fluid rounded-circle mb-3 align-self-center"
+            width="150px"
+             height="150px"
+          />
+          <h4 class="align-self-start">{{users.name}}</h4>
+          <a class="text-muted align-self-start" href="mailto:{{users.email}}">{{users.email}}</a>
+          <ul class="align-self-start list-unstyled">
+            <li><i class="fas fa-user"></i> 10 Followers</li>
+            <li><i class="fas fa-user"></i> 20 Following</li>
+            <a href="/airesponse"><li><i class="fa-brands fa-bilibili"></i>AI Assistant</li></a>
           </ul>
         </div>
       </div>
-    </nav>
-    <!-- Content Area -->
-    <div class="container mt-3">
-      <div class="row">
-        <!-- Left Column -->
-        <div class="col-md-3">
-          <div class="card">
-            <div class="card-header">
-              <h5>Profile</h5>
-            </div>
-            <div class="card-body">
-              <img src="https://via.placeholder.com/150" alt="Profile Picture" class="img-fluid rounded-circle mb-3">
-              <h4>{{users.name}}</h4>
-              <a class="text-muted" href="mailto:{{users.email}}">@{{users.email}}</a>
-              <ul class="list-unstyled">
-                <li><i class="fas fa-user"></i> 10 Followers</li>
-                <li><i class="fas fa-user"></i> 20 Following</li>
-                <li><i class="fas fa-edit"></i> Edit Profile</li>
-               <a href="/airesponse"><li><i class="fa-brands fa-bilibili"></i>AI Assistant</li></a>
-              </ul>
-            </div>
+      <div>
+        <div class="profile-card">
+          <div class="custom-card-header">
+            <h5 class="pt-1 px-1">Recommened Connections</h5>
           </div>
-         
-        </div>
-        <!-- Middle Column -->
-        <div class="col-md-6">
-          <div class="card mb-3"><div class="card-header">
-              <h5>What's happening?</h5>
-            </div>
-            <div class="card-body">
-              <form>
-                <div class="form-group">
-                  <textarea class="form-control" id="user_inputbox" placeholder="Write something..." rows="3"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary post_btn">Post</button>
-              </form>
-            </div>
-          </div>
-
-          {{#each posts as |post|}}
-          <div class="card">
-            <div class="card-body">
-              <div class="media mb-3">
-                <img src="https://via.placeholder.com/50" class="mr-3 rounded-circle" alt="User Picture">
-                <div class="media-body">
-                  <div class="post-grid">
-                    <h5 class="mt-0 post_user">{{post.user.name}} </h5>
-                    <p class="post_content"> {{post.content}}</p>
-                    <p class="mt-0 post_date">{{format_date post.date_created}} </p>
-                  </div>
-                  <div class="mt-3">
-                    <a href="/post/{{post.id}}"><i class="far fa-comment"></i> 
-                    {{#with post.comments}}
-                    {{post.comments.length}}
-                    {{/with}}
-                    </a>
-                    <a href="#" data-value="{{post.number_likes}}" data-id="{{post.id}}" class="getLikes"><i class="far fa-heart"></i>{{post.number_likes}}</a>                
-                  </div>
-                </div>
+          <div class="card-body d-flex flex-column row">
+            <div class="media recommended-user-block d-flex flex-row justify-content-left col-sm-12 pe-2 py-2">
+              <img 
+                src="https://via.placeholder.com/50" 
+                class="m-1 rounded-circle " 
+                alt="User Picture"
+                width="50"
+                height="50"
+              >
+              <div class="media-body p-1 m-1">
+                <p class="recommended-name">Jane Smith </p>
+                <button type="button" class="btn btn-primary btn-sm follow-btn">Follow</button>
               </div>
             </div>
-          </div>
-          {{/each}}
-
-        <!-- Right Column -->
-          <div class="card">
-            <div class="card-header">
-              <h5>Recommened Connections</h5>
-            </div>
-            <div class="card-body">
-              <div class="media mb-3 recommended-user-block">
-                <img src="https://via.placeholder.com/50" class="mr-3 rounded-circle recommended-user" alt="User Picture">
-                <div class="media-body">
-                  <h5 class="mt-0 recommended-name">Jane Smith </h5>
-                  <button type="button" class="btn btn-primary follow-btn">Follow</button>
-                </div>
-              </div>
-              <div class="media mb-3 recommended-user-block">
-                <img src="https://via.placeholder.com/50" class="mr-3 rounded-circle recommended-user" alt="User Picture">
-                <div class="media-body">
-                  <h5 class="mt-0 recommended-name">John Doe</h5>
-                  <button type="button" class="btn btn-primary follow-btn">Follow</button>
-                </div>
+            <div class="media recommended-user-block d-flex flex-row justify-content-left col-sm-12 pe-2 py-2">
+              <img 
+                src="https://via.placeholder.com/50" 
+                class="m-1 rounded-circle " 
+                alt="User Picture"
+                width="50"
+                height="50"
+              >
+              <div class="media-body p-1 m-1">
+                <p class="recommended-name">John Doe </p>
+                <button type="button" class="btn btn-primary btn-sm follow-btn">Follow</button>
               </div>
             </div>
+            </div>
           </div>
-      </div>    
-<!--Search Modal-->
-<div
-  class='modal fade'
-  id='exampleModal'
-  tabindex='-1'
-  aria-labelledby='exampleModalLabel'
-  aria-hidden='true'
->
-  <div class='modal-dialog'>
-    <div class='modal-content'>
-      <div class='modal-header'>
-        <h1 class='modal-title fs-5' id='exampleModalLabel'>Modal title</h1>
-        <button
-          type='button'
-          class='btn-close'
-          data-bs-dismiss='modal'
-          aria-label='Close'
-        ></button>
       </div>
-      <div class='modal-body'>
-        <div class='input-group mb-3'>
-          <span class='input-group-text' id='basic-addon1'>@</span>
-          <input
-            type='text'
-            class='form-control user_searches'
-            placeholder='Username'
-            aria-label='Username'
-            aria-describedby='basic-addon1'
-          />
+    </div>
+
+    <!-- Middle Column -->
+    <div class="col-md-8">
+      <div class="profile-card mb-3">
+        <div class="custom-card-header">
+          <h5 class="pt-2 px-2">What's happening?</h5>
+        </div>
+        <div class="card-body">
+          <form class="p-1">
+            <div class="form-group">
+              <textarea class="form-control" id="user_inputbox" placeholder="Write something..." rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary post_btn">Post</button>
+          </form>
         </div>
       </div>
-      <div class='modal-footer'>
-        <button
-          type='button'
-          class='btn btn-secondary'
-          data-bs-dismiss='modal'
-        >Close</button>
-        <button type='button' class='btn btn-primary search_btn'>Search</button>
+      {{#each posts as |post|}}
+      <div class="profile-card">
+        <div class="card-body row">
+          <div class="col-sm-12 d-flex flex-row">
+            <div class="col-md-3 d-flex flex-column p-2 m-1 align-self-center" id="user-info">
+              <img 
+                src="https://via.placeholder.com/50" 
+                class="rounded-circle align-self-center" 
+                alt="{{post.user.name}} profile picture"
+                width='50'
+                height="50"
+              />
+              <p class="post_user align-self-center">{{post.user.name}} </p>
+              <p class="post_date align-self-center">{{format_date post.date_created}} </p>
+            </div>
+            <div class="col-md-8 p-2 m-1 align-self-center" id="contents">
+              <p class="post_content"> {{post.content}}</p>
+            </div>
+          </div>
+          <div class="col-sm-12 ms-sm-2 ms-md-5">
+            <a href="/post/{{post.id}}"><i class="far fa-comment"></i>
+            {{#with post.comments}}
+            {{post.comments.length}}
+            {{/with}}
+            </a>
+            <a href="#" data-value="{{post.number_likes}}" data-id="{{post.id}}" class=getLikes><i class="far fa-heart"></i>{{post.number_likes}}</a>    
+          </div>
+        </div>
       </div>
+      {{/each}}
     </div>
   </div>
 </div>      
-
-      
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js"></script>
-<script src="/js/logout.js"></script>
-<script src="/js/post.js"></script>
-<script src="/js/search.js"></script>
 <script src="/js/likes.js"></script>
                 
