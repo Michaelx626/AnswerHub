@@ -101,11 +101,11 @@
   crossorigin="anonymous"
 ></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js"></script>
+{{#if logged_in}}
 <script src="/js/logout.js"></script>
 <script src="/js/search.js"></script>
 <script src="/js/profile.js"></script>
-<script src="/js/comments.js"></script>
-<script src="/js/post.js"></script>
+{{/if}}
 
 </body>
 </html>

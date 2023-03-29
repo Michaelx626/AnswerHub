@@ -111,7 +111,7 @@ router.get('/search', async (req, res) => {
     });
 
     const searches = searchData.map((search) => search.get({ plain: true }));
-    
+    console.log(searches);
     res.render('search', { searches });
   } catch (error) {
     res.status(400).json(error);

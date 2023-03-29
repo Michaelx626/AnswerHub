@@ -47,11 +47,10 @@
           <div class="col-md-8 p-2 m-1 align-self-center" id="contents">
             <p class="post_content"> {{post.content}}</p>
           </div>
-          <div class='mt3'>
-            <a href="/post/{{post.id}}"><i class="far fa-comment"></i> 
-            {{#with post.comments}}
-            {{post.comments.length}}
-            {{/with}}
+          <div class='post-actions'>
+            <a href='/post/{{post.id}}'>
+              <i class='far fa-comment'></i>
+              <span>{{post.comments.length}}</span>
             </a>
           </div>
         </div>
@@ -61,3 +60,5 @@
     {{/with}}
   </div>
 </section>
+
+<script src="/js/comments.js"></script>
