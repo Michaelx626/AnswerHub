@@ -5,18 +5,18 @@
 
       <article class='card'>
         <div class='card-header'>
-          <h5 class="px-3 my-1">Post</h5>
+          <h5 class='px-3 my-1'>Post</h5>
         </div>
         <div class='card-body d-flex flex-row'>
           <div class='d-flex flex-column p-1 col-sm-2'>
             {{#if post.user.profilePic}}
-            <img
-              src='/uploads/{{post.user.profilePic}}'
-              alt='{{post.user.name}} profile picture'
-              class='img-fluid rounded-circle m-1 align-self-center'
-              width='50'
-              height='50'
-            />
+              <img
+                src='/uploads/{{post.user.profilePic}}'
+                alt='{{post.user.name}} profile picture'
+                class='img-fluid rounded-circle m-1 align-self-center'
+                width='50'
+                height='50'
+              />
             {{/if}}
             <a
               href='mailto:{{post.user.email}}'
@@ -27,18 +27,18 @@
           <div class='col-sm-10 align-self-center'>
             <p class='card-text jusitfy-content-center'>{{post.content}}</p>
           </div>
-          <div class="col-sm-12 mx-2">
-            <p class="text-muted m-1 p-2">{{format_date post.date_created}}</p>
+          <div class='col-sm-12 mx-2'>
+            <p class='text-muted m-1 p-2'>{{format_date post.date_created}}</p>
           </div>
         </div>
       </article>
 
       <div class='card col-sm-12'>
-        <div class="p-1">
+        <div class='p-1'>
           <h5 class='card-title p-1 m-0'>Comment </h5>
         </div>
         <div class='card-body'>
-          <form class="p-1">
+          <form class='p-1'>
             <div class='form-group'>
               <textarea
                 class='form-control'
@@ -47,7 +47,8 @@
                 placeholder='Write your comment here'
               ></textarea>
             </div>
-            <button type='submit' id='comment_btn' class='btn btn-primary'>Post Comment</button>
+            <button type='submit' id='comment_btn' class='btn btn-primary'>Post
+              Comment</button>
           </form>
         </div>
       </div>
@@ -58,30 +59,32 @@
         </div>
         <div class='card-body'>
           <ul class='list-group list-group-flush'>
-          {{#each comments as |comment|}}
-          <li class='list-group-item col-sm-12 d-flex flex-row'>
-              <div class='d-flex flex-column col-sm-2 p-1'>
-                {{#if comment.user.profilePic}}
-                <img
-                  class='rounded-circle align-self-center m-1'
-                  src='/uploads/{{comment.user.profilePic}}'
-                  alt='{{comment.user.name}} profile image'
-                  width='50'
-                  height='50'
-                />
-                {{/if}}
-                <a
-                  class='align-self-center p-1'
-                  href='mailto:{{comment.user.email}}'
-                  class='mt-0'
-                >{{comment.user.name}}</a>
-                <p class="text-muted m-1 p-2">{{format_date comment.date_created}}</p>
-              </div>
-              <div class='col-sm-9 align-self-center'>
-                <p class="m-0">{{comment.body}}</p>
-              </div>
-          </li>
-          {{/each}}
+            {{#each comments as |comment|}}
+              <li class='list-group-item col-sm-12 d-flex flex-row'>
+                <div class='d-flex flex-column col-sm-2 p-1'>
+                  {{#if comment.user.profilePic}}
+                    <img
+                      class='rounded-circle align-self-center m-1'
+                      src='/uploads/{{comment.user.profilePic}}'
+                      alt='{{comment.user.name}} profile image'
+                      width='50'
+                      height='50'
+                    />
+                  {{/if}}
+                  <a
+                    class='align-self-center p-1'
+                    href='mailto:{{comment.user.email}}'
+                    class='mt-0'
+                  >{{comment.user.name}}</a>
+                  <p class='text-muted m-1 p-2'>{{format_date
+                      comment.date_created
+                    }}</p>
+                </div>
+                <div class='col-sm-9 align-self-center'>
+                  <p class='m-0'>{{comment.body}}</p>
+                </div>
+              </li>
+            {{/each}}
           </ul>
         </div>
       </div>

@@ -1,177 +1,205 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AnswerHub</title>
-  <link
-  href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap"
-  rel="stylesheet"
-  />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-  <link rel="stylesheet" href="/css/jass.css">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/homepage.css">
-  <link rel="stylesheet" href="/css/login.css">
-  <link rel="stylesheet" href="/css/ai.css">
-  <link rel="stylesheet" href="/css/profile.css">
-</head>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>AnswerHub</title>
+    <link
+      href='https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap'
+      rel='stylesheet'
+    />
+    <link
+      rel='stylesheet'
+      href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css'
+      integrity='sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65'
+      crossorigin='anonymous'
+    />
+    <link
+      rel='stylesheet'
+      href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css'
+    />
+    <link rel='stylesheet' href='/css/jass.css' />
+    <link rel='stylesheet' href='/css/style.css' />
+    <link rel='stylesheet' href='/css/homepage.css' />
+    <link rel='stylesheet' href='/css/login.css' />
+    <link rel='stylesheet' href='/css/ai.css' />
+    <link rel='stylesheet' href='/css/profile.css' />
+  </head>
 
-<body>
-  {{#if logged_in}}
-    <nav class='navbar navbar-expand-lg navbar-light bg-light profile-nav'>
-    <div class='container-fluid'>
-      <a class='navbar-brand' href='#'>
-        <i class='fab fa-icon'></i>
-      </a>
-      <button
-        class='navbar-toggler'
-        type='button'
-        data-bs-toggle='collapse'
-        data-bs-target='#navbar-collapse'
-      >
-        <span class='navbar-toggler-icon'></span>
-      </button>
-      <div class='collapse navbar-collapse' id='navbar-collapse'>
-        <ul class='navbar-nav ms-auto'>
-          <li class='nav-item'>
-            <a class='nav-link' href='/'>
-              <i class='fas fa-home'></i>
-              Home
-            </a>
-          </li>
-          <li class='nav-item'>
-            <a
-              class='nav-link'
-              href='#'
-              data-bs-toggle='modal'
-              data-bs-target='#exampleModal'
-            >
-              <i class='fa-solid fa-magnifying-glass'></i>
-              Search
-            </a>
-          </li>
-          <li class='nav-item'>
-            <a 
-              href='/profile'
-              class="nav-link"
-            >
-            <i class='fa-solid fa-user'></i>
-              Profile
-            </a>
-          </li>
-          <li class='nav-item'>
-            <a
-              class='nav-link edit-profile'
-              href='#'
-              id='edit-profile'
-              data-bs-toggle='modal'
-              data-bs-target='#editProfile'
-            >
-              <i class='fas fa-edit'></i>
-              Edit Profile
-            </a>
-          </li>
-          <li class='nav-item'>
-            <a class='nav-link logout-link' href='/logout'>
-              <i class='fas fa-sign-out-alt logout-link'></i>
-              Logout
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  {{/if}}
-
-  <main>
-  {{{ body }}}
-  </main>
-  <div
-    class='modal fade'
-    id='exampleModal'
-    tabindex='-1'
-    aria-labelledby='exampleModalLabel'
-    aria-hidden='true'
-  >
-    <div class='modal-dialog'>
-      <div class='modal-content'>
-        <div class='modal-header'>
-          <h1 class='modal-title fs-5' id='exampleModalLabel'>Search for a user</h1>
+  <body>
+    {{#if logged_in}}
+      <nav class='navbar navbar-expand-lg navbar-light bg-light profile-nav'>
+        <div class='container-fluid'>
+          <a class='navbar-brand' href='#'>
+            <i class='fab fa-icon'></i>
+          </a>
           <button
+            class='navbar-toggler'
             type='button'
-            class='btn-close'
-            data-bs-dismiss='modal'
-            aria-label='Close'
-          ></button>
-        </div>
-        <div class='modal-body'>
-          <div class='input-group mb-3'>
-            <span class='input-group-text' id='basic-addon1'>@</span>
-            <input
-              type='text'
-              class='form-control user_searches'
-              placeholder='Username'
-              aria-label='Username'
-              aria-describedby='basic-addon1'
-            />
+            data-bs-toggle='collapse'
+            data-bs-target='#navbar-collapse'
+          >
+            <span class='navbar-toggler-icon'></span>
+          </button>
+          <div class='collapse navbar-collapse' id='navbar-collapse'>
+            <ul class='navbar-nav ms-auto'>
+              <li class='nav-item'>
+                <a class='nav-link' href='/'>
+                  <i class='fas fa-home'></i>
+                  Home
+                </a>
+              </li>
+              <li class='nav-item'>
+                <a
+                  class='nav-link'
+                  href='#'
+                  data-bs-toggle='modal'
+                  data-bs-target='#exampleModal'
+                >
+                  <i class='fa-solid fa-magnifying-glass'></i>
+                  Search
+                </a>
+              </li>
+              <li class='nav-item'>
+                <a href='/profile' class='nav-link'>
+                  <i class='fa-solid fa-user'></i>
+                  Profile
+                </a>
+              </li>
+              <li class='nav-item'>
+                <a
+                  class='nav-link edit-profile'
+                  href='#'
+                  id='edit-profile'
+                  data-bs-toggle='modal'
+                  data-bs-target='#editProfile'
+                >
+                  <i class='fas fa-edit'></i>
+                  Edit Profile
+                </a>
+              </li>
+              <li class='nav-item'>
+                <a class='nav-link logout-link' href='/logout'>
+                  <i class='fas fa-sign-out-alt logout-link'></i>
+                  Logout
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
-        <div class='modal-footer'>
-          <button
-            type='button'
-            class='btn btn-secondary'
-            data-bs-dismiss='modal'
-          >Close</button>
-          <button type='button' class='btn btn-primary search_btn'>Search</button>
+      </nav>
+    {{/if}}
+
+    <main>
+      {{{body}}}
+    </main>
+    <div
+      class='modal fade'
+      id='exampleModal'
+      tabindex='-1'
+      aria-labelledby='exampleModalLabel'
+      aria-hidden='true'
+    >
+      <div class='modal-dialog'>
+        <div class='modal-content'>
+          <div class='modal-header'>
+            <h1 class='modal-title fs-5' id='exampleModalLabel'>Search for a
+              user</h1>
+            <button
+              type='button'
+              class='btn-close'
+              data-bs-dismiss='modal'
+              aria-label='Close'
+            ></button>
+          </div>
+          <div class='modal-body'>
+            <div class='input-group mb-3'>
+              <span class='input-group-text' id='basic-addon1'>@</span>
+              <input
+                type='text'
+                class='form-control user_searches'
+                placeholder='Username'
+                aria-label='Username'
+                aria-describedby='basic-addon1'
+              />
+            </div>
+          </div>
+          <div class='modal-footer'>
+            <button
+              type='button'
+              class='btn btn-secondary'
+              data-bs-dismiss='modal'
+            >Close</button>
+            <button
+              type='button'
+              class='btn btn-primary search_btn'
+            >Search</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="modal fade" id="editProfile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Profile</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <form>
-          <div class="modal-body">
-            <p> Change Your Profile Picture</p>
-            <input type="file" id="profile-pic-input" class="mb-2" />
+    <div
+      class='modal fade'
+      id='editProfile'
+      tabindex='-1'
+      aria-labelledby='exampleModalLabel'
+      aria-hidden='true'
+    >
+      <div class='modal-dialog'>
+        <div class='modal-content'>
+          <div class='modal-header'>
+            <h1 class='modal-title fs-5' id='exampleModalLabel'>Edit Profile</h1>
+            <button
+              type='button'
+              class='btn-close'
+              data-bs-dismiss='modal'
+              aria-label='Close'
+            ></button>
           </div>
-          <div class="form-group">
-            <label for="bio">Bio:</label>
-            <textarea class="form-control" id="bio" rows="5"></textarea>
+          <form>
+            <div class='modal-body'>
+              <p> Change Your Profile Picture</p>
+              <input type='file' id='profile-pic-input' class='mb-2' />
+            </div>
+            <div class='form-group'>
+              <label for='bio'>Bio:</label>
+              <textarea class='form-control' id='bio' rows='5'></textarea>
+            </div>
+          </form>
+          <div class='modal-footer'>
+            <button
+              type='button'
+              class='btn btn-primary'
+              id='upload-save'
+              data-bs-dismiss='modal'
+            >Save</button>
           </div>
-        </form>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" id="upload-save" data-bs-dismiss="modal">Save</button>
         </div>
       </div>
     </div>
-  </div>
 
-  <footer class="text-center">
-    <p>&copy; 2023 AnswerHub</p>
-  </footer>
-  
-<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
-  src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-  crossorigin="anonymous"
-></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js"></script>
-{{#if logged_in}}
-<script src="/js/logout.js"></script>
-<script src="/js/search.js"></script>
-<script src="/js/profile.js"></script>
-{{/if}}
+    <footer class='text-center'>
+      <p>&copy; 2023 AnswerHub</p>
+    </footer>
 
-</body>
+    <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+    <script
+      src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'
+    ></script>
+    <script
+      src='https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js'
+      integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q'
+      crossorigin='anonymous'
+    ></script>
+    <script
+      src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js'
+    ></script>
+    {{#if logged_in}}
+      <script src='/js/logout.js'></script>
+      <script src='/js/search.js'></script>
+      <script src='/js/profile.js'></script>
+    {{/if}}
+
+  </body>
 </html>

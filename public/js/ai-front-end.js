@@ -1,15 +1,6 @@
 const userQuestion = document.getElementById('user-input');
 const sendBtn = document.getElementById('sendBtn');
 
-/* Send question to server using Post request and recieve response
- * @userQuestion - question asked by user
- * @aiResponseText - string response returned by AI
- * @messageContainer - container that stores the whole chat between AI and user
- * @messageResponse - response from AI after it is turned into HTML element
- * @returns - @messageResponse
- * @questionElement - question asked by user turned into HTML Div element and appended to messageContainer
- */
-
 const aiResponse = async () => {
   if (userQuestion.value === '') {
     alert('Please enter a prompt first!');
@@ -31,9 +22,6 @@ const aiResponse = async () => {
     userMessageEl.appendChild(userTextEl);
     messageContainer.appendChild(userMessageEl);
 
-    // const questionElement = document.createElement('div');
-    // questionElement.innerHTML = userMessageResponse;
-    // messageContainer.appendChild(questionElement)
     userQuestion.value = '';
 
     const url = window.location.pathname;
@@ -59,18 +47,10 @@ const aiResponse = async () => {
     aiTextEl.textContent = aiResponseText;
     aiMessageEl.appendChild(aiTextEl);
     messageContainer.appendChild(aiMessageEl);
-
-  // const responseElement = document.createElement('div');
-  // responseElement.innerHTML = messageResponse;
-  // messageContainer.appendChild(responseElement);
   }
 };
 
 sendBtn.addEventListener('click', aiResponse);
-
-/*
- *@return - returns the timestamp in which the chat started
- */
 
 function getCurrentTime() {
   const now = new Date();
