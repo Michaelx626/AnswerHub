@@ -17,5 +17,4 @@ const searchBar = async (event) => {
   }
 };
 
-// document.querySelectorAll('.search_btn').addEventListener('click', searchBar);
-document.querySelectorAll('.search_btn').forEach((button) => button.addEventListener('click'), searchBar);
+document.querySelector('.search_btn').addEventListener('click', searchBar);

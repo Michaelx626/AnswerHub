@@ -44,14 +44,6 @@ User.init(
       type: DataTypes.STRING,
       allowNull: true,
     }
-    // follow_id: {
-    //   type: DataTypes.STRING,
-    //   references: {
-    //     model: 'user',
-    //     key: 'id',
-    //   },
-    // }
-    
   },
 {
     hooks: {

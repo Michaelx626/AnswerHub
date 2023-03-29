@@ -102,6 +102,6 @@ router.post('/update-profile-pic', upload.fields([{name: 'profilePic'},
     
   }
 }
-)
+);
 
 module.exports = router;
