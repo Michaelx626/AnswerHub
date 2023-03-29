@@ -1,138 +1,32 @@
 <!-- Search Results -->
-<div class="container mt-4">
+<section class="container mt-4">
   <div class="row">
-    <div class="col-lg-8">
-      <div class="card mb-3">
-        <div class="card-body">
-          <form class="d-flex">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search AnswerHub"
-              aria-label="Search"
-            />
-            <button class="btn btn-primary" type="submit">
-              <i class="fas fa-search"></i>Search
-            </button>
-          </form>
-        </div>
-      </div>
+    <div class="col-sm-12">
       {{#each searches as |search|}}
-      <div class="card mb-3">
-        <div class="card-body">
-          <div class="media">
-            <img
-              src="https://via.placeholder.com/64x64"
-              class="align-self-start rounded me-3"
-              alt="..."
+      <div class='col-md-12 d-flex flex-column p-2 m-1'>
+        <div class='card profile-card'>
+          <div class='profile-img row align-items-center'>
+            <img 
+              src='https://via.placeholder.com/150x150' 
+              alt='{{search.name}} Profile Image' 
+              class="rounded-circle"
+              width="150"
             />
-            <div class="media-body">
-              <a href="mailto:{{search.email}}" class="mt-0" style="color: #1da1f2">{{search.email}}</a>
-              <div class="profile-bio">
-                <p>Javascript</p>
-              </div>
-              <div class="user-bio">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-                blandit libero vitae enim iaculis maximus. Sed volutpat augue a
-                mi aliquam sollicitudin. Suspendisse dictum nulla vitae dolor
-                pharetra, vel consequat est bibendum. Sed quis metus sem.
-              </div>
-            </div>
+          </div>
+          <div class='profile-name'>
+            <h4><a href="mailto:{{search.email}}">{{search.name}}</a></h4>
+          </div>
+          <div class='profile-bio'>
+            <p>Javascript | C++ | Python</p>
+          </div>
+          <div class='profile-bio'>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+              nihil optio aut veritatis. Dolore odit adipisci aperiam quidem
+              consectetur dolores!</p>
           </div>
         </div>
-      </div>
+      <div>
       {{/each}}
-      
-    <!--Recommened-->
-
-    <div class="col-lg-4">
-      <div class="card mb-3">
-        <div class="card-body">
-          <h5 class="card-title">Recommened Connections</h5>
-          <div class="row">
-            <div class="media mb-3 recommended-user-block col-4">
-              <img
-                src="https://via.placeholder.com/50"
-                class="mr-3 rounded-circle recommended-user"
-                alt="User Picture"
-              />
-              <div class="media-body">
-                <h5 class="mt-0 recommended-name">Jane Robertson</h5>
-                <button type="button" class="btn btn-primary follow-btn">
-                  Follow
-                </button>
-              </div>
-            </div>
-            <div class="media mb-3 recommended-user-block col-4">
-              <img
-                src="https://via.placeholder.com/50"
-                class="mr-3 rounded-circle recommended-user"
-                alt="User Picture"
-              />
-              <div class="media-body">
-                <h5 class="mt-0 recommended-name">Robert Johnson</h5>
-                <button type="button" class="btn btn-primary follow-btn">
-                  Follow
-                </button>
-              </div>
-            </div>
-            <div class="media mb-3 recommended-user-block col-4">
-              <img
-                src="https://via.placeholder.com/50"
-                class="mr-3 rounded-circle recommended-user"
-                alt="User Picture"
-              />
-              <div class="media-body">
-                <h5 class="mt-0 recommended-name">George Allen</h5>
-                <button type="button" class="btn btn-primary follow-btn">
-                  Follow
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="media mb-3 recommended-user-block col-4">
-              <img
-                src="https://via.placeholder.com/50"
-                class="mr-3 rounded-circle recommended-user"
-                alt="User Picture"
-              />
-              <div class="media-body">
-                <h5 class="mt-0 recommended-name">Fred Peterson</h5>
-                <button type="button" class="btn btn-primary follow-btn">
-                  Follow
-                </button>
-              </div>
-            </div>
-            <div class="media mb-3 recommended-user-block col-4">
-              <img
-                src="https://via.placeholder.com/50"
-                class="mr-3 rounded-circle recommended-user"
-                alt="User Picture"
-              />
-              <div class="media-body">
-                <h5 class="mt-0 recommended-name">Dwyane Porter</h5>
-                <button type="button" class="btn btn-primary follow-btn">
-                  Follow
-                </button>
-              </div>
-            </div>
-            <div class="media mb-3 recommended-user-block col-4">
-              <img
-                src="https://via.placeholder.com/50"
-                class="mr-3 rounded-circle recommended-user"
-                alt="User Picture"
-              />
-              <div class="media-body">
-                <h5 class="mt-0 recommended-name">Franklin Thompson</h5>
-                <button type="button" class="btn btn-primary follow-btn">
-                  Follow
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
-</div>
+</section>

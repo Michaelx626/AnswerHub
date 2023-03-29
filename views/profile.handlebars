@@ -1,6 +1,6 @@
 
 <!-- User Bio -->
-<div class='container p-2'>
+<section class='container p-2'>
   <div class='row'>
     <!--Right column-->
     <div class='col-md-3 d-flex flex-column p-2 m-1'>
@@ -29,24 +29,13 @@
             consectetur dolores!</p>
         </div>
       </div>
-      <div>
-    <!--Recommended Users or Content -->
-        <div class='trending'>
-          <h4>Recommended</h4>
-          <ul>
-            <li><a href='#'>#webdevelopment</a></li>
-            <li><a href='#'>#music</a></li>
-            <li><a href='#'>#gaming</a></li>
-          </ul>
-        </div>
-      </div>
     </div>
 
     <!--User's Posts-->
-    <div class='col-md-6'>
+    <div class='col-md-8'>
     {{#with user as |user|}}
     {{#each user.posts as |post|}}
-    <div class="profile-card card m-2">
+    <article class="profile-card card m-2">
           <div class="card-body row">
             <div class="col-sm-12 d-flex flex-row">
               <div class="col-md-3 d-flex flex-column p-2 m-1 align-self-center" id="user-info">
@@ -76,8 +65,8 @@
             </div>
           </div>
         </div>
+    </article>
     {{/each}}
     {{/with}}
-    </div>
   </div>
-</div>
+</section>

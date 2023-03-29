@@ -63,6 +63,7 @@ a span{
 .post_content{
   display: flex;
   justify-content: center;
+}
 
 .custom-comment-card{
   border-bottom-style: solid;
