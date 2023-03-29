@@ -71,7 +71,7 @@
           <li class='nav-item dropdown'>
             <a
               class='nav-link dropdown-toggle'
-              href='#'
+              href='/profile'
               id='navbarDropdown'
               role='button'
               data-bs-toggle='dropdown'
@@ -84,20 +84,50 @@
               class='dropdown-menu dropdown-menu-end'
               aria-labelledby='navbarDropdown'
             >
-              <li><a class='dropdown-item' href='/profile'><i
-                    class='fa-solid fa-user'
-                  ></i>
-                  Profile</a></li>
-              <li><hr class='dropdown-divider' /></li>
-              <li><a class='dropdown-item' href='#'><i class='fas fa-edit'></i>
-                  Edit Profile</a></li>
-              <li><hr class='dropdown-divider' /></li>
-              <li><a class='dropdown-item logout-link' href='#'><i
-                    class='fas fa-sign-out-alt'
-                  ></i>
-                  Logout</a></li>
+              <li>
+                <a class='dropdown-item' href='/profile'>
+                  <i class='fa-solid fa-user'></i>
+                  Profile
+                </a>
+              </li>
+              <li>
+                <hr class='dropdown-divider' />
+              </li>
+              <li>
+                <a class='dropdown-item' href='#'>
+                  <i class='fas fa-edit'></i>
+                  Edit Profile
+                </a>
+              </li>
+              {{!-- <li>
+                <hr class='dropdown-divider' />
+              </li>
+              <li>
+                <a class='dropdown-item logout-link' href='#'>
+                  <i class='fas fa-sign-out-alt'></i>
+                  Logout
+                </a>
+              </li> --}}
             </ul>
           </li>
+          {{!-- 
+          <li class="nav-item">
+            <a class="nav-link" href="/profile">
+              <i class="fas fa-user"></i>
+              Profile
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-edit"></i>
+              Edit Profile
+            </a>
+          </li> --}}
+          <li class="nav-item">
+            <a class="nav-link logout-link">
+              <i class="fas fa-sign-out-alt"></i>
+              Logout
+            </a>
         </ul>
       </div>
     </div>
