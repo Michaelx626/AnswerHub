@@ -50,24 +50,8 @@ a span{
   color: gray;
 }
 
-.post_comment_box{
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-gap: 10px;
-  margin-bottom: 20px;
-}
-
-.post-content p,
-.card-text,
-.post_comment_box p,
-.post_content{
-  display: flex;
-  justify-content: center;
-}
-
 .custom-comment-card{
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: lightgray;
-
 }

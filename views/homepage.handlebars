@@ -26,14 +26,14 @@
         </div>
       </div>
     </div>
-
+    
     <div class="col-md-8">
       <div class="profile-card mb-3">
-        <div class="custom-card-header">
-          <h5 class="pt-2 px-2">What's happening?</h5>
+        <div class="card-header">
+          <h5>What's happening?</h5>
         </div>
         <div class="card-body">
-          <form class="p-1">
+          <form>
             <div class="form-group">
               <textarea class="form-control" id="user_inputbox" placeholder="Write something..." rows="3"></textarea>
             </div>
@@ -62,18 +62,9 @@
               <p class="post_content"> {{post.content}}</p>
             </div>
           </div>
-          <div class="col-sm-12 ms-sm-2 ms-md-5">
-            <a href="/post/{{post.id}}"><i class="far fa-comment"></i>
-            {{#with post.comments}}
-            {{post.comments.length}}
-            {{/with}}
-            </a>
-            <a href="#" data-value="{{post.number_likes}}" data-id="{{post.id}}" class=getLikes><i class="far fa-heart"></i>{{post.number_likes}}</a>    
-          </div>
         </div>
       </div>
-      {{/each}}
-    </div>
+    {{/each}}
   </div>
 </section>      
 <script src="/js/likes.js"></script>

@@ -37,7 +37,7 @@ const aiResponse = async () => {
     userQuestion.value = "";
 
 
-    const url = window.location.pathname; 
+    const url = "http://localhost:5000/airesponse"; 
     const response = await fetch(url, {
       method: 'POST',
       headers: {

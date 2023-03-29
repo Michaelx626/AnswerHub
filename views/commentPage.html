@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comment Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<!--Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <i class="fab fa-icon"></i>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-home"></i> Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-bell"></i> Notifications
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-envelope"></i> Messages
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-user"></i> Profile
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#"><i class="fas fa-edit"></i> Edit Profile</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <!--Main Content-->
+    <div class="container">
+        <h1 class="my-4">Comments</h1>
+        <div class="row mx-auto">
+            <div class="col-md-8">
+
+
+<!-- Post -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5>Profile</h5>
+                      </div>
+                    <div class="card-body">
+                        <img src="https://via.placeholder.com/150" alt="Profile Picture" class="img-fluid rounded-circle mb-3" width="50" height="50">
+            
+                        <p class="text-muted" id="username">@johndoe</p>
+                      
+                        <p class="card-text">This is the post content. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis magna tempor, sagittis justo vitae, posuere dolor.</p>
+                    </div>
+                </div>
+
+<!--Comment Textarea-->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Comment </h5>
+                        <form>
+                            <div class="form-group">
+                                <textarea class="form-control" id="comment" rows="3" placeholder="Write your comment here"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Post Comment</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!--Comments-->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Comments</h5>
+                        <div class="media mb-4">
+                            <img class="d-flex mr-3 rounded-circle" src="https://via.placeholder.com/50" alt="">
+                            <div class="media-body">
+                                <h5 class="mt-0">User Name</h5>
+                                This is a comment. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis magna tempor, sagittis justo vitae, posuere dolor.
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Comments</h5>
+                            <div class="media mb-4">
+                                <img class="d-flex mr-3 rounded-circle" src="https://via.placeholder.com/50" alt="">
+                                <div class="media-body">
+                                    <h5 class="mt-0">User Name</h5>
+                                    This is a comment. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis magna tempor, sagittis justo vitae, posuere dolor.
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
