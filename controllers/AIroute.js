@@ -57,18 +57,4 @@ router.post('/', async (req, res) => {
 //       : "There was an issue on the server"
 //     });
 
-//   }
-// })
-
-// // const getResponse = async () =>{
-// // const url = "http://localhost:5000/airesponse";
-// // const response = await fetch(`${url}`, {
-// //   method: "POST",
-// //   "Content-Type": 'application/json'
-// // });
-// // const responseData = await response.json();
-// // console.log(responseData.data);
-// // }
-// // getResponse();
-
 module.exports = router;
