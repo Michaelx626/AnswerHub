@@ -1,25 +1,25 @@
 const path = require('path');
 const express = require('express');
 const multer = require('multer');
-const router = require('express').Router();
+const router = express.Router();
 const { User } = require('../../models');
 
 
 
-// router.post('/profile', async (req, res) => {
-//   try {
-//     const userData = await User.create(req.body);
+router.post('/', async (req, res) => {
+  try {
+    const userData = await User.create(req.body);
 
-//     req.session.save(() => {
-//       req.session.user_id = userData.id;
-//       req.session.logged_in = true;
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
 
-//       res.status(200).json(userData);
-//     });
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// });
+      res.status(200).json(userData);
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
 
 router.post('/login', async (req, res) => {
@@ -67,27 +67,50 @@ router.post('/logout', (req, res) => {
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    const uploadDir = path.join(__dirname, '../../uploads');
+    const uploadDir = path.join(__dirname, '../../public/uploads/');
     cb(null, uploadDir);
   },
   filename: function (req, file, cb) {
-    cb(null, file.fieldname + '-' + Date.now());
+    cb(null, file.fieldname + '-' + Date.now() + '.jpg');
   }
 });
 const upload = multer({ storage: storage })
 
-router.use('/uploads', express.static(path.join(__dirname, '../../uploads')));
-router.put('/update-profile-pic', upload.single('profilePic'), async (req, res) => {
+router.post('/update-profile-pic', upload.fields([{ name: 'profilePic' }, { name: 'bio' }]), async (req, res) => {
   try {
     const user = await User.findByPk(req.session.user_id);
-    user.profilePic = req.file.filename;
+
+    // check if at least one field is present
+    if (!req.files.profilePic && !req.body.bio) {
+      return res.status(400).json({ message: 'At least one field is required.' });
+    }
+
+    // process profilePic if present
+    if (req.files.profilePic) {
+      user.profilePic = req.files.profilePic[0].filename;
+    }
+
+    // process bio if present
+    if (req.body.bio) {
+      user.userBio = req.body.bio;
+    }
+   
+    console.log(user)
+    console.log(user.userBio);
     await user.save();
-    res.status(200).json({ profilePic: user.profilePic });
+    res.status(200).json({
+      profilePic: user.profilePic,
+      userBio: user.userBio
+    });
+    
   } catch (error) {
     console.log(error);
     res.status(404).end();
   }
 });
+
+
+
 
 
 

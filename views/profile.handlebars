@@ -1,12 +1,13 @@
 {{> profile-navigation}}
 
 <!-- User Bio -->
+
 <div class='container'>
   <div class='row'>
     <div class='col-md-3'>
       <div class='profile-card'>
         <div class='profile-img'>
-          <img id="profile-pic-preview" src="https://via.placeholder.com/75x75" alt="Profile Picture Preview" width="200" height="200" />
+          <img src='/uploads/{{user.profilePic}}' alt='Profile Image' id="profile-pic-preview" />
         </div>
         <div class='profile-name'>
           <h4>{{user.name}}</h4>
@@ -15,9 +16,7 @@
           <p>Javascript | C++ | Python</p>
         </div>
         <div class='profile-bio'>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-            nihil optio aut veritatis. Dolore odit adipisci aperiam quidem
-            consectetur dolores!</p>
+          <p id="userBio">{{user.userBio}}</p>
         </div>
       </div>
     </div>
@@ -30,14 +29,15 @@
         <div class='user-post post-grid'>
           <div class='post-header'>
             <div class='post-author'>
+              
               <img
-                src='https://via.placeholder.com/50x50'
+                src='/uploads/{{user.profilePic}}'
                 alt='Profile Image'
-                class='post-profile-pic'
+                class='profile-pic-preview' width="60px" height="60px"
               />
               <div class='post-author-info'>
                 <h5>{{user.name}}</h5>
-                <a href="mailto:{{user.email}}">@{{trim_name user.email}}</a>
+                <a href="mailto:{{user.email}}">@{{user.email}}</a>
               </div>
             </div>
             <div class='post-time'>
@@ -48,7 +48,7 @@
             <p>{{post.content}}</p>
           </div>
           <div class='post-actions'>
-            <a href='#'>
+            <a href='/post/{{post.id}}'>
               <i class='far fa-comment'></i>
               <span>10</span>
             </a>
@@ -82,11 +82,12 @@
   id='exampleModal'
   tabindex='-1'
   aria-labelledby='exampleModalLabel'
-  aria-hidden='true'>
+  aria-hidden='true'
+>
   <div class='modal-dialog'>
     <div class='modal-content'>
       <div class='modal-header'>
-        <h1 class='modal-title fs-5' id='exampleModalLabel'>Modal title</h1>
+        <h1 class='modal-title fs-5' id='exampleModalLabel'>Edit Profile</h1>
         <button
           type='button'
           class='btn-close'
@@ -99,7 +100,7 @@
           <span class='input-group-text' id='basic-addon1'>@</span>
           <input
             type='text'
-            class='form-control'
+            class='form-control user_searches'
             placeholder='Username'
             aria-label='Username'
             aria-describedby='basic-addon1'
@@ -112,7 +113,7 @@
           class='btn btn-secondary'
           data-bs-dismiss='modal'
         >Close</button>
-        <button type='button' class='btn btn-primary'>Search</button>
+        <button type='button' class='btn btn-primary search_btn'>Search</button>
       </div>
     </div>
   </div>
@@ -123,15 +124,19 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Profile</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <p> Change Your Profile Picture</p>
-          <form id="upload-form">
+          <form enctype="multipart/form-data" id="upload-form">
   <input type="file" id="profile-pic-input" name="profilePic">
 
-</form>
+          <div class="form-group">
+            <label for="bio">Bio:</label>
+            <textarea class="form-control" id="bio" rows="5" name="bio"></textarea>
+          </div>
+        </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" id="upload-save" data-bs-dismiss="modal">Save</button>
@@ -139,6 +144,7 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 
 

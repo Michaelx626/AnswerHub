@@ -93,7 +93,7 @@ rel="stylesheet"
         <div class="user-post">
           <div class="post-header">
             <div class="post-author">
-              <img src="https://via.placeholder.com/50x50" alt="Profile Image" class="post-profile-pic" />
+              <img src="../public/screenshots/IMG_6448.PNG" alt="Profile Image" class="post-profile-pic" />
               <div class="post-author-info">
                 <h5>John Doe</h5>
                 <p>@johndoe</p>
@@ -222,13 +222,21 @@ rel="stylesheet"
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Profile</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <p> Change Your Profile Picture</p>
           <input type="file" id="profile-pic-input" class="mb-2" />
         </div>
+        <form>
+          <div class="form-group">
+            <label for="bio">Bio:</label>
+            <textarea class="form-control" id="bio" rows="5"></textarea>
+          </div>
+        </form>
+        
+        
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" id="upload-pic" data-bs-dismiss="modal">Save</button>
 

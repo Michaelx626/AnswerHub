@@ -9,18 +9,8 @@
 <div class="collapse navbar-collapse" id="navbar-collapse">
 <ul class="navbar-nav ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="#">
+    <a class="nav-link" id="home-link" href="javascript:;">
       <i class="fas fa-home"></i> Home
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">
-      <i class="fas fa-bell"></i> Notifications
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">
-      <i class="fas fa-envelope"></i> Messages
     </a>
   </li>
   <li class="nav-item">
@@ -28,17 +18,22 @@
       <i class="fa-solid fa-magnifying-glass"></i> Search
     </a>
   </li>
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-      <i class="fas fa-user"></i> Profile
+  <li class="nav-item">
+    <a class="nav-link" href="#" id="edit-profile" data-bs-toggle="modal" data-bs-target="#editProfile">
+      <i class="fas fa-edit"></i> Edit Profile
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-      <li><a class="dropdown-item" href="#" id="edit-profile" data-bs-toggle="modal" data-bs-target="#editProfile"><i class="fas fa-edit"></i> Edit Profile</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item logout-link" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-    </ul>
   </li>
+   <li class="nav-item">
+    <a class="nav-link" href="/logout">
+      <i class="fas fa-sign-out-alt"></i> Logout
+    </a>
+  </li>
+
 </ul>
 </div>
 </div>
 </nav>
+<script>
+  const homeLink = document.querySelector('#home-link');
+  homeLink.href = window.location.origin;
+</script>
