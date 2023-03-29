@@ -30,17 +30,14 @@
       {{#with user as |user|}}
         {{#each user.posts as |post|}}
           <article class='profile-card'>
-            <div class='card-body row'>
-              <div class='col-sm-12 d-flex flex-row'>
-                <div
-                  class='col-md-3 d-flex flex-column p-2 m-1 align-self-center'
-                  id='user-info'
-                >
+            <div class='card-body'>
+              <div class='row d-flex align-items-center'>
+                <div class='col-sm-3 p-2 m-1 d-flex flex-column' id='user-info'>
                   {{#if post.user.profilePic}}
                     <img
                       src='/uploads/{{post.user.profilePic}}'
                       class='rounded-circle align-self-center'
-                      alt='{{user.name}} profile picture'
+                      alt='{{post.user.name}} profile picture'
                       width='50'
                       height='50'
                     />
@@ -49,21 +46,21 @@
                   <p class='post_date align-self-center'>{{format_date
                       post.date_created
                     }}</p>
-                  <div class='mt3'>
-                    <a href='/post/{{post.id}}'><i class='far fa-comment'></i>
-                      {{#if post.comments.length}}
-                        {{#with post.comments}}
-                          {{post.comments.length}}
-                        {{/with}}
-                      {{else}}
-                        0
-                      {{/if}}
-                    </a>
-                  </div>
                 </div>
-                <div class='col-md-8 p-2 m-1 align-self-center' id='contents'>
-                  <p class='post_content'>{{post.content}}</p>
+                <div class='col-sm-8 p-2 m-1 d-flex flex-column' id='contents'>
+                  <p class='post_content align-self-center'>{{post.content}}</p>
                 </div>
+              </div>
+              <div class='col-sm-12 m-1'>
+                <a href='/post/{{post.id}}'><i class='far fa-comment'></i>
+                  {{#if post.comments.length}}
+                    {{#with post.comments}}
+                      {{post.comments.length}}
+                    {{/with}}
+                  {{else}}
+                    0
+                  {{/if}}
+                </a>
               </div>
             </div>
           </article>
