@@ -1,4 +1,4 @@
-<div class="container mt-3">
+<section class="container mt-3">
   <div class="row">
     <div class="col-md-4 col">
       <div class="profile-card">
@@ -6,19 +6,27 @@
           <h5 class="pt-2 px-2">Profile</h5>
         </div>
         <div class="card-body d-flex flex-column p-2 m-2">
-          <img src='/uploads/{{users.profilePic}}' alt="Profile Picture" class="img-fluid rounded-circle mb-3">
+          {{#if user.profilePic}}
+          <img 
+            src="/uploads/{{user.profilePic}}" 
+            alt="Profile Picture" 
+            class="img-fluid rounded-circle mb-3 align-self-center"
+            width="150px"
+             height="150px"
+          />
+          {{/if}}
           <h4 class="align-self-start">{{users.name}}</h4>
           <a class="text-muted align-self-start" href="mailto:{{users.email}}">{{users.email}}</a>
-          <ul class="list-unstyled">
-             <div class='profile-bio'>
-              <p id="userBio">{{users.userBio}}</p>
-             </div>
-              <a href="/airesponse"><li><i class="fa-brands fa-bilibili"></i>AI Assistant</li></a>
-           </ul>
-         </div>
-       </div>
-     </div>  
-     
+          <ul class="align-self-start list-unstyled">
+            <a href="/airesponse"><li><i class="fa-brands fa-bilibili"></i>AI Assistant</li></a>
+          </ul>
+          <div class='profile-bio'>
+            <p id="userBio">{{users.userBio}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
     <div class="col-md-8">
       <div class="profile-card mb-3">
         <div class="card-header">
@@ -33,44 +41,32 @@
           </form>
         </div>
       </div>
-      
-        {{#each posts as |post|}}
-        <div class="card">
-          <div class="card-body">
-            <div class="media mb-3">
-             <img 
-               src="https://via.placeholder.com/50" 
-               class="m3 rounded-circle align-self-center" 
-               alt="{{post.user.name}} profile picture"
-               width='50'
-               height="50"
-             />
-             <div class="media-body">
-              <div class="post-grid">
-                <p class="mt-0 post_user">{{post.user.name}} </p>
-                <p class="post_content"> {{post.content}}</p>
-                <p class="mt-0 post_dater">{{format_date post.date_created}} </p>
-              </div>
-              <div class="col-md-8 p-2 m-1 align-self-center" id="contents">
-                <p class="post_content"> {{post.content}}</p>
-              </div>
-              <div class="mt3">
-                <a href="/post/{{post.id}}"><i class="far fa-comment"></i>
-                {{#with post.comments}}
-                {{post.comments.length}}
-                {{/with}}
-                </a>
-                <a href="#" data-value="{{post.number_likes}}" data-id="{{post.id}}" class=getLikes><i class="far fa-heart"></i>{{post.number_likes}}</a>    
-              </div>
+      {{#each posts as |post|}}
+      <div class="profile-card">
+        <div class="card-body row">
+          <div class="col-sm-12 d-flex flex-row">
+            <div class="col-md-3 d-flex flex-column p-2 m-1 align-self-center" id="user-info">
+              {{#if post.user.profilePic}}
+              <img 
+                src="/uploads/{{post.user.profilePic}}" 
+                class="rounded-circle align-self-center" 
+                alt="{{post.user.name}} profile picture"
+                width='50'
+                height="50"
+              />
+              {{/if}}
+              <p class="post_user align-self-center">{{post.user.name}} </p>
+              <p class="post_date align-self-center">{{format_date post.date_created}} </p>
+            </div>
+            <div class="col-md-8 p-2 m-1 align-self-center" id="contents">
+              <p class="post_content"> {{post.content}}</p>
             </div>
           </div>
         </div>
       </div>
     {{/each}}
   </div>
-</div>
-
+</section>      
 <script src="/js/likes.js"></script>
 <script src="/js/post.js"></script>
-
                 
