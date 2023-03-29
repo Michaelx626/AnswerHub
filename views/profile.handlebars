@@ -4,9 +4,10 @@
       <div class='card profile-card'>
         <div class='profile-img row align-items-center'>
           <img 
-            src='https://via.placeholder.com/150x150' 
+            src='/uploads/{{user.profilePic}}' 
             alt='{{user.name}} Profile Image' 
             class="rounded-circle"
+            id="profile-pic-preview"
             width="150"
           />
         </div>
@@ -14,12 +15,7 @@
           <h4>{{user.name}}</h4>
         </div>
         <div class='profile-bio'>
-          <p>Javascript | C++ | Python</p>
-        </div>
-        <div class='profile-bio'>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-            nihil optio aut veritatis. Dolore odit adipisci aperiam quidem
-            consectetur dolores!</p>
+          <p id="userBio">{{user.userBio}}</p>
         </div>
       </div>
     </div>
@@ -32,8 +28,8 @@
         <div id='1' class="col-sm-12 d-flex flex-row">
           <div class="col-md-3 d-flex flex-column p-2 m-1 align-self-center" id="user-info">
             <img 
-              src="https://via.placeholder.com/50" 
-              class="rounded-circle align-self-center" 
+              src="/uploads/{{post.user.profilePic}}" 
+              class="rounded-circle align-self-center profile-pic-preview" 
               alt="{{post.user.name}} profile picture"
               width='50'
               height="50"

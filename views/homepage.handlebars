@@ -7,7 +7,7 @@
         </div>
         <div class="card-body d-flex flex-column p-2 m-2">
           <img 
-            src="https://via.placeholder.com/150" 
+            src="/uploads/{{user.profilePic}}" 
             alt="Profile Picture" 
             class="img-fluid rounded-circle mb-3 align-self-center"
             width="150px"
@@ -19,12 +19,7 @@
             <a href="/airesponse"><li><i class="fa-brands fa-bilibili"></i>AI Assistant</li></a>
           </ul>
           <div class='profile-bio'>
-            <p>Javascript | C++ | Python</p>
-          </div>
-          <div class='profile-bio'>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-              nihil optio aut veritatis. Dolore odit adipisci aperiam quidem
-              consectetur dolores!</p>
+            <p id="userBio">{{users.userBio}}</p>
           </div>
         </div>
       </div>
@@ -50,7 +45,7 @@
           <div class="col-sm-12 d-flex flex-row">
             <div class="col-md-3 d-flex flex-column p-2 m-1 align-self-center" id="user-info">
               <img 
-                src="https://via.placeholder.com/50" 
+                src="/uploads/{{post.user.profilePic}}" 
                 class="rounded-circle align-self-center" 
                 alt="{{post.user.name}} profile picture"
                 width='50'

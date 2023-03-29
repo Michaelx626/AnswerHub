@@ -36,6 +36,14 @@ User.init(
         len: [8],
       },
     },
+    profilePic: {
+      type: DataTypes.STRING, 
+      allowNull: true
+    },
+    userBio: {
+      type: DataTypes.STRING,
+      allowNull: true
+    }
     // follow_id: {
     //   type: DataTypes.STRING,
     //   references: {
