@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, Tag, PostTag } = require('../../models');
+const { Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
@@ -7,8 +7,6 @@ router.post('/', withAuth, async (req, res) => {
     const newPost = await Post.create({
       ...req.body,
       user_id: req.session.user_id,
-    }, {
-      include: [{ model: Tag, through: PostTag }]
     });
 
     res.status(200).json(newPost);

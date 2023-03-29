@@ -42,8 +42,8 @@
           </form>
         </div>
       </div>
-      {{#each posts as |post|}}
       <div class="profile-card">
+      {{#each posts as |post|}}
         <div class="card-body row">
           <div class="col-sm-12 d-flex flex-row">
             <div class="col-md-3 d-flex flex-column p-2 m-1 align-self-center" id="user-info">
@@ -56,12 +56,19 @@
                 height="50"
               />
               {{/if}}
-              <p class="post_user align-self-center">{{post.user.name}} </p>
-              <p class="post_date align-self-center">{{format_date post.date_created}} </p>
+              <p class="post_user align-self-center">{{post.user.name}}</p>
+              <p class="post_date align-self-center">{{format_date post.date_created}}</p>
+              <div class='post-actions'>
+                <a href='/post/{{post.id}}'>
+                <i class='far fa-comment'></i>
+                <span>{{comments.length}}</span>
+                </a>
+              </div>
             </div>
             <div class="col-md-8 p-2 m-1 align-self-center" id="contents">
-              <p class="post_content"> {{post.content}}</p>
+              <p class="post_content">{{post.content}}</p>
             </div>
+            
           </div>
         </div>
         {{/each}}
@@ -70,4 +77,5 @@
     
 <script src="/js/likes.js"></script>
 <script src="/js/post.js"></script>
+
                 

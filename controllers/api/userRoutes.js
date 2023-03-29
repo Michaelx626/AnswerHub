@@ -1,10 +1,8 @@
 
 const router = require('express').Router();
-const path = require('path')
-const multer=require('multer')
+const path = require('path');
+const multer = require('multer');
 const { User } = require('../../models');
-
-
 
 router.post('/', async (req, res) => {
   try {

@@ -2,22 +2,6 @@ const editProfileBtn = document.getElementById('edit-profile');
 const editModalSaveBtn = document.getElementById('edit-profile-modal-btn')
 const uploadSaveBtn = document.getElementById('upload-save')
 
-// const editProfile = async () => {
-
-//     const response = await fetch('/profile', {
-//       method: 'GET',
-//       headers: { 'Content-Type': 'application/json' },
-//     });
-  
-//     if (response.ok) {
-//       document.location.replace('/profile');
-//     } else {
-//       alert(response.statusText);
-//     }
-//   };
-  
-//   document.querySelector('#profile-link').addEventListener('click', editProfile);
-
 const editProfile = () =>{
     const profilePicInput = document.getElementById('profile-pic-input');
     const profilePicPreview = document.getElementById('profile-pic-preview');
@@ -57,7 +41,7 @@ const saveUpload = async () => {
   
     const profilePicElement = document.getElementById('profile-pic-preview');
     profilePicElement.src = 'window.location.pathname' + profilePic;
-  document.location.replace('/profile')
+    document.location.replace('/profile')
   };
 
 editProfileBtn.addEventListener("click", editProfile);
