@@ -1,8 +1,7 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
-const withAuth = require('../utils/auth');
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const postData = await Post.findAll({
       include: [
@@ -26,7 +25,7 @@ router.get('/', withAuth, async (req, res) => {
 
     const users = usersData.get({ plain: true });
 
-    res.render('homepage', { posts, users });
+    res.render('homepage', { posts, users, logged_in: true });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -62,14 +61,14 @@ router.get('/post/:id', async (req, res) => {
     res.render('comment', {
       post,
       comments,
-      logged_in: req.session.logged_in,
+      logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/profile', withAuth, async (req, res) => {
+router.get('/profile', async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
@@ -112,7 +111,7 @@ router.get('/search', async (req, res) => {
 
     const searches = searchData.map((search) => search.get({ plain: true }));
     console.log(searches);
-    res.render('search', { searches });
+    res.render('search', { searches, logged_in: true });
   } catch (error) {
     res.status(400).json(error);
   }

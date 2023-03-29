@@ -9,7 +9,7 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 router.get('/', async (req, res) => {
-  res.render('AI-chat');
+  res.render('AI-chat', { logged_in: true });
 });
 
 router.post('/', async (req, res) => {
