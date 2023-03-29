@@ -1,17 +1,11 @@
+{{> profile-navigation}}
 
-<!-- User Bio -->
 <div class='container p-2'>
   <div class='row'>
-    <!--Right column-->
     <div class='col-md-3 d-flex flex-column p-2 m-1'>
-      <div class='card profile-card'>
+      <div class='profile-card'>
         <div class='profile-img row align-items-center'>
-          <img 
-            src='https://via.placeholder.com/150x150' 
-            alt='{{user.name}} Profile Image' 
-            class="rounded-circle"
-            width="150"
-          />
+          <img src='/uploads/{{user.profilePic}}' alt='{{user.name}}' id="profile-pic-preview" />
         </div>
         <div class='profile-name'>
           <h4>{{user.name}}</h4>
@@ -24,60 +18,89 @@
           <p>Javascript | C++ | Python</p>
         </div>
         <div class='profile-bio'>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-            nihil optio aut veritatis. Dolore odit adipisci aperiam quidem
-            consectetur dolores!</p>
+          <p id="userBio">{{user.userBio}}</p>
         </div>
       </div>
-      <div>
-    <!--Recommended Users or Content -->
-        <div class='trending'>
-          <h4>Recommended</h4>
-          <ul>
-            <li><a href='#'>#webdevelopment</a></li>
-            <li><a href='#'>#music</a></li>
-            <li><a href='#'>#gaming</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <div>
 
     <!--User's Posts-->
-    <div class='col-md-6'>
-    {{#with user as |user|}}
-    {{#each user.posts as |post|}}
-    <div class="profile-card card m-2">
-          <div class="card-body row">
-            <div class="col-sm-12 d-flex flex-row">
-              <div class="col-md-3 d-flex flex-column p-2 m-1 align-self-center" id="user-info">
-                  <img 
-                    src="https://via.placeholder.com/50" 
-                    class="rounded-circle align-self-center" 
-                    alt="{{post.user.name}} profile picture"
-                    width='50'
-                    height="50"
-                  />
-                  <p class="post_user align-self-center">{{post.user.name}} </p>
-                  <p class="post_date align-self-center">{{format_date post.date_created}} </p>
+    <div class='col-md-8'>
+      {{#with user as |user|}}
+      {{#each user.posts as |post|}}
+      <div class='profile-card'>
+        <div class='user-post post-grid'>
+          <div class='post-header'>
+            <div class='post-author'>
+              <img
+                src='/uploads/{{user.profilePic}}'
+                alt='{{user.name}}'
+                class='profile-pic-preview' width="60px" height="60px"
+              />
+              <div class='post-author-info'>
+                <h5>{{user.name}}</h5>
+                <a href="mailto:{{user.email}}">@{{user.email}}</a>
+                <div class="profile-card card m-2">
+                  <div class="card-body row">
+                    <div class="col-sm-12 d-flex flex-row">
+                      <div class="col-md-3 d-flex flex-column p-2 m-1 align-self-center" id="user-info">
+                        <img 
+                        src="https://via.placeholder.com/50" 
+                        class="rounded-circle align-self-center" 
+                        alt="{{post.user.name}} profile picture"
+                        width='50'
+                        height="50"
+                        />
+                        <p class="post_user align-self-center">{{post.user.name}} </p>
+                        <p class="post_date align-self-center">{{format_date post.date_created}} </p>
+                      </div>
+                      <div class="col-md-8 p-2 m-1 align-self-center" id="contents">
+                        <p class="post_content"> {{post.content}}</p>
+                      </div>
+                      <div class="col-sm-12 ms-sm-2 ms-md-5">
+                        <a href='/post/{{post.id}}'>
+                        <i class="far fa-comment"></i>
+                        <span>{{comments.length}}</span>
+                        </a>
+                        <a href="#" data-value="{{post.number_likes}}" data-id="{{post.id}}" class="getLikes">
+                        <i class="far fa-heart"></i>
+                        <span>{{post.number_likes}}</span>
+                        </a>    
+                      </div>
+                    </div>
+                  </div>
+                </div> 
               </div>
-              <div class="col-md-8 p-2 m-1 align-self-center" id="contents">
-                  <p class="post_content"> {{post.content}}</p>
-              </div>
-            </div>
-            <div class="col-sm-12 ms-sm-2 ms-md-5">
-              <a href='/post/{{post.id}}'>
-                <i class="far fa-comment"></i>
-                <span>{{comments.length}}</span>
-              </a>
-              <a href="#" data-value="{{post.number_likes}}" data-id="{{post.id}}" class="getLikes">
-                <i class="far fa-heart"></i>
-                <span>{{post.number_likes}}</span>
-              </a>    
             </div>
           </div>
         </div>
-    {{/each}}
-    {{/with}}
+      </div>  
+      {{/each}}
+      {{/with}}
     </div>
   </div>
 </div>
+
+<!-- Edit Profile Modal-->
+<div class="modal fade" id="editProfile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Profile</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p> Change Your Profile Picture</p>
+        <form enctype="multipart/form-data" id="upload-form">
+          <input type="file" id="profile-pic-input" name="profilePic">
+          <div class="form-group">
+            <label for="bio">Bio:</label>
+            <textarea class="form-control" id="bio" rows="5" name="bio"></textarea>
+          </div>
+        </form>
+      </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" id="upload-save" data-bs-dismiss="modal">Save</button>
+    </div>
+   </div>
+  </div>
+ </div>

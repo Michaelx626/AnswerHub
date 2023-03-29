@@ -78,10 +78,16 @@ router.get('/profile', withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
+   if(user.userBio){
+     
+   }
+   
+
     user.posts.sort((a,b) => (new Date(b.date_created) - new Date(a.date_created)));
     
     res.render('profile', {
       user,
+      
       logged_in: true
     });
 

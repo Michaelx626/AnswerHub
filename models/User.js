@@ -34,8 +34,17 @@ User.init(
       allowNull: false,
       validate: {
         len: [8],
-      },
+      }
     },
+    profilePic: {
+    type: DataTypes.STRING,
+    allowNull: true
+      },
+    userBio: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    }
+    
     // follow_id: {
     //   type: DataTypes.STRING,
     //   references: {
@@ -43,8 +52,9 @@ User.init(
     //     key: 'id',
     //   },
     // }
+    
   },
-  {
+{
     hooks: {
       beforeCreate: async (newUserData) => {
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
@@ -55,6 +65,7 @@ User.init(
         return updatedUserData;
       },
     },
+    
     sequelize,
     timestamps: false,
     freezeTableName: true,

@@ -1,14 +1,25 @@
-// const editProfile = async () => {
-//     const response = await fetch('/profile', {
-//       method: 'GET',
-//       headers: { 'Content-Type': 'application/json' },
-//     });
-  
-//     if (response.ok) {
-//       document.location.replace('/profile');
-//     } else {
-//       alert(response.statusText);
-//     }
-//   };
-  
-//   document.querySelector('#profile-link').addEventListener('click', editProfile);
+const uploadSaveBtn = document.getElementById('upload-save');
+
+const saveUpload = async () => {
+  const form = document.getElementById('upload-form');
+  const formData = new FormData(form);
+
+  const response = await fetch('/api/users/update-profile-pic', {
+    method: 'POST',
+    body: formData,
+  });
+ 
+  const responseJson = await response.json();
+  const profilePic = responseJson.profilePic;
+  const bio = responseJson.userBio;
+  const bioElement = document.getElementById('userBio');
+  bioElement.innerText = bio;
+
+  const profilePicElement = document.getElementById('profile-pic-preview');
+  profilePicElement.src = 'window.location.pathname' + profilePic;
+document.location.replace('/profile')
+};
+
+uploadSaveBtn.addEventListener('click', saveUpload);
+
+

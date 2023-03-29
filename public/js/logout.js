@@ -14,5 +14,3 @@ document.querySelector('.logout-link').addEventListener('click', (event) => {
   event.preventDefault();
   logout();
 });
-
-
