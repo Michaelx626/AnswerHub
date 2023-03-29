@@ -76,12 +76,12 @@
                     href='mailto:{{comment.user.email}}'
                     class='mt-0'
                   >{{comment.user.name}}</a>
-                  <p class='text-muted m-1 p-2'>{{format_date
+                  <p class='text-muted m-1 p-2 align-self-center'>{{format_date
                       comment.date_created
                     }}</p>
                 </div>
-                <div class='col-sm-9 align-self-center'>
-                  <p class='m-0'>{{comment.body}}</p>
+                <div class='col-sm-9 align-self-center p-2 m-1 d-flex flex-column'>
+                  <p class='m-0 align-self-center'>{{comment.body}}</p>
                 </div>
               </li>
             {{/each}}
