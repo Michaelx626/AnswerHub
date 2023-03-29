@@ -23,50 +23,131 @@
 </head>
 
 <body>
+{{#if logged_in}}
+  <nav class='navbar navbar-expand-lg navbar-light bg-light'>
+    <div class='container-fluid'>
+      <a class='navbar-brand' href='#'>
+        <i class='fab fa-icon'></i>
+      </a>
+      <button
+        class='navbar-toggler'
+        type='button'
+        data-bs-toggle='collapse'
+        data-bs-target='#navbar-collapse'
+      >
+        <span class='navbar-toggler-icon'></span>
+      </button>
+      <div class='collapse navbar-collapse' id='navbar-collapse'>
+        <ul class='navbar-nav ms-auto'>
+          <li class='nav-item'>
+            <a class='nav-link' href='/'>
+              <i class='fas fa-home'></i>
+              Home
+            </a>
+          </li>
+          <li class='nav-item'>
+            <a class='nav-link' href='#'>
+              <i class='fas fa-bell'></i>
+              Notifications
+            </a>
+          </li>
+          <li class='nav-item'>
+            <a class='nav-link' href='#'>
+              <i class='fas fa-envelope'></i>
+              Messages
+            </a>
+          </li>
+          <li class='nav-item'>
+            <a
+              class='nav-link'
+              href='#'
+              data-bs-toggle='modal'
+              data-bs-target='#exampleModal'
+            >
+              <i class='fa-solid fa-magnifying-glass'></i>
+              Search
+            </a>
+          </li>
+          <li class='nav-item dropdown'>
+            <a
+              class='nav-link dropdown-toggle'
+              href='#'
+              id='navbarDropdown'
+              role='button'
+              data-bs-toggle='dropdown'
+              aria-expanded='false'
+            >
+              <i class='fas fa-user'></i>
+              Profile
+            </a>
+            <ul
+              class='dropdown-menu dropdown-menu-end'
+              aria-labelledby='navbarDropdown'
+            >
+              <li><a class='dropdown-item' href='/profile'><i
+                    class='fa-solid fa-user'
+                  ></i>
+                  Profile</a></li>
+              <li><hr class='dropdown-divider' /></li>
+              <li><a class='dropdown-item' href='#'><i class='fas fa-edit'></i>
+                  Edit Profile</a></li>
+              <li><hr class='dropdown-divider' /></li>
+              <li><a class='dropdown-item logout-link' href='#'><i
+                    class='fas fa-sign-out-alt'
+                  ></i>
+                  Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {{/if}}
+  <main>
   {{{ body }}}
-</body>
+  </main>
 <!--Search Modal-->
-<div
-  class='modal fade'
-  id='exampleModal'
-  tabindex='-1'
-  aria-labelledby='exampleModalLabel'
-  aria-hidden='true'
->
-  <div class='modal-dialog'>
-    <div class='modal-content'>
-      <div class='modal-header'>
-        <h1 class='modal-title fs-5' id='exampleModalLabel'>Search for a user</h1>
-        <button
-          type='button'
-          class='btn-close'
-          data-bs-dismiss='modal'
-          aria-label='Close'
-        ></button>
-      </div>
-      <div class='modal-body'>
-        <div class='input-group mb-3'>
-          <span class='input-group-text' id='basic-addon1'>@</span>
-          <input
-            type='text'
-            class='form-control user_searches'
-            placeholder='Username'
-            aria-label='Username'
-            aria-describedby='basic-addon1'
-          />
+  <div
+    class='modal fade'
+    id='exampleModal'
+    tabindex='-1'
+    aria-labelledby='exampleModalLabel'
+    aria-hidden='true'
+  >
+    <div class='modal-dialog'>
+      <div class='modal-content'>
+        <div class='modal-header'>
+          <h1 class='modal-title fs-5' id='exampleModalLabel'>Search for a user</h1>
+          <button
+            type='button'
+            class='btn-close'
+            data-bs-dismiss='modal'
+            aria-label='Close'
+          ></button>
         </div>
-      </div>
-      <div class='modal-footer'>
-        <button
-          type='button'
-          class='btn btn-secondary'
-          data-bs-dismiss='modal'
-        >Close</button>
-        <button type='button' class='btn btn-primary search_btn'>Search</button>
+        <div class='modal-body'>
+          <div class='input-group mb-3'>
+            <span class='input-group-text' id='basic-addon1'>@</span>
+            <input
+              type='text'
+              class='form-control user_searches'
+              placeholder='Username'
+              aria-label='Username'
+              aria-describedby='basic-addon1'
+            />
+          </div>
+        </div>
+        <div class='modal-footer'>
+          <button
+            type='button'
+            class='btn btn-secondary'
+            data-bs-dismiss='modal'
+          >Close</button>
+          <button type='button' class='btn btn-primary search_btn'>Search</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
 <!-- Bootstrap JS -->
@@ -80,4 +161,5 @@
 <script src="/js/logout.js"></script>
 <script src="/js/search.js"></script>
 
+</body>
 </html>
