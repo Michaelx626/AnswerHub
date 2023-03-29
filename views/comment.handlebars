@@ -10,7 +10,7 @@
         </div>
         <div class='card-body d-flex flex-row'>
           <div class='d-flex flex-column p-1 col-sm-2'>
-            {{#if}}
+            {{#if post.user.profilePic}}
             <img
               src='/uploads/{{post.user.profilePic}}'
               alt='{{post.user.name}} profile picture'
