@@ -7,9 +7,9 @@ AnswerHub is a fullstack social media platform for developers. Through creating 
 
 AnswerHub was born out of a lack of social media platform aimed at this demographic. The developers intended for AnswerHub to be a social-media-based hybrid of Chat GBT and Open Stack. 
 
-Upon entering going to the [AnswerHub link](), a user should be greeted by the login/signup page: ![screenshot]()
+Upon entering going to the [AnswerHub link](), a user should be greeted by the login/signup page: ![screenshot](./public/screenshots/login-screenshot.png)
 
-And upon logging in or signing up, a user should be directed to the ??? page. It is encouraged that a user edits their profile to include any information they wish to update or include. 
+And upon logging in or signing up, a user should be directed to the user's profile page. It is encouraged that a user edits their profile to include any information they wish to update or include. 
 
 ---
 ## Table of Contents

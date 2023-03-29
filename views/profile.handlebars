@@ -28,35 +28,34 @@
     {{#with user as |user|}}
     {{#each user.posts as |post|}}
     <article class="profile-card card m-2">
-          <div class="card-body row">
-            <div class="col-sm-12 d-flex flex-row">
-              <div class="col-md-3 d-flex flex-column p-2 m-1 align-self-center" id="user-info">
-                  <img 
-                    src="https://via.placeholder.com/50" 
-                    class="rounded-circle align-self-center" 
-                    alt="{{post.user.name}} profile picture"
-                    width='50'
-                    height="50"
-                  />
-                  <p class="post_user align-self-center">{{post.user.name}} </p>
-                  <p class="post_date align-self-center">{{format_date post.date_created}} </p>
-              </div>
-              <div class="col-md-8 p-2 m-1 align-self-center" id="contents">
-                  <p class="post_content"> {{post.content}}</p>
-              </div>
-            </div>
-            <div class="col-sm-12 ms-sm-2 ms-md-5">
-              <a href='/post/{{post.id}}'>
-                <i class="far fa-comment"></i>
-                <span>{{comments.length}}</span>
-              </a>
-              <a href="#" data-value="{{post.number_likes}}" data-id="{{post.id}}" class="getLikes">
-                <i class="far fa-heart"></i>
-                <span>{{post.number_likes}}</span>
-              </a>    
-            </div>
+      <div class="card-body row">
+        <div id='1' class="col-sm-12 d-flex flex-row">
+          <div class="col-md-3 d-flex flex-column p-2 m-1 align-self-center" id="user-info">
+            <img 
+              src="https://via.placeholder.com/50" 
+              class="rounded-circle align-self-center" 
+              alt="{{post.user.name}} profile picture"
+              width='50'
+              height="50"
+            />
+            <p class="post_user align-self-center">{{post.user.name}} </p>
+            <p class="post_date align-self-center">{{format_date post.date_created}} </p>
+          </div>
+          <div class="col-md-8 p-2 m-1 align-self-center" id="contents">
+            <p class="post_content"> {{post.content}}</p>
           </div>
         </div>
+        <div class="col-sm-12 ms-sm-2 ms-md-5">
+          <a href='/post/{{post.id}}'>
+            <i class="far fa-comment"></i>
+            <span>{{comments.length}}</span>
+          </a>
+          <a href="#" data-value="{{post.number_likes}}" data-id="{{post.id}}" class="getLikes">
+            <i class="far fa-heart"></i>
+            <span>{{post.number_likes}}</span>
+          </a>    
+        </div>
+      </div>
     </article>
     {{/each}}
     {{/with}}
