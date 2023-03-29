@@ -27,7 +27,7 @@ A user does not need to install anything. Instead, a user should direct themselv
 
 A developer should be sure to install all dependencies (command: npm i), and ensure that the appropriate database has been sourced in the MySQL terminal. Additionally, any developers should be sure to include all sensitive information in an .env file. Please look at the [dotenv documentation](https://www.npmjs.com/package/dotenv) regarding any questions on how this works.
 
-This project also uses OpenAI for the chatbot model. Please consult the [OpenAI documentation]() regarding questions. 
+This project also uses OpenAI for the chatbot model. Please consult the [OpenAI documentation](https://platform.openai.com/docs/introduction) regarding questions. 
 
 ## Usage
 
