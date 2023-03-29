@@ -58,10 +58,11 @@
               {{/if}}
               <p class="post_user align-self-center">{{post.user.name}}</p>
               <p class="post_date align-self-center">{{format_date post.date_created}}</p>
-              <div class='post-actions'>
-                <a href='/post/{{post.id}}'>
-                <i class='far fa-comment'></i>
-                <span>{{comments.length}}</span>
+              <div class='mt3'>
+                <a href="/post/{{post.id}}"><i class="far fa-comment"></i> 
+                {{#with post.comments}}
+                {{post.comments.length}}
+                {{/with}}
                 </a>
               </div>
             </div>
