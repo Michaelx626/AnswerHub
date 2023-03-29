@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light profile-nav">
+<div class="container-fluid">
+<a class="navbar-brand" href="#">
+<i class="fab fa-icon"></i>
+</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbar-collapse">
+<ul class="navbar-nav ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" id="home-link" href="javascript:;">
+      <i class="fas fa-home"></i> Home
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <i class="fa-solid fa-magnifying-glass"></i> Search
+    </a>
+  </li>
+  <li class="nav-item"><a href="/profile"><i class="fa-solid fa-user"></i> Profile</a></li>
+  <li class="nav-item">
+    <a class="nav-link edit-profile" href="#" id="edit-profile" data-bs-toggle="modal" data-bs-target="#editProfile">
+      <i class="fas fa-edit"></i> Edit Profile
+    </a>
+  </li>
+   <li class="nav-item">
+    <a class="nav-link logout-link" href="/logout">
+      <i class="fas fa-sign-out-alt"></i> Logout
+    </a>
+  </li>
+
+</ul>
+</div>
+</div>
+</nav>
+<script>
+  const homeLink = document.querySelector('#home-link');
+  homeLink.href = window.location.origin;
+</script>

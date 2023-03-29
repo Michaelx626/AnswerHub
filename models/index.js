@@ -1,51 +1,6 @@
 const Comment = require('./Comment');
-const Like = require('./Like');
 const Post = require('./Post');
-const PostTag = require('./PostTag');
-const Tag = require('./Tag');
 const User = require('./User');
-const UserTag = require('./UserTag');
-
-//User has man followers
-// User.hasMany (User, {
-//   foreignKey: 'follower_id',
-//   onDelete: 'CASCADE',
-//   as: 'follower'
-// });
-
-//Follwer belongs to user
-// User.belongsTo(User, {
-//   foreignKey: 'follower_id',
-//   as: 'followedUser'
-// });
-
-User.belongsTo(Tag, {
-  through: {
-    model: UserTag,
-    unique: false
-  }
-});
-
-Tag.belongsTo(User, {
-  through: {
-    model: UserTag,
-    unique: false
-  }
-});
-
-Post.belongsTo(Tag, {
-  through: {
-    model: PostTag,
-    unique: false
-  }
-});
-
-Tag.belongsTo(Post, {
-  through: {
-    model: PostTag,
-    unique: false,
-  }
-});
 
 User.hasMany(Post, {
   foreignKey: 'user_id',
@@ -54,24 +9,6 @@ User.hasMany(Post, {
 
 Post.belongsTo(User, {
   foreignKey: 'user_id'
-});
-
-User.hasMany(Like, {
-  foreignKey: 'user_id',
-  onDelete: 'CASCADE'
-});
-
-Like.belongsTo(User, {
-  foreignKey: 'user_id'
-});
-
-Post.hasMany(Like, {
-  foreignKey: 'post_id',
-  onDelete: 'CASCADE'
-});
-
-Like.belongsTo(Post, {
-  foreignKey: 'post_id'
 });
 
 Post.hasMany(Comment, {
@@ -90,4 +27,4 @@ Comment.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
-module.exports = { User, Post, PostTag, User, UserTag, Tag, Comment, Like };
+module.exports = { User, Post, User, Comment };

@@ -20,15 +20,6 @@ Post.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    number_likes: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 0,
-    },
-    // isLiked: {
-    //   type: DataTypes.BOOLEAN,
-    //   defaultValue: false,
-    // },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
