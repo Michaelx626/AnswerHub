@@ -54,9 +54,9 @@
   <div class="container mt-3">
     <div class="row">
       <!-- Left Column -->
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-header">
+      <div class="col-md-4 col">
+        <div class="profile-card">
+          <div class="custom-card-header">
             <h5 class="pt-2 px-2">Profile</h5>
           </div>
           <div class="card-body d-flex flex-column p-2 m-2">
@@ -78,8 +78,8 @@
           </div>
         </div>
         <div>
-          <div class="card">
-            <div class="card-header">
+          <div class="profile-card">
+            <div class="custom-card-header">
               <h5 class="pt-1 px-1">Recommened Connections</h5>
             </div>
             <div class="card-body d-flex flex-column row">
@@ -116,8 +116,8 @@
 
       <!-- Middle Column -->
       <div class="col-md-8">
-        <div class="card mb-3">
-          <div class="card-header">
+        <div class="profile-card mb-3">
+          <div class="custom-card-header">
             <h5 class="pt-2 px-2">What's happening?</h5>
           </div>
           <div class="card-body">
@@ -130,7 +130,7 @@
           </div>
         </div>
         {{#each posts as |post|}}
-        <div class="card">
+        <div class="profile-card">
           <div class="card-body row">
             <div class="col-sm-12 d-flex flex-row">
               <div class="col-md-3 d-flex flex-column p-2 m-1 align-self-center" id="user-info">
@@ -153,67 +153,14 @@
               <a href="#"><i class="far fa-heart"></i> 30</a>    
             </div>
           </div>
-          {{!-- <div class="card-body">
-            <div class="media mb-3">
-              <img src="https://via.placeholder.com/50" class="mr-3 rounded-circle" alt="User Picture">
-              <div class="media-body">
-                <div class="post-grid">
-                  <h5 class="mt-0 post_user">{{post.user.name}} </h5>
-                  <p class="post_content"> {{post.content}}</p>
-                  <p class="mt-0 post_date">{{format_date post.date_created}} </p>
-                </div>
-                <div class="mt-3">
-                  <a href="/post/{{post.id}}"><i class="far fa-comment"></i> 10</a>
-                  <a href="#"><i class="far fa-heart"></i> 30</a>                
-                </div>
-              </div>
-            </div>
-          </div> --}}
         </div>
         {{/each}}
       </div>
-
-    <!-- Right Column -->
-      {{!-- <div class="col-md-3">
-        <div class="card">
-          <div class="card-header">
-            <h5 class="pt-1 px-1">Recommened Connections</h5>
-          </div>
-          <div class="card-body d-flex flex-column row">
-            <div class="media recommended-user-block d-flex flex-row justify-content-left col-sm-12 pe-2 py-2">
-              <img 
-                src="https://via.placeholder.com/50" 
-                class="m-1 rounded-circle " 
-                alt="User Picture"
-                width="50"
-                height="50"
-              >
-              <div class="media-body p-1 m-1">
-                <p class="recommended-name">Jane Smith </p>
-                <button type="button" class="btn btn-primary btn-sm follow-btn">Follow</button>
-              </div>
-            </div>
-            <div class="media recommended-user-block d-flex flex-row justify-content-left col-sm-12 pe-2 py-2">
-              <img 
-                src="https://via.placeholder.com/50" 
-                class="m-1 rounded-circle " 
-                alt="User Picture"
-                width="50"
-                height="50"
-              >
-              <div class="media-body p-1 m-1">
-                <p class="recommended-name">John Doe </p>
-                <button type="button" class="btn btn-primary btn-sm follow-btn">Follow</button>
-              </div>
-            </div>
-            </div>
-          </div>
-      </div> --}}
     </div>
   </div>
 </main>    
 <!--Search Modal-->
-<div
+{{!-- <div
   class='modal fade'
   id='exampleModal'
   tabindex='-1'
@@ -261,5 +208,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js"></script>
 <script src="/js/logout.js"></script>
 <script src="/js/post.js"></script>
-<script src="/js/search.js"></script>
+<script src="/js/search.js"></script> --}}
                 

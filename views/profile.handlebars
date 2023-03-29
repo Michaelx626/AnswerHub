@@ -75,12 +75,18 @@
 </nav>
 
 <!-- User Bio -->
-<div class='container'>
+<div class='container p-2'>
   <div class='row'>
-    <div class='col-md-3'>
-      <div class='profile-card'>
-        <div class='profile-img'>
-          <img src='https://via.placeholder.com/150x150' alt='Profile Image' />
+    <!--Right column-->
+    <div class='col-md-3 d-flex flex-column p-2 m-1'>
+      <div class='card profile-card'>
+        <div class='profile-img row align-items-center'>
+          <img 
+            src='https://via.placeholder.com/150x150' 
+            alt='{{user.name}} Profile Image' 
+            class="rounded-circle"
+            width="150"
+          />
         </div>
         <div class='profile-name'>
           <h4>{{user.name}}</h4>
@@ -94,31 +100,60 @@
             consectetur dolores!</p>
         </div>
       </div>
+      <div class="">
+        <div class='trending'>
+          <h4>Recommended</h4>
+          <ul>
+            <li><a href='#'>#webdevelopment</a></li>
+            <li><a href='#'>#music</a></li>
+            <li><a href='#'>#gaming</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
 
-    <!--User's Post-->
+    <!--User's Posts-->
     <div class='col-md-6'>
     {{#with user as |user|}}
     {{#each user.posts as |post|}}
-      <div class='profile-card'>
-        <div class='user-post post-grid'>
-          <div class='post-header'>
-            <div class='post-author'>
-              <img
-                src='https://via.placeholder.com/50x50'
-                alt='Profile Image'
-                class='post-profile-pic'
-              />
-              <div class='post-author-info'>
-                <h5>{{user.name}}</h5>
-                <a href="mailto:{{user.email}}">@{{user.email}}</a>
+    <div class="profile-card card m-2">
+          <div class="card-body row">
+            <div class="col-sm-12 d-flex flex-row">
+              <div class="col-md-3 d-flex flex-column p-2 m-1 align-self-center" id="user-info">
+                  <img 
+                    src="https://via.placeholder.com/50" 
+                    class="rounded-circle align-self-center" 
+                    alt="{{post.user.name}} profile picture"
+                    width='50'
+                    height="50"
+                  />
+                  <p class="post_user align-self-center">{{post.user.name}} </p>
+                  <p class="post_date align-self-center">{{format_date post.date_created}} </p>
+              </div>
+              <div class="col-md-8 p-2 m-1 align-self-center" id="contents">
+                  <p class="post_content"> {{post.content}}</p>
               </div>
             </div>
-            <div class='post-time'>
-              <p>2 hours ago</p>
+            <div class="col-sm-12 ms-sm-2 ms-md-5">
+              <a href="/post/{{post.id}}"><i class="far fa-comment"></i> 10</a>
+              <a href="#"><i class="far fa-heart"></i> 30</a>    
             </div>
           </div>
-          <div class='post-content'>
+        </div>
+      {{!-- <div class='profile-card card col-sm-12 d-flex flex-row'>
+        <div class='col-md-3 d-flex flex-column p-2 m-1 align-self-center'>
+          <div class='post-header'>
+            <div class='post-author col-md-3'>
+              <img
+                src='https://via.placeholder.com/50x50'
+                alt='{{user.name}} Profile Image'
+                class='post-profile-pic rounded-circle'
+              />
+              <h5 class="post-author-info"><a href="mailto:{{user.email}}">@{{user.name}}</a></h5>
+              <p class="post-time">{{format_date post.date_created}}</p>
+            </div>
+          </div>
+          <div class='post-content col-md-8 p-2 m-1 align-self-center'>
             <p>{{post.content}}</p>
           </div>
           <div class='post-actions'>
@@ -132,26 +167,16 @@
             </a>
           </div>
         </div>
-      </div>
-      {{/each}}
-      {{/with}}
-
-    <!--Recommended Users or Content -->
-    <div class='col-md-3'>
-      <div class='trending'>
-        <h4>Recommended</h4>
-        <ul>
-          <li><a href='#'>#webdevelopment</a></li>
-          <li><a href='#'>#music</a></li>
-          <li><a href='#'>#gaming</a></li>
-        </ul>
-      </div>
+      </div> --}}
+    {{/each}}
+    {{/with}}
     </div>
+    <!--Recommended Users or Content -->
   </div>
 </div>
 
 <!--Search Modal-->
-<div
+{{!-- <div
   class='modal fade'
   id='exampleModal'
   tabindex='-1'
@@ -209,5 +234,5 @@
   src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js'
 ></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
-<script src="/js/logout.js"></script>
+<script src="/js/logout.js"></script> --}}
 <script src="/js/search.js"></script>
