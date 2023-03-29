@@ -10,6 +10,10 @@ router.get('/', withAuth, async (req, res) => {
           model: User,
           attributes: ['name'],
         },
+        {
+          model: Comment,
+          attributes: ['body'],
+        }
       ],
     });
 
@@ -21,7 +25,7 @@ router.get('/', withAuth, async (req, res) => {
     posts.sort((a,b) => (new Date(b.date_created) - new Date(a.date_created)));
 
     const users = usersData.get({ plain: true });
-    
+
     res.render('homepage', { posts, users });
 
   } catch (err) {
@@ -70,7 +74,7 @@ router.get('/profile', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Post }],
+      include: [{ model: Post, include: [{ model: Comment }]}]
     });
 
     const user = userData.get({ plain: true });
@@ -80,7 +84,7 @@ router.get('/profile', withAuth, async (req, res) => {
    
 
     user.posts.sort((a,b) => (new Date(b.date_created) - new Date(a.date_created)));
-
+    
     res.render('profile', {
       user,
       

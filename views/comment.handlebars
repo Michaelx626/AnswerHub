@@ -1,114 +1,43 @@
-<nav class='navbar navbar-expand-lg navbar-light bg-light'>
-  <div class='container-fluid'>
-    <a class='navbar-brand' href='#'>
-      <i class='fab fa-icon'></i>
-    </a>
-    <button
-      class='navbar-toggler'
-      type='button'
-      data-bs-toggle='collapse'
-      data-bs-target='#navbar-collapse'
-    >
-      <span class='navbar-toggler-icon'></span>
-    </button>
-    <div class='collapse navbar-collapse' id='navbar-collapse'>
-      <ul class='navbar-nav ms-auto'>
-        <li class='nav-item'>
-          <a class='nav-link' href='/'>
-            <i class='fas fa-home'></i>
-            Home
-          </a>
-        </li>
-        <li class='nav-item'>
-          <a class='nav-link' href='#'>
-            <i class='fas fa-bell'></i>
-            Notifications
-          </a>
-        </li>
-        <li class='nav-item'>
-          <a class='nav-link' href='#'>
-            <i class='fas fa-envelope'></i>
-            Messages
-          </a>
-        </li>
-        <li class='nav-item'>
-          <a
-            class='nav-link'
-            href='#'
-            data-bs-toggle='modal'
-            data-bs-target='#exampleModal'
-          >
-            <i class='fa-solid fa-magnifying-glass'></i>
-            Search
-          </a>
-        </li>
-        <li class='nav-item dropdown'>
-          <a
-            class='nav-link dropdown-toggle'
-            href='#'
-            id='navbarDropdown'
-            role='button'
-            data-bs-toggle='dropdown'
-            aria-expanded='false'
-          >
-            <i class='fas fa-user'></i>
-            Profile
-          </a>
-          <ul
-            class='dropdown-menu dropdown-menu-end'
-            aria-labelledby='navbarDropdown'
-          >
-            <li><a class='dropdown-item' href='/profile'><i
-                  class='fa-solid fa-user'
-                ></i>
-                Profile</a></li>
-            <li><hr class='dropdown-divider' /></li>
-            <li><a class='dropdown-item' href='#'><i class='fas fa-edit'></i>
-                Edit Profile</a></li>
-            <li><hr class='dropdown-divider' /></li>
-            <li><a class='dropdown-item logout-link' href='#'><i
-                  class='fas fa-sign-out-alt'
-                ></i>
-                Logout</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!--Main Content-->
 <div class='container'>
   <h1 class='my-4'>Comments</h1>
-  <div class='row mx-auto'>
-    <div class='col-md-8'>
-      <div class='card mb-4'>
+  <div class='row'>
+    <div class='col-sm-10'>
+
+      <!--Original Post-->
+      <article class='card'>
         <div class='card-header'>
-          <h5>Profile</h5>
+          <h5 class="px-3 my-1">Post</h5>
         </div>
-        <div class='card-body post_comment_box'>
-          <img
-            src='https://via.placeholder.com/150'
-            alt='Profile Picture'
-            class='img-fluid rounded-circle mb-3'
-            width='50'
-            height='50'
-          />
+        <div class='card-body d-flex flex-row'>
+          <div class='d-flex flex-column p-1 col-sm-2'>
+            <img
+              src='https://via.placeholder.com/150'
+              alt='{{post.user.name}} profile picture'
+              class='img-fluid rounded-circle m-1 align-self-center'
+              width='50'
+              height='50'
+            />
+            <a
+              href='mailto:{{post.user.email}}'
+              class='text-muted p-1 align-self-center'
+              id='username'
+            >@{{post.user.name}}</a>
+          </div>
+          <div class='col-sm-10 align-self-center'>
+            <p class='card-text jusitfy-content-center'>{{post.content}}</p>
+          </div>
+          <div class="col-sm-12 mx-2">
+            <p class="text-muted m-1 p-2">{{format_date post.date_created}}</p>            </div>
+          </div>
+      </article>
 
-          <p class='card-text'>{{post.content}}</p>
-          <a
-            href='mailto:{{post.user.email}}'
-            class='text-muted'
-            id='username'
-          >@{{post.user.email}}</a>
-
+      <!--new comment form-->
+      <div class='card col-sm-12'>
+        <div class="p-1">
+          <h5 class='card-title p-1 m-0'>Comment </h5>
         </div>
-      </div>
-
-      <div class='card mb-4'>
         <div class='card-body'>
-          <h5 class='card-title'>Comment </h5>
-          <form>
+          <form class="p-1">
             <div class='form-group'>
               <textarea
                 class='form-control'
@@ -117,92 +46,48 @@
                 placeholder='Write your comment here'
               ></textarea>
             </div>
-            <button type='submit' id='comment_btn' class='btn btn-primary'>Post
-              Comment</button>
+            <button type='submit' id='comment_btn' class='btn btn-primary'>Post Comment</button>
           </form>
         </div>
       </div>
 
       <!--Comments-->
-      {{#each comments as |comment|}}
-        <div class='card mb-4'>
-          <div class='card-body post_comment_box'>
-            <h5 class='card-title'>Comments</h5>
-            <p>{{comment.body}}</p>
-            <div class='media mb-4'>
-              <img
-                class='d-flex mr-3 rounded-circle'
-                src='https://via.placeholder.com/50'
-                alt=''
-              />
-              <div class='media-body'>
+      <div class='card'>
+        <div class='p-2'>
+          <h5 class='p-2 card-title'>Comments</h5>
+        </div>
+        <div class='card-body'>
+          <ul class='list-group list-group-flush'>
+          {{#each comments as |comment|}}
+          <li class='list-group-item col-sm-12 d-flex flex-row'>
+            <article>
+              <div class='d-flex flex-column col-sm-2 p-1'>
+                <img
+                  class='rounded-circle align-self-center m-1'
+                  src='https://via.placeholder.com/50'
+                  alt='{{comment.user.name}} profile image'
+                  width='50'
+                  height='50'
+                />
                 <a
+                  class='align-self-center p-1'
                   href='mailto:{{comment.user.email}}'
                   class='mt-0'
-                >{{comment.user.email}}</a>
+                >{{comment.user.name}}</a>
               </div>
-            </div>
-          </div>
+              <div class='col-sm-10 align-self-center d-flex'>
+                <p class="m-0">{{comment.body}}</p>
+              </div>
+              <div class="col-sm-12">
+                <p class="text-muted m-1 p-2">{{format_date comment.date_created}}</p>
+              </div>
+            </article>
+          </li>
+          {{/each}}
+          </ul>
         </div>
-      {{/each}}
-    </div>
-  </div>
-</div>
-
-<!--Search Modal-->
-<div
-  class='modal fade'
-  id='exampleModal'
-  tabindex='-1'
-  aria-labelledby='exampleModalLabel'
-  aria-hidden='true'
->
-  <div class='modal-dialog'>
-    <div class='modal-content'>
-      <div class='modal-header'>
-        <h1 class='modal-title fs-5' id='exampleModalLabel'>Modal title</h1>
-        <button
-          type='button'
-          class='btn-close'
-          data-bs-dismiss='modal'
-          aria-label='Close'
-        ></button>
-      </div>
-      <div class='modal-body'>
-        <div class='input-group mb-3'>
-          <span class='input-group-text' id='basic-addon1'>@</span>
-          <input
-            type='text'
-            class='form-control user_searches'
-            placeholder='Username'
-            aria-label='Username'
-            aria-describedby='basic-addon1'
-          />
-        </div>
-      </div>
-      <div class='modal-footer'>
-        <button
-          type='button'
-          class='btn btn-secondary'
-          data-bs-dismiss='modal'
-        >Close</button>
-        <button type='button' class='btn btn-primary search_btn'>Search</button>
       </div>
     </div>
   </div>
 </div>
-
-<script
-  src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'
-></script>
-<script
-  src='https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js'
-  integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q'
-  crossorigin='anonymous'
-></script>
-<script
-  src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js'
-></script>
-<script src='/js/logout.js'></script>
 <script src='/js/comment.js'></script>
-<script src='/js/search.js'></script>

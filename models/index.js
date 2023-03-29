@@ -1,5 +1,5 @@
 const Comment = require('./Comment');
-// const Like = require('./Like');
+const Like = require('./Like');
 const Post = require('./Post');
 const PostTag = require('./PostTag');
 const Tag = require('./Tag');
@@ -56,23 +56,23 @@ Post.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
-// User.hasMany(Like, {
-//   foreignKey: 'user_id',
-//   onDelete: 'CASCADE'
-// });
+User.hasMany(Like, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
+});
 
-// Like.belongsTo(User, {
-//   foreignKey: 'user_id'
-// });
+Like.belongsTo(User, {
+  foreignKey: 'user_id'
+});
 
-// Post.hasMany(Like, {
-//   foreignKey: 'post_id',
-//   onDelete: 'CASCADE'
-// });
+Post.hasMany(Like, {
+  foreignKey: 'post_id',
+  onDelete: 'CASCADE'
+});
 
-// Like.belongsTo(Post, {
-//   foreignKey: 'post_id'
-// });
+Like.belongsTo(Post, {
+  foreignKey: 'post_id'
+});
 
 Post.hasMany(Comment, {
   foreignKey: 'post_id',

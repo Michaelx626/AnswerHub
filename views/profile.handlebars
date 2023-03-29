@@ -1,16 +1,18 @@
 {{> profile-navigation}}
 
-<!-- User Bio -->
-
-<div class='container'>
+<div class='container p-2'>
   <div class='row'>
-    <div class='col-md-3'>
+    <div class='col-md-3 d-flex flex-column p-2 m-1'>
       <div class='profile-card'>
-        <div class='profile-img'>
-          <img src='/uploads/{{user.profilePic}}' alt='Profile Image' id="profile-pic-preview" />
+        <div class='profile-img row align-items-center'>
+          <img src='/uploads/{{user.profilePic}}' alt='{{user.name}}' id="profile-pic-preview" />
         </div>
         <div class='profile-name'>
           <h4>{{user.name}}</h4>
+          <ul class="align-self-start list-unstyled">
+            <li><i class="fas fa-user"></i> 10 Followers</li>
+            <li><i class="fas fa-user"></i> 20 Following</li>
+          </ul>
         </div>
         <div class='profile-bio'>
           <p>Javascript | C++ | Python</p>
@@ -19,153 +21,86 @@
           <p id="userBio">{{user.userBio}}</p>
         </div>
       </div>
-    </div>
+    <div>
 
-    <!--User's Post-->
-    <div class='col-md-6'>
-    {{#with user as |user|}}
-    {{#each user.posts as |post|}}
+    <!--User's Posts-->
+    <div class='col-md-8'>
+      {{#with user as |user|}}
+      {{#each user.posts as |post|}}
       <div class='profile-card'>
         <div class='user-post post-grid'>
           <div class='post-header'>
             <div class='post-author'>
-              
               <img
                 src='/uploads/{{user.profilePic}}'
-                alt='Profile Image'
+                alt='{{user.name}}'
                 class='profile-pic-preview' width="60px" height="60px"
               />
               <div class='post-author-info'>
                 <h5>{{user.name}}</h5>
                 <a href="mailto:{{user.email}}">@{{user.email}}</a>
+                <div class="profile-card card m-2">
+                  <div class="card-body row">
+                    <div class="col-sm-12 d-flex flex-row">
+                      <div class="col-md-3 d-flex flex-column p-2 m-1 align-self-center" id="user-info">
+                        <img 
+                        src="https://via.placeholder.com/50" 
+                        class="rounded-circle align-self-center" 
+                        alt="{{post.user.name}} profile picture"
+                        width='50'
+                        height="50"
+                        />
+                        <p class="post_user align-self-center">{{post.user.name}} </p>
+                        <p class="post_date align-self-center">{{format_date post.date_created}} </p>
+                      </div>
+                      <div class="col-md-8 p-2 m-1 align-self-center" id="contents">
+                        <p class="post_content"> {{post.content}}</p>
+                      </div>
+                      <div class="col-sm-12 ms-sm-2 ms-md-5">
+                        <a href='/post/{{post.id}}'>
+                        <i class="far fa-comment"></i>
+                        <span>{{comments.length}}</span>
+                        </a>
+                        <a href="#" data-value="{{post.number_likes}}" data-id="{{post.id}}" class="getLikes">
+                        <i class="far fa-heart"></i>
+                        <span>{{post.number_likes}}</span>
+                        </a>    
+                      </div>
+                    </div>
+                  </div>
+                </div> 
               </div>
             </div>
-            <div class='post-time'>
-              <p>2 hours ago</p>
-            </div>
-          </div>
-          <div class='post-content'>
-            <p>{{post.content}}</p>
-          </div>
-          <div class='post-actions'>
-            <a href='/post/{{post.id}}'>
-              <i class='far fa-comment'></i>
-              <span>10</span>
-            </a>
-            <a href='#'>
-              <i class='far fa-heart'></i>
-              <span>50</span>
-            </a>
           </div>
         </div>
-      </div>
+      </div>  
       {{/each}}
       {{/with}}
-
-    <!--Recommended Users or Content -->
-    <div class='col-md-3'>
-      <div class='trending'>
-        <h4>Recommended</h4>
-        <ul>
-          <li><a href='#'>#webdevelopment</a></li>
-          <li><a href='#'>#music</a></li>
-          <li><a href='#'>#gaming</a></li>
-        </ul>
-      </div>
     </div>
   </div>
 </div>
 
-<!--Search Modal-->
-<div
-  class='modal fade'
-  id='exampleModal'
-  tabindex='-1'
-  aria-labelledby='exampleModalLabel'
-  aria-hidden='true'
->
-  <div class='modal-dialog'>
-    <div class='modal-content'>
-      <div class='modal-header'>
-        <h1 class='modal-title fs-5' id='exampleModalLabel'>Edit Profile</h1>
-        <button
-          type='button'
-          class='btn-close'
-          data-bs-dismiss='modal'
-          aria-label='Close'
-        ></button>
+<!-- Edit Profile Modal-->
+<div class="modal fade" id="editProfile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Profile</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class='modal-body'>
-        <div class='input-group mb-3'>
-          <span class='input-group-text' id='basic-addon1'>@</span>
-          <input
-            type='text'
-            class='form-control user_searches'
-            placeholder='Username'
-            aria-label='Username'
-            aria-describedby='basic-addon1'
-          />
-        </div>
-      </div>
-      <div class='modal-footer'>
-        <button
-          type='button'
-          class='btn btn-secondary'
-          data-bs-dismiss='modal'
-        >Close</button>
-        <button type='button' class='btn btn-primary search_btn'>Search</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-  <!-- Edit Profile Modal-->
-  <div class="modal fade" id="editProfile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Profile</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p> Change Your Profile Picture</p>
-          <form enctype="multipart/form-data" id="upload-form">
-  <input type="file" id="profile-pic-input" name="profilePic">
-
+      <div class="modal-body">
+        <p> Change Your Profile Picture</p>
+        <form enctype="multipart/form-data" id="upload-form">
+          <input type="file" id="profile-pic-input" name="profilePic">
           <div class="form-group">
             <label for="bio">Bio:</label>
             <textarea class="form-control" id="bio" rows="5" name="bio"></textarea>
           </div>
         </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" id="upload-save" data-bs-dismiss="modal">Save</button>
-
-        </div>
       </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" id="upload-save" data-bs-dismiss="modal">Save</button>
     </div>
+   </div>
   </div>
-  </div>
-
-
-
-
-<!-- Footer -->
-<footer class='text-center'>
-  <p>&copy; 2023 AnswerHub</p>
-</footer>
-<!-- jQuery -->
-<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
-<!-- Bootstrap JS -->
-<script
-  src='https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js'
-  integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q'
-  crossorigin='anonymous'
-></script>
-<script
-  src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js'
-></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
-<script src="./js/profile.js"></script>
-
-<script type="text/javascript" src="./js/logout.js"></script>
+ </div>

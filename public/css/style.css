@@ -49,3 +49,9 @@ a span{
   margin: 0;
   color: gray;
 }
+
+.custom-comment-card{
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: lightgray;
+}

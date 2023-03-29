@@ -1,13 +1,16 @@
-// const router = require('express').Router();
-// const { Like, Post, User } = require('../../models');
-// const withAuth = require('../../utils/auth');
+const router = require('express').Router();
+const { Post } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-// router.put('/', withAuth, async (req, res) => {
-//     try {
-//         const likeData = await Like.update
-//     } catch (error) {
-//         console.error(error);
-//     }
-// });
+router.put('/posts/:id/likes', withAuth, async (req, res) => {
+    try {
+        const updatePost = await Post.findByPk(req.params.id);
+        updatePost.number_likes = req.body.number_likes;
+        await updatePost.save();
+    } catch (error) {
+         console.error(error);
+    }
+ });
+ 
 
-// module.exports = router;
+module.exports = router;
