@@ -1,27 +1,30 @@
 <div class='container'>
   <div class='row'>
-    <div class='col-md-12'>
+    <div class='col-sm-12 d-flex flex-column'>
       <h1>AnswerHub Chat</h1>
       <div class='messages-container' id='message-container'>
+        <h2 class='sender'>AI Assistant</h2>
+        <p class='timestamp' id='timestamp'></p>
         <div class='message' id='messages'>
-          <div class='sender'>AI Assistant</div>
-          <div class='timestamp' id='timestamp'></div>
-          <div class='content'>
-            Hi there! What's your coding question?
+          <div class="p-1 m-1">
+            <p class="p-0 m-0">AI Assistant: </p>
+            <div class='content'>
+              <p class="p-0 m-0">Hi there! What's your coding question?</p>
+            </div>
           </div>
         </div>
 
       </div>
-      <div class='input-area'>
+      <div class='input-area d-flex flex-row'>
         <input
           type='text'
           id='user-input'
-          class='form-control'
+          class='form-control col-sm-9'
           placeholder='Type a message...'
         />
-        <button type='submit' id='sendBtn' class='btn btn-primary'><i
-            class='fa fa-paper-plane'
-          ></i></button>
+        <button type='submit' id='sendBtn' class='btn btn-primary col-sm-2'>
+          <i class='justify-self-center fa fa-paper-plane'></i>
+        </button>
       </div>
     </div>
   </div>
