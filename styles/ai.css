@@ -1,3 +1,8 @@
+:root {
+  --light-gray: #999;
+  --white: #f6f6f6;
+  --blue: #1c3fdd; 
+}
 .messages-container {
     height: 400px;
     overflow-y: scroll;
@@ -11,12 +16,12 @@
 }
 .message .timestamp {
   font-size: 12px;
-  color: #999;
+  color: var(--light-gray);
 }
 .message .content {
   margin-top: 5px;
   padding: 10px;
-  background-color: #f6f6f6;
+  background-color: var(--white);
   border-radius: 15px;
   display: inline-block;
 }
@@ -33,6 +38,6 @@
   width: 10%;
 }
 .custom-message {
-  background-color: #1c3fdd; 
-  color: white;
+  background-color: var(--blue); 
+  color: var(--white);
 }
