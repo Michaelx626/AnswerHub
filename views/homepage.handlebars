@@ -29,7 +29,7 @@
     </div>
     
     <div class="col-md-8">
-      <div class="profile-card mb-3">
+      <div class="profile-card">
         <div class="card-header">
           <h5>What's happening?</h5>
         </div>
@@ -37,13 +37,13 @@
           <form>
             <div class="form-group">
               <textarea class="form-control" id="user_inputbox" placeholder="Write something..." rows="3"></textarea>
+              <button type="submit" class="btn btn-primary post_btn m-2">Post</button>
             </div>
-            <button type="submit" class="btn btn-primary post_btn">Post</button>
           </form>
         </div>
       </div>
-      <div class="profile-card">
       {{#each posts as |post|}}
+      <div class="profile-card">
         <div class="card-body row">
           <div class="col-sm-12 d-flex flex-row">
             <div class="col-md-3 d-flex flex-column p-2 m-1 align-self-center" id="user-info">
@@ -60,19 +60,24 @@
               <p class="post_date align-self-center">{{format_date post.date_created}}</p>
               <div class='mt3'>
                 <a href="/post/{{post.id}}"><i class="far fa-comment"></i> 
+                {{#if post.comments.length}}
                 {{#with post.comments}}
                 {{post.comments.length}}
                 {{/with}}
+                {{else}}
+                0
+                {{/if}}
                 </a>
               </div>
             </div>
             <div class="col-md-8 p-2 m-1 align-self-center" id="contents">
               <p class="post_content">{{post.content}}</p>
             </div>
-            
           </div>
         </div>
-        {{/each}}
+      </div>
+      {{/each}}
+    </div>
   </div>
 </section>  
 
