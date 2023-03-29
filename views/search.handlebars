@@ -5,27 +5,24 @@
       {{#each searches as |search|}}
       <div class='col-md-12 d-flex flex-column p-2 m-1'>
         <div class='card profile-card'>
+          {{#if search.profilePic}}
           <div class='profile-img row align-items-center'>
-            {{#if search.profilePic}}
             <img 
               src='/uploads/{{search.profilePic}}' 
               alt='{{search.name}} Profile Image' 
               class="rounded-circle"
               width="150"
             />
-            {{/if}}
           </div>
+          {{/if}}
           <div class='profile-name'>
             <h4><a href="mailto:{{search.email}}">{{search.name}}</a></h4>
           </div>
+          {{#if search.bio}}
           <div class='profile-bio'>
-            <p>Javascript | C++ | Python</p>
+            <p>{{search.bio}}</p>
           </div>
-          <div class='profile-bio'>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-              nihil optio aut veritatis. Dolore odit adipisci aperiam quidem
-              consectetur dolores!</p>
-          </div>
+          {{/if}}
         </div>
       <div>
       {{/each}}
