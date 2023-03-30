@@ -18,7 +18,8 @@ const saveUpload = async () => {
 
   const profilePicElement = document.getElementById('profile-pic-preview');
   profilePicElement.src = 'window.location.pathname' + profilePic;
-  location.reload();
+
+  window.location.replace('/profile');
 };
 
 uploadSaveBtn.addEventListener('click', saveUpload);

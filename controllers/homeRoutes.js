@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
 
     const users = usersData.get({ plain: true });
 
-    res.render('homepage', { posts, users, logged_in: true });
+    res.render('homepage', { posts, users, logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -63,7 +63,7 @@ router.get('/post/:id', async (req, res) => {
     res.render('comment', {
       post,
       comments,
-      logged_in: true,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -84,7 +84,7 @@ router.get('/profile', async (req, res) => {
 
     res.render('profile', {
       user,
-      logged_in: true,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -113,7 +113,7 @@ router.get('/search', async (req, res) => {
 
     const searches = searchData.map((search) => search.get({ plain: true }));
     console.log(searches);
-    res.render('search', { searches, logged_in: true });
+    res.render('search', { searches, logged_in: req.session.logged_in });
   } catch (error) {
     res.status(400).json(error);
   }
