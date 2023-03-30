@@ -58,9 +58,6 @@ router.get('/post/:id', async (req, res) => {
       (a, b) => new Date(b.date_created) - new Date(a.date_created)
     );
 
-    console.log(post);
-    console.log(comments);
-
     res.render('comment', {
       post,
       comments,
@@ -115,7 +112,7 @@ router.get('/search', async (req, res) => {
     });
 
     const searches = searchData.map((search) => search.get({ plain: true }));
-    console.log(searches);
+
     res.render('search', { searches, logged_in: req.session.logged_in });
   } catch (error) {
     res.status(400).json(error);

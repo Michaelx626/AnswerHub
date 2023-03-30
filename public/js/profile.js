@@ -19,16 +19,12 @@ const saveUpload = async () => {
   const profilePicElement = document.getElementById('profile-pic-preview');
   profilePicElement.src = 'window.location.pathname' + profilePic;
 
-  // window.location.replace('/profile');
 };
 
 document.addEventListener('DOMContentLoaded', () => {
   uploadSaveBtn.addEventListener('click', () => 
   setTimeout(() => {
     saveUpload();
-    // window.location.replace('/profile');
     location.reload();
   }), 1000);
 });
-
-// uploadSaveBtn.addEventListener('click', saveUpload);

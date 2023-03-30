@@ -43,18 +43,4 @@ router.post('/', async (req, res) => {
   }
 });
 
-// const getResponse = async () =>{
-//     const url = window.location.pathname;
-//     const response = await fetch(`${url}`, {
-//         method: "POST",
-//         "Content-Type": 'application/json'
-//     });
-//   } catch(error){
-//     return res.status(400).json({
-//       success: false,
-//       error: error.response
-//       ? error.response.data
-//       : "There was an issue on the server"
-//     });
-
 module.exports = router;
