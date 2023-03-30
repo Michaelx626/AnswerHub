@@ -1,4 +1,4 @@
-    <!-- Navigation Bar -->
+        <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
@@ -163,46 +163,4 @@
 <script src="./js/homePage.js"></script>
 <script src="./js/logout.js"></script>
 <script src="./js/post.js"></script>
-                
-
-      
-        {{#each posts as |post|}}
-        <div class="card">
-          <div class="card-body">
-            <div class="media mb-3">
-             <img 
-               src="https://via.placeholder.com/50" 
-               class="m3 rounded-circle align-self-center" 
-               alt="{{post.user.name}} profile picture"
-               width='50'
-               height="50"
-             />
-             <div class="media-body">
-              <div class="post-grid">
-                <p class="mt-0 post_user">{{post.user.name}} </p>
-                <p class="post_content"> {{post.content}}</p>
-                <p class="mt-0 post_dater">{{format_date post.date_created}} </p>
-              </div>
-              <div class="col-md-8 p-2 m-1 align-self-center" id="contents">
-                <p class="post_content"> {{post.content}}</p>
-              </div>
-              <div class="mt3">
-                <a href="/post/{{post.id}}"><i class="far fa-comment"></i>
-                {{#with post.comments}}
-                {{post.comments.length}}
-                {{/with}}
-                </a>
-                <a href="#" data-value="{{post.number_likes}}" data-id="{{post.id}}" class=getLikes><i class="far fa-heart"></i>{{post.number_likes}}</a>    
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    {{/each}}
-  </div>
-</div>
-
-<script src="/js/likes.js"></script>
-<script src="/js/post.js"></script>
-
                 
