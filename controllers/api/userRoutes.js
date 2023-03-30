@@ -1,8 +1,27 @@
+const { v2: cloudinary } = require('cloudinary');
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const multer = require('multer');
+const multerS3 = require('multer-s3');
 const path = require('path');
 const express = require('express');
-const multer = require('multer');
 const router = express.Router();
 const { User } = require('../../models');
+cloudinary.config({
+  cloud_name: "dodie1q2w",
+  api_key: "415863312396534",
+  api_secret: "NkiZ7hOIhYJObPTUG_34Kw-kNJI"
+});
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'uploads',
+    format: async (req, file) => 'jpg', // set the file format to jpg
+    public_id: (req, file) => 'profile-pic-' + Date.now(), // set a custom public_id
+  },
+});
+
+
+
 
 
 
@@ -65,17 +84,8 @@ router.post('/logout', (req, res) => {
 });
 
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    const uploadDir = path.join(__dirname, '../../public/uploads/');
-    cb(null, uploadDir);
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.fieldname + '-' + Date.now() + '.jpg');
-  }
-});
-const upload = multer({ storage: storage })
 
+const upload = multer({ storage: storage });
 router.post('/update-profile-pic', upload.fields([{ name: 'profilePic' }, { name: 'bio' }]), async (req, res) => {
   try {
     const user = await User.findByPk(req.session.user_id);
@@ -87,22 +97,22 @@ router.post('/update-profile-pic', upload.fields([{ name: 'profilePic' }, { name
 
     // process profilePic if present
     if (req.files.profilePic) {
-      user.profilePic = req.files.profilePic[0].filename;
+      user.profilePic = req.files.profilePic[0].path;
     }
 
     // process bio if present
     if (req.body.bio) {
       user.userBio = req.body.bio;
     }
-   
-    console.log(user)
-    console.log(user.userBio);
+
+    // save user data
     await user.save();
+
+    // send updated profile data in response
     res.status(200).json({
       profilePic: user.profilePic,
       userBio: user.userBio
     });
-    
   } catch (error) {
     console.log(error);
     res.status(404).end();
@@ -111,6 +121,7 @@ router.post('/update-profile-pic', upload.fields([{ name: 'profilePic' }, { name
 
 
 
+module.exports = router;
 
 
 
