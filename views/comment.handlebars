@@ -52,6 +52,14 @@
                 width='50'
                 height='50'
               />
+            {{else}}  
+              <img
+                src='https://media.istockphoto.com/id/1214428300/vector/default-profile-picture-avatar-photo-placeholder-vector-illustration.jpg?s=612x612&w=0&k=20&c=vftMdLhldDx9houN4V-g3C9k0xl6YeBcoB_Rk6Trce0='
+                alt='Default profile picture'
+                class='img-fluid rounded-circle m-1 align-self-center'
+                width='50'
+                height='50'
+              />
             {{/if}}
             <a
               href='mailto:{{post.user.email}}'
@@ -102,6 +110,14 @@
                       class='rounded-circle align-self-center m-1'
                       src='/uploads/{{comment.user.profilePic}}'
                       alt='{{comment.user.name}} profile image'
+                      width='50'
+                      height='50'
+                    />
+                  {{else}}  
+                    <img
+                      class='rounded-circle align-self-center m-1'
+                      src='https://media.istockphoto.com/id/1214428300/vector/default-profile-picture-avatar-photo-placeholder-vector-illustration.jpg?s=612x612&w=0&k=20&c=vftMdLhldDx9houN4V-g3C9k0xl6YeBcoB_Rk6Trce0='
+                      alt='Default profile image'
                       width='50'
                       height='50'
                     />
