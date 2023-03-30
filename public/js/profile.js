@@ -1,3 +1,4 @@
+
 const uploadSaveBtn = document.getElementById('upload-save');
 
 const saveUpload = async () => {
@@ -11,15 +12,18 @@ const saveUpload = async () => {
  
   const responseJson = await response.json();
   const profilePic = responseJson.profilePic;
+  console.log(response)
+  console.log(profilePic)
   const bio = responseJson.userBio;
   const bioElement = document.getElementById('userBio');
   bioElement.innerText = bio;
+  console.log(bio)
+  setTimeout(() => {
+    location.reload();
+  }, 1000);
+  
 
-  const profilePicElement = document.getElementById('profile-pic-preview');
-  profilePicElement.src = 'window.location.pathname' + profilePic;
-document.location.replace('/profile')
-};
 
-uploadSaveBtn.addEventListener('click', saveUpload);
+uploadSaveBtn.addEventListener("click", saveUpload);
 
 
