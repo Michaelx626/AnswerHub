@@ -1,3 +1,58 @@
+<nav class='navbar navbar-expand-lg navbar-light bg-light profile-nav'>
+  <div class='container-fluid'>
+    <a class='navbar-brand' href='#'>
+      <i class='fab fa-icon'></i>
+    </a>
+    <button
+      class='navbar-toggler'
+      type='button'
+      data-bs-toggle='collapse'
+      data-bs-target='#navbar-collapse'
+    >
+      <span class='navbar-toggler-icon'></span>
+    </button>
+    <div class='collapse navbar-collapse' id='navbar-collapse'>
+      <ul class='navbar-nav ms-auto'>
+        <li class='nav-item'>
+          <a class='nav-link' href='/'>
+            <i class='fas fa-home'></i>
+            Home
+          </a>
+        </li>
+        <li class='nav-item'>
+          <a
+            class='nav-link'
+            href='#'
+            data-bs-toggle='modal'
+            data-bs-target='#exampleModal'
+          >
+            <i class='fa-solid fa-magnifying-glass'></i>
+            Search
+          </a>
+        </li>
+        <li class='nav-item'>
+          <a
+            class='nav-link edit-profile'
+            href='#'
+            id='edit-profile'
+            data-bs-toggle='modal'
+            data-bs-target='#editProfile'
+          >
+            <i class='fas fa-edit'></i>
+            Edit Profile
+          </a>
+        </li>
+        <li class='nav-item'>
+          <a class='nav-link logout-link' href='/logout'>
+            <i class='fas fa-sign-out-alt logout-link'></i>
+            Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 <section class='container p-2'>
   <div class='row'>
     <div class='col-md-3 d-flex flex-column p-2 m-1'>
@@ -69,3 +124,32 @@
     </div>
   </div>
 </section>
+
+<!-- Edit Profile Modal-->
+  <div class="modal fade" id="editProfile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Profile</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p> Change Your Profile Picture</p>
+          <form enctype="multipart/form-data" id="upload-form">
+  <input type="file" id="profile-pic-input" name="profilePic">
+
+          <div class="form-group">
+            <label for="bio">Bio:</label>
+            <textarea class="form-control" id="bio" rows="5" name="bio"></textarea>
+          </div>
+        </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="upload-save" data-bs-dismiss="modal">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+<script src='/js/profile.js'></script>

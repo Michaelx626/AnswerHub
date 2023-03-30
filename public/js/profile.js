@@ -1,27 +1,5 @@
-const editProfileBtn = document.getElementById('edit-profile');
+
 const uploadSaveBtn = document.getElementById('upload-save');
-
-const editProfile = () =>{
-  const profilePicInput = document.getElementById('profile-pic-input');
-  const profilePicPreview = document.getElementById('profile-pic-preview');
-  profilePicInput.addEventListener('change', () => {
-    const file = profilePicInput.files[0];
-    const reader = new FileReader();
-    reader.addEventListener('load', () => {
-      profilePicPreview.src = reader.result;
-      let AllProfilePics = document.querySelectorAll('.post-profile-pic');
-      for ( profilePic of AllProfilePics){
-        profilePic.src = reader.result;
-        profilePic.style.width='50px';
-        profilePic.style.height='50px;';
-      }
-
-    });
-    if (file) {
-      reader.readAsDataURL(file);
-    }
-  });
-};
 
 const saveUpload = async () => {
   const form = document.getElementById('upload-form');
@@ -31,7 +9,7 @@ const saveUpload = async () => {
     method: 'POST',
     body: formData,
   });
-
+ 
   const responseJson = await response.json();
   const profilePic = responseJson.profilePic;
   const bio = responseJson.userBio;
@@ -40,8 +18,7 @@ const saveUpload = async () => {
 
   const profilePicElement = document.getElementById('profile-pic-preview');
   profilePicElement.src = 'window.location.pathname' + profilePic;
-  document.location.replace('/profile');
+  location.reload();
 };
 
-editProfileBtn.addEventListener('click', editProfile);
 uploadSaveBtn.addEventListener('click', saveUpload);

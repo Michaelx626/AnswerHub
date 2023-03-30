@@ -37,7 +37,7 @@ router.get('/post/:id', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name', 'email'],
+          attributes: ['name', 'email', 'profilePic'],
         },
       ],
     });
@@ -57,6 +57,8 @@ router.get('/post/:id', async (req, res) => {
     comments.sort(
       (a, b) => new Date(b.date_created) - new Date(a.date_created)
     );
+
+    console.log(post);
 
     res.render('comment', {
       post,
@@ -91,7 +93,7 @@ router.get('/profile', async (req, res) => {
 
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/homepage');
+    res.redirect('/profile');
     return;
   }
 

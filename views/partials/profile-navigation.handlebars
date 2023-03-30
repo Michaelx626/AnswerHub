@@ -1,4 +1,5 @@
-{{!-- <nav class='navbar navbar-expand-lg navbar-light bg-light profile-nav'>
+<!-- Navigation Bar -->
+<nav class='navbar navbar-expand-lg navbar-light bg-light'>
   <div class='container-fluid'>
     <a class='navbar-brand' href='#'>
       <i class='fab fa-icon'></i>
@@ -14,9 +15,15 @@
     <div class='collapse navbar-collapse' id='navbar-collapse'>
       <ul class='navbar-nav ms-auto'>
         <li class='nav-item'>
-          <a class='nav-link' id='home-link' href='javascript:;'>
+          <a class='nav-link' href='/'>
             <i class='fas fa-home'></i>
             Home
+          </a>
+        </li>
+        <li class='nav-item'>
+          <a class='nav-link' id='profile-button' href='/profile'>
+            <i class='fas fa-user'></i>
+            Profile
           </a>
         </li>
         <li class='nav-item'>
@@ -27,28 +34,12 @@
             data-bs-target='#exampleModal'
           >
             <i class='fa-solid fa-magnifying-glass'></i>
-            Search
-          </a>
-        </li>
-        <li class='nav-item'><a href='/profile'><i class='fa-solid fa-user'></i>
-            Profile</a></li>
-        <li class='nav-item'>
-          <a
-            class='nav-link edit-profile'
-            href='#'
-            id='edit-profile'
-            data-bs-toggle='modal'
-            data-bs-target='#editProfile'
-          >
-            <i class='fas fa-edit'></i>
-            Edit Profile
-          </a>
+            Search</a>
         </li>
         <li class='nav-item'>
           <a class='nav-link logout-link' href='/logout'>
-            <i class='fas fa-sign-out-alt logout-link'></i>
-            Logout
-          </a>
+            <i class='fas fa-sign-out-alt'></i>
+            Logout</a>
         </li>
       </ul>
     </div>
