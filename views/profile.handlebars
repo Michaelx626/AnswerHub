@@ -60,7 +60,7 @@
         {{#if user.profilePic}}
           <div class='profile-img row align-items-center'>
             <img
-              src='/uploads/{{user.profilePic}}'
+              src='{{user.profilePic}}'
               alt='{{user.name}} Profile Image'
               class='rounded-circle'
               id='profile-pic-preview'
@@ -98,7 +98,7 @@
                 <div class='col-sm-3 p-2 m-1 d-flex flex-column' id='user-info'>
                   {{#if user.profilePic}}
                     <img
-                      src='/uploads/{{user.profilePic}}'
+                      src='{{user.profilePic}}'
                       class='rounded-circle align-self-center'
                       alt='{{user.name}} profile picture'
                       width='50'
@@ -152,12 +152,11 @@
         <div class="modal-body">
           <p> Change Your Profile Picture</p>
           <form enctype="multipart/form-data" id="upload-form">
-  <input type="file" id="profile-pic-input" name="profilePic">
-
+          <input type="file" id="profile-pic-input" name="profilePic">
           <div class="form-group">
             <label for="bio">Bio:</label>
             <textarea class="form-control" id="bio" rows="5" name="bio"></textarea>
-          </div>
+          </div> 
         </form>
         </div>
         <div class="modal-footer">

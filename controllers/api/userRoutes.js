@@ -1,10 +1,25 @@
+const { v2: cloudinary } = require('cloudinary');
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const multer = require('multer');
 const path = require('path');
 const express = require('express');
-const multer = require('multer');
 const router = express.Router();
 const { User } = require('../../models');
+require('dotenv').config();
 
-
+cloudinary.config({
+  cloud_name: process.env.cloudinary_cloud_name,
+  api_key: process.env.cloudinary_api_key,
+  api_secret: process.env.cloudinary_api_secret,
+});
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'uploads',
+    format: async (req, file) => 'jpg', // set the file format to jpg
+    public_id: (req, file) => 'profile-pic-' + Date.now(), // set a custom public_id
+  },
+});
 
 router.post('/', async (req, res) => {
   try {
@@ -20,7 +35,6 @@ router.post('/', async (req, res) => {
     res.status(400).json(err);
   }
 });
-
 
 router.post('/login', async (req, res) => {
   try {
@@ -64,18 +78,7 @@ router.post('/logout', (req, res) => {
   }
 });
 
-
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    const uploadDir = path.join(__dirname, '../../public/uploads/');
-    cb(null, uploadDir);
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.fieldname + '-' + Date.now() + '.jpg');
-  }
-});
-const upload = multer({ storage: storage })
-
+const upload = multer({ storage: storage });
 router.post('/update-profile-pic', upload.fields([{ name: 'profilePic' }, { name: 'bio' }]), async (req, res) => {
   try {
     const user = await User.findByPk(req.session.user_id);
@@ -87,20 +90,22 @@ router.post('/update-profile-pic', upload.fields([{ name: 'profilePic' }, { name
 
     // process profilePic if present
     if (req.files.profilePic) {
-      user.profilePic = req.files.profilePic[0].filename;
+      user.profilePic = req.files.profilePic[0].path;
     }
 
     // process bio if present
     if (req.body.bio) {
       user.userBio = req.body.bio;
     }
-   
+
+    // save user data
     await user.save();
+
+    // send updated profile data in response
     res.status(200).json({
       profilePic: user.profilePic,
       userBio: user.userBio
     });
-    
   } catch (error) {
     console.log(error);
     res.status(404).end();
