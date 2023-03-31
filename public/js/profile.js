@@ -8,7 +8,7 @@
 //     method: 'POST',
 //     body: formData,
 //   });
- 
+
 //   const responseJson = await response.json();
 //   const profilePic = responseJson.profilePic;
 //   const bio = responseJson.userBio;
@@ -21,7 +21,7 @@
 // };
 
 // document.addEventListener('DOMContentLoaded', () => {
-//   uploadSaveBtn.addEventListener('click', () => 
+//   uploadSaveBtn.addEventListener('click', () =>
 //   setTimeout(() => {
 //     saveUpload();
 //     location.reload();
@@ -38,7 +38,7 @@ const saveUpload = async () => {
     method: 'POST',
     body: formData,
   });
- 
+
   const responseJson = await response.json();
   await responseJson.profilePic;
   const bio = responseJson.userBio;
@@ -47,4 +47,4 @@ const saveUpload = async () => {
   bioElement.innerText = bio;
 };
 
-uploadSaveBtn.addEventListener("click", saveUpload);
+uploadSaveBtn.addEventListener('click', saveUpload);
