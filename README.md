@@ -7,7 +7,7 @@ AnswerHub is a fullstack social media platform for developers. Through creating 
 
 AnswerHub was born out of a lack of social media platform aimed at this demographic. The developers intended for AnswerHub to be a social-media-based hybrid of Chat GBT and Open Stack. 
 
-Upon entering going to the [AnswerHub link](), a user should be greeted by the login/signup page: ![screenshot](./public/screenshots/login-screenshot.png)
+Upon entering going to the [AnswerHub link](https://whispering-retreat-56820.herokuapp.com/login), a user should be greeted by the login/signup page: ![screenshot](./public/screenshots/login-screenshot.png)
 
 And upon logging in or signing up, a user should be directed to the user's profile page. It is encouraged that a user edits their profile to include any information they wish to update or include. 
 
@@ -23,7 +23,7 @@ And upon logging in or signing up, a user should be directed to the user's profi
 
 ## Installation
 
-A user does not need to install anything. Instead, a user should direct themselves to the deployed [link](). 
+A user does not need to install anything. Instead, a user should direct themselves to the deployed [link](https://whispering-retreat-56820.herokuapp.com/login). 
 
 A developer should be sure to install all dependencies (command: npm i), and ensure that the appropriate database has been sourced in the MySQL terminal. Additionally, any developers should be sure to include all sensitive information in an .env file. Please look at the [dotenv documentation](https://www.npmjs.com/package/dotenv) regarding any questions on how this works.
 
@@ -31,7 +31,7 @@ This project also uses OpenAI for the chatbot model. Please consult the [OpenAI 
 
 ## Usage
 
-To make full use of AnswerHub, one should remember their log-in credentials. Please click [here]() to go to the AnswerHub website. 
+To make full use of AnswerHub, one should remember their log-in credentials. Please click [here](https://whispering-retreat-56820.herokuapp.com/login) to go to the AnswerHub website. 
 
 The developers also warn any users on the proper use of the AI Chat bot, regarding educational purposes: we encourage that the AI chat bot help with debugging and uses that do not involve in asking the AI to write desired code for a user. While we do not ban such a request, we do acknowledge that this might not be the optamized use of the AI Chatbot. 
 
