@@ -15,7 +15,9 @@ const signupFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/profile');
     } else {
-      alert(response.statusText);
+      const modalElement = document.querySelector('#warning');
+      const modal = new bootstrap.Modal(modalElement);
+      modal.show();
     }
   }
 };
